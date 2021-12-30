@@ -1,0 +1,4 @@
+baseURL = "https://sorairolake.github.io/blog/"
+languageCode = "ja"
+theme = "PaperMod"
+title = "SorairoLake's blog"
