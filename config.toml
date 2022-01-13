@@ -9,19 +9,38 @@ theme = "PaperMod"
 title = "SorairoLake's blog"
 
 [[menu.main]]
+identifier = "archive"
+name = "アーカイブ"
+url = "/archive/"
+weight = 10
+
+[[menu.main]]
 identifier = "category"
 name = "カテゴリ"
 url = "/categories/"
+weight = 20
+
+[[menu.main]]
+identifier = "search"
+name = "検索"
+url = "/search/"
+weight = 30
 
 [[menu.main]]
 identifier = "tag"
 name = "タグ"
 url = "/tags/"
+weight = 40
+
+[outputs]
+home = ["HTML", "JSON", "RSS"]
 
 [params]
 author = "Shun Sakai"
+DateFormat = "2006-01-02"
 ShowPostNavLinks = true
 ShowReadingTime = true
+ShowShareButtons = true
 
 [params.homeInfoParams]
 Content = "Welcome to my blog!"
