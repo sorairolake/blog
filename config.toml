@@ -1,0 +1,59 @@
+baseURL = "https://sorairolake.github.io/blog/"
+copyright = "&copy; 2021 Shun Sakai &middot; Licensed under the [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)"
+defaultContentLanguage = "ja"
+enableEmoji = true
+enableGitInfo = true
+hasCJKLanguage = true
+languageCode = "ja"
+theme = "PaperMod"
+title = "SorairoLake's blog"
+
+[[menu.main]]
+identifier = "archive"
+name = "アーカイブ"
+url = "/archive/"
+weight = 10
+
+[[menu.main]]
+identifier = "category"
+name = "カテゴリ"
+url = "/categories/"
+weight = 20
+
+[[menu.main]]
+identifier = "search"
+name = "検索"
+url = "/search/"
+weight = 30
+
+[[menu.main]]
+identifier = "tag"
+name = "タグ"
+url = "/tags/"
+weight = 40
+
+[outputs]
+home = ["HTML", "JSON", "RSS"]
+
+[params]
+author = "Shun Sakai"
+DateFormat = "2006-01-02"
+ShowPostNavLinks = true
+ShowReadingTime = true
+ShowShareButtons = true
+
+[params.homeInfoParams]
+Content = "Welcome to my blog!"
+Title = "SorairoLake's blog"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/sorairolake"
+
+[[params.socialIcons]]
+name = "gitlab"
+url = "https://gitlab.com/sorairolake"
+
+[taxonomies]
+category = "categories"
+tag = "tags"
