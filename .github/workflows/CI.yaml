@@ -40,7 +40,7 @@ jobs:
         npm install prettier
         npx prettier -v
     - name: Check code formatted
-      run: npx prettier -w content
+      run: npx prettier -c content
 
   lint:
     name: Lint
