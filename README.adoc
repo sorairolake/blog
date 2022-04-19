@@ -2,6 +2,10 @@
 
 image::https://github.com/sorairolake/blog/workflows/CI/badge.svg[CI, link=https://github.com/sorairolake/blog/actions?query=workflow%3ACI]
 
+English
+{vbar}
+link:README.ja.adoc[日本語]
+
 SorairoLake's blog.
 
 == URL
