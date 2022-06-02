@@ -1,6 +1,9 @@
 = Blog
+:project-url: https://github.com/sorairolake/blog
+:ci-badge: {project-url}/workflows/CI/badge.svg
+:ci-url: {project-url}/actions?query=workflow%3ACI
 
-image::https://github.com/sorairolake/blog/workflows/CI/badge.svg[CI, link=https://github.com/sorairolake/blog/actions?query=workflow%3ACI]
+image::{ci-badge}[CI, link={ci-url}]
 
 English
 {vbar}
@@ -22,5 +25,5 @@ Attribution-NoDerivatives 4.0 International Public License_ (_CC BY-ND 4.0_).
 In addition, some files are distributed under the terms of the _CC0 1.0
 Universal_ (_CC0 1.0_).
 
-See link:COPYING[], link:license/CC-BY-ND-4.0[CC-BY-ND-4.0] and
-link:license/CC0-1.0[CC0-1.0] for more details.
+See link:COPYING[], link:LICENSE-CC-BY-ND[] and link:LICENSE-CC0[] for more
+details.

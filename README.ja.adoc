@@ -1,7 +1,10 @@
 = ブログ
 :lang: ja
+:project-url: https://github.com/sorairolake/blog
+:ci-badge: {project-url}/workflows/CI/badge.svg
+:ci-url: {project-url}/actions?query=workflow%3ACI
 
-image::https://github.com/sorairolake/blog/workflows/CI/badge.svg[CI, link=https://github.com/sorairolake/blog/actions?query=workflow%3ACI]
+image::{ci-badge}[CI, link={ci-url}]
 
 link:README.adoc[English]
 {vbar}
@@ -23,5 +26,5 @@ Copyright (C) 2021 Shun Sakai
 また、一部のファイルは__CC0 1.0 全世界__ (_CC0 1.0_)
 の条件の下で配布されています。
 
-詳細については link:COPYING[]、link:license/CC-BY-ND-4.0[CC-BY-ND-4.0] 及び
-link:license/CC0-1.0[CC0-1.0] を参照して下さい。
+詳細については link:COPYING[]、link:LICENSE-CC-BY-ND[] 及び link:LICENSE-CC0[]
+を参照して下さい。
