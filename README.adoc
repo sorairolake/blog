@@ -25,5 +25,5 @@ Attribution-NoDerivatives 4.0 International Public License_ (_CC BY-ND 4.0_).
 In addition, some files are distributed under the terms of the _CC0 1.0
 Universal_ (_CC0 1.0_).
 
-See link:COPYING[], link:LICENSE-CC-BY-ND[] and link:LICENSE-CC0[] for more
+See link:COPYRIGHT[], link:LICENSE-CC-BY-ND[] and link:LICENSE-CC0[] for more
 details.

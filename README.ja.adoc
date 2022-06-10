@@ -26,5 +26,5 @@ Copyright (C) 2021 Shun Sakai
 また、一部のファイルは__CC0 1.0 全世界__ (_CC0 1.0_)
 の条件の下で配布されています。
 
-詳細については link:COPYING[]、link:LICENSE-CC-BY-ND[] 及び link:LICENSE-CC0[]
+詳細については link:COPYRIGHT[]、link:LICENSE-CC-BY-ND[] 及び link:LICENSE-CC0[]
 を参照して下さい。
