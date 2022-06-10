@@ -38,6 +38,7 @@ home = ["HTML", "JSON", "RSS"]
 [params]
 author = "Shun Sakai"
 DateFormat = "2006-01-02"
+ShowCodeCopyButtons = true
 ShowPostNavLinks = true
 ShowReadingTime = true
 ShowShareButtons = true
