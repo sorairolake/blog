@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'develop'
 
 jobs:
   deploy:
@@ -18,7 +19,7 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2.4.13
       with:
-        hugo-version: 0.91.2
+        hugo-version: 0.101.0
     - name: Build a website
       run: hugo --minify
     - name: Deploy
