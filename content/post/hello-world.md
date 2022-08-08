@@ -1,9 +1,9 @@
 +++
-categories = ["雑記"]
+title = "Hello, world!"
 date = 2021-12-31T20:06:58+09:00
 draft = false
+categories = ["雑記"]
 tags = ["雑記"]
-title = "Hello, world!"
 +++
 
 ブログを始めました。

@@ -1,6 +1,6 @@
 +++
-layout = "archives"
-summary = "アーカイブページ"
 title = "アーカイブ"
+layout = "archives"
 url = "/archive/"
+summary = "アーカイブページ"
 +++
