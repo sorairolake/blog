@@ -1,9 +1,9 @@
 +++
-categories = ["プログラミング"]
+title = "<sysexits.h> の終了コードを Rust の main 関数の戻り値で使えるようにするライブラリを作成しました"
 date = 2022-06-10T15:12:38+09:00
 draft = false
+categories = ["プログラミング"]
 tags = ["sysexits-rs", "sysexits"]
-title = "<sysexits.h> の終了コードを Rust の main 関数の戻り値で使えるようにするライブラリを作成しました"
 +++
 
 [Rust][rust-official-url] の `main` 関数の戻り値で [`<sysexits.h>`][sysexits-man-url] で定義されている終了コードを使えるようにするライブラリの **sysexits-rs** ([`sysexits`][sysexits-crates-io-url]) を作成しました。
