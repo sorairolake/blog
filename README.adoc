@@ -5,10 +5,6 @@
 
 image::{ci-badge}[CI, link={ci-url}]
 
-English
-{vbar}
-link:README.ja.adoc[日本語]
-
 SorairoLake's blog.
 
 == URL
