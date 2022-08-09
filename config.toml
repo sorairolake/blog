@@ -36,6 +36,12 @@ name = "タグ"
 url = "/tags/"
 weight = 40
 
+[[menu.main]]
+identifier = "about-blog"
+name = "このブログについて"
+url = "/about-blog/"
+weight = 50
+
 [outputs]
 home = ["HTML", "JSON", "RSS"]
 
