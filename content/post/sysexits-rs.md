@@ -1,7 +1,7 @@
 +++
 title = "Rust 向けの <sysexits.h> を作成しました"
 date = 2022-06-10T15:12:38+09:00
-lastmod = 2022-08-27T07:02:55+09:00
+lastmod = 2022-11-02T04:19:24+09:00
 draft = false
 description = ""
 summary = ""
@@ -18,16 +18,13 @@ Rust 1.61.0 から `main` 関数の戻り値で任意の終了コードを返せ
 ```rust
 fn main() -> sysexits::ExitCode {
     let bytes = [0xf0, 0x9f, 0x92, 0x96];
-
     match std::str::from_utf8(&bytes) {
         Ok(string) => {
             println!("{string}");
-
             sysexits::ExitCode::Ok
         }
         Err(err) => {
             eprintln!("{err}");
-
             sysexits::ExitCode::DataErr
         }
     }
