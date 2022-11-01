@@ -1,7 +1,10 @@
 +++
 title = "Rust 向けの <sysexits.h> を作成しました"
 date = 2022-06-10T15:12:38+09:00
+lastmod = 2022-08-27T07:02:55+09:00
 draft = false
+description = ""
+summary = ""
 categories = ["プログラミング"]
 tags = ["sysexits", "rust"]
 +++
