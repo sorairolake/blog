@@ -8,7 +8,7 @@ on:
       - '**'
   pull_request:
   schedule:
-      - cron: '0 0 * * *'
+      - cron: '0 0 * * 0'
 
 jobs:
   test:
@@ -21,9 +21,9 @@ jobs:
         fetch-depth: 0
         submodules: true
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.4.13
+      uses: peaceiris/actions-hugo@v2.6.0
       with:
-        hugo-version: 0.101.0
+        hugo-version: 0.105.0
     - name: Build a website
       run: hugo
 
@@ -36,7 +36,7 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: 18
     - name: Install dependencies
       run: |
         npm install prettier
@@ -53,7 +53,7 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: 18
     - name: Install dependencies
       run: |
         npm install markdownlint-cli
