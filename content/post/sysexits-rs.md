@@ -1,12 +1,12 @@
 +++
 title = "Rust 向けの <sysexits.h> を作成しました"
 date = 2022-06-10T15:12:38+09:00
-lastmod = 2022-11-02T04:19:24+09:00
+lastmod = 2022-11-22T13:22:14+09:00
 draft = false
 description = ""
 summary = ""
 categories = ["プログラミング"]
-tags = ["sysexits", "rust"]
+tags = ["rust", "sysexits"]
 +++
 
 [Rust][rust-official-url] の `main` 関数の戻り値で [`<sysexits.h>`][sysexits-man-url] で定義されている終了コードを使えるようにするライブラリの **sysexits-rs** ([`sysexits`][sysexits-crates-io-url]) を作成しました。
