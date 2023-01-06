@@ -14,7 +14,7 @@ https://sorairolake.github.io/blog/
 
 == License
 
-Copyright (C) 2021-2022 Shun Sakai
+Copyright (C) 2021&ndash;2023 Shun Sakai
 
 . Unless otherwise noted, this blog is distributed under the terms of the _CC
   BY-ND 4.0_.
