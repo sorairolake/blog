@@ -39,7 +39,7 @@ jobs:
         node-version: 18
     - name: Install dependencies
       run: |
-        npm install prettier
+        npm ci
         npx prettier -v
     - name: Check code formatted
       run: npx prettier -c content
@@ -56,7 +56,7 @@ jobs:
         node-version: 18
     - name: Install dependencies
       run: |
-        npm install markdownlint-cli
+        npm ci
         npx markdownlint -V
     - name: Check no lint warnings
       run: npx markdownlint content
