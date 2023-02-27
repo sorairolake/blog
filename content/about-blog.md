@@ -17,7 +17,7 @@ ShowReadingTime = false
 
 ## ライセンス
 
-Copyright &copy; 2021&ndash;2022 Shun Sakai
+Copyright &copy; 2021&ndash;2023 Shun Sakai
 
 1. 特に断りのない限り、このブログは [_CC BY-ND 4.0_](https://creativecommons.org/licenses/by-nd/4.0/) の条件の下で配布されています。
 2. また、一部のファイルは [_CC0 1.0_](https://creativecommons.org/publicdomain/zero/1.0/) の条件の下で配布されています。
