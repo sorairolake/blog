@@ -1,5 +1,5 @@
 +++
-title = "SNS を始めました"
+title = "SNSを始めました"
 date = 2023-02-27T20:15:26+09:00
 lastmod = 2023-02-27T20:15:26+09:00
 draft = false
@@ -9,7 +9,7 @@ categories = ["雑記"]
 tags = ["misskey", "twitter"]
 +++
 
-今更ながら SNS を始めました。
+今更ながらSNSを始めました。
 
 ## アカウント
 
@@ -23,9 +23,9 @@ Misskey.io
 
 ## 始めた理由
 
-Twitter については、技術系の情報や趣味に関する情報の収集に便利だと思ったからです。
-Misskey については、Fediverse と ActivityPub に興味があったことが理由です。
-これだけなら Mastodon などでも該当しますが、機能が豊富なことと、TypeScript で実装されていることが気に入ったので、Misskey にしました。
+Twitterについては、技術系の情報や趣味に関する情報の収集に便利だと思ったからです。
+Misskeyについては、FediverseとActivityPubに興味があったことが理由です。
+これだけならMastodonなどでも該当しますが、機能が豊富なことと、TypeScriptで実装されていることが気に入ったので、Misskeyにしました。
 
 ## 終わりに
 

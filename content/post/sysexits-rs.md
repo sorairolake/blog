@@ -1,5 +1,5 @@
 +++
-title = "Rust 向けの <sysexits.h> を作成しました"
+title = "Rust向けの<sysexits.h>を作成しました"
 date = 2022-06-10T15:12:38+09:00
 lastmod = 2022-11-22T13:22:14+09:00
 draft = false
@@ -9,9 +9,9 @@ categories = ["プログラミング"]
 tags = ["rust", "sysexits"]
 +++
 
-[Rust][rust-official-url] の `main` 関数の戻り値で [`<sysexits.h>`][sysexits-man-url] で定義されている終了コードを使えるようにするライブラリの **sysexits-rs** ([`sysexits`][sysexits-crates-io-url]) を作成しました。
+[Rust][rust-official-url]の`main`関数の戻り値で[`<sysexits.h>`][sysexits-man-url]で定義されている終了コードを使えるようにするライブラリの**sysexits-rs** ([`sysexits`][sysexits-crates-io-url]) を作成しました。
 
-Rust 1.61.0 から `main` 関数の戻り値で任意の終了コードを返せるようになったので、`<sysexits.h>` で定義されている終了コードをこれに利用できたら便利だと思ったのがこのライブラリを作成した理由です。
+Rust 1.61.0から`main`関数の戻り値で任意の終了コードを返せるようになったので、`<sysexits.h>`で定義されている終了コードをこれに利用できたら便利だと思ったのがこのライブラリを作成した理由です。
 
 ## 使用例
 

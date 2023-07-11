@@ -10,4 +10,4 @@ tags = ["雑記"]
 +++
 
 ブログを始めました。
-[Hugo](https://gohugo.io/) + [PaperMod](https://github.com/adityatelange/hugo-PaperMod) + [GitHub Pages](https://pages.github.com/) で構築しています。
+[Hugo](https://gohugo.io/)と[PaperMod](https://github.com/adityatelange/hugo-PaperMod)と[GitHub Pages](https://pages.github.com/)で構築しています。
