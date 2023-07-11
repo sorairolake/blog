@@ -69,6 +69,10 @@ url = "https://gitlab.com/sorairolake"
 name = "twitter"
 url = "https://twitter.com/sorairolake"
 
+[[params.socialIcons]]
+name = "mastodon"
+url = "https://misskey.io/@sorairolake"
+
 [taxonomies]
 category = "categories"
 tag = "tags"
