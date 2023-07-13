@@ -1,7 +1,7 @@
 +++
 title = "このブログについて"
 date = 2022-08-09T19:55:34+09:00
-lastmod = 2022-08-11T13:05:57+09:00
+lastmod = 2023-07-10T02:14:35+09:00
 draft = false
 description = ""
 summary = ""

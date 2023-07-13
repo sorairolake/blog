@@ -1,7 +1,7 @@
 +++
 title = "SNSを始めました"
 date = 2023-02-27T20:15:26+09:00
-lastmod = 2023-02-27T20:15:26+09:00
+lastmod = 2023-07-11T10:40:44+09:00
 draft = false
 description = ""
 summary = ""

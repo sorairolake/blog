@@ -1,7 +1,7 @@
 +++
 title = "Rust向けの<sysexits.h>を作成しました"
 date = 2022-06-10T15:12:38+09:00
-lastmod = 2022-11-22T13:22:14+09:00
+lastmod = 2023-07-11T10:40:44+09:00
 draft = false
 description = ""
 summary = ""
