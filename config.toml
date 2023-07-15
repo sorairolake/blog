@@ -2,7 +2,7 @@ baseURL = "https://sorairolake.github.io/blog/"
 copyright = """\
   &copy; 2021&ndash;2023 Shun Sakai \
   &middot; \
-  [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)\
+  [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/deed.ja)\
   """
 defaultContentLanguage = "ja"
 enableEmoji = true
