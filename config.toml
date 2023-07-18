@@ -10,7 +10,7 @@ enableGitInfo = true
 hasCJKLanguage = true
 languageCode = "ja"
 theme = "PaperMod"
-title = "SorairoLake's blog"
+title = "SorairoLake's Blog"
 
 [[menu.main]]
 identifier = "archive"
@@ -46,6 +46,7 @@ weight = 50
 home = ["HTML", "JSON", "RSS"]
 
 [params]
+description = "SorairoLakeのブログ。"
 author = "Shun Sakai"
 DateFormat = "2006-01-02"
 ShowReadingTime = true
@@ -54,7 +55,7 @@ ShowCodeCopyButtons = true
 ShowPostNavLinks = true
 
 [params.homeInfoParams]
-Title = "SorairoLake's blog"
+Title = "SorairoLake's Blog"
 Content = "Welcome to my blog!"
 
 [[params.socialIcons]]

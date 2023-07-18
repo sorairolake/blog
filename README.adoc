@@ -1,4 +1,4 @@
-= Blog
+= SorairoLake's Blog
 :project-url: https://github.com/sorairolake/blog
 :shields-url: https://img.shields.io
 :ci-badge: {shields-url}/github/actions/workflow/status/sorairolake/blog/CI.yaml?branch=develop&label=CI&logo=github&style=for-the-badge
