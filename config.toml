@@ -59,20 +59,20 @@ Title = "SorairoLake's Blog"
 Content = "Welcome to my blog!"
 
 [[params.socialIcons]]
-name = "github"
-url = "https://github.com/sorairolake"
-
-[[params.socialIcons]]
-name = "gitlab"
-url = "https://gitlab.com/sorairolake"
-
-[[params.socialIcons]]
 name = "twitter"
 url = "https://twitter.com/sorairolake"
 
 [[params.socialIcons]]
 name = "mastodon"
 url = "https://misskey.io/@sorairolake"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/sorairolake"
+
+[[params.socialIcons]]
+name = "gitlab"
+url = "https://gitlab.com/sorairolake"
 
 [taxonomies]
 category = "categories"
