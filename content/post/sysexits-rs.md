@@ -1,7 +1,7 @@
 +++
 title = "Rust向けの<sysexits.h>を作成しました"
 date = 2022-06-10T15:12:38+09:00
-lastmod = 2023-07-11T10:40:44+09:00
+lastmod = 2023-07-18T21:51:16+09:00
 draft = false
 description = ""
 summary = ""
@@ -14,6 +14,8 @@ tags = ["rust", "sysexits"]
 Rust 1.61.0から`main`関数の戻り値で任意の終了コードを返せるようになったので、`<sysexits.h>`で定義されている終了コードをこれに利用できたら便利だと思ったのがこのライブラリを作成した理由です。
 
 ## 使用例
+
+使用例は以下の通りです[^1]。
 
 ```rust
 fn main() -> sysexits::ExitCode {
@@ -30,6 +32,8 @@ fn main() -> sysexits::ExitCode {
     }
 }
 ```
+
+[^1]: [sorairolake/sysexits-rs](https://github.com/sorairolake/sysexits-rs/tree/v0.6.1#example)
 
 [rust-official-url]: https://www.rust-lang.org/
 [sysexits-man-url]: https://man.openbsd.org/sysexits

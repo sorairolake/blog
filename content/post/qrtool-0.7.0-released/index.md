@@ -1,7 +1,7 @@
 +++
 title = "qrtoolのバージョン0.7.0を公開しました"
 date = 2023-07-15T08:02:01+09:00
-lastmod = 2023-07-15T08:02:01+09:00
+lastmod = 2023-07-18T21:51:16+09:00
 draft = false
 description = ""
 summary = ""
@@ -17,6 +17,8 @@ tags = ["qrcode", "qrtool", "rust"]
 
 [`qrtool`](https://github.com/sorairolake/qrtool)はQRコードのエンコードとデコードを行うためのコマンドラインユーティリティで、エンコードを行うサブコマンドの`encode`と、デコードを行うサブコマンドの`decode`で構成されています。
 `encode`については[`qrencode`](https://fukuchi.org/works/qrencode/)の影響を受けており、`decode`については[`zbarimg`](https://github.com/mchehab/zbar)の影響を受けています。
+
+![動作例のアニメーションGIF画像](demo.gif)[^1]
 
 ## 機能
 
@@ -67,7 +69,7 @@ SVG画像の入力については[`resvg`](https://crates.io/crates/resvg)クレ
 cargo install qrtool
 ```
 
-また、GitHubの[リリースページ](https://github.com/sorairolake/qrtool/releases)でLinux、macOS及びWindows向けの実行ファイルとドキュメントを含んだアーカイブファイル[^1]を公開しているので、これをダウンロードして利用することもできます。
+また、GitHubの[リリースページ](https://github.com/sorairolake/qrtool/releases)でLinux、macOS及びWindows向けの実行ファイルとドキュメントを含んだアーカイブファイル[^2]を公開しているので、これをダウンロードして利用することもできます。
 
 ## 使い方
 
@@ -81,7 +83,7 @@ qrtool encode "QR code" > output.png
 
 エンコードした結果は以下のようになります。
 
-![エンコードした結果のPNG画像](basic-encode.webp)
+![エンコードした結果のPNG画像](basic-encode.webp)[^3]
 
 エンコードするデータの入力は、以下のいずれかの方法によって行います。
 
@@ -118,7 +120,7 @@ qrtool encode -o output.svg -t svg "QR code"
 
 エンコードした結果は以下のようになります。
 
-![エンコードした結果のSVG画像](encode.svg)
+![エンコードした結果のSVG画像](encode.svg)[^4]
 
 この例では`-t`オプションで出力形式としてSVGを指定しています。
 また、`-o`オプションではエンコードした結果を出力するファイルを指定しています。
@@ -134,7 +136,7 @@ qrtool encode -v 3 --variant micro "QR code" > output.png
 
 エンコードした結果は以下のようになります。
 
-![エンコードした結果のPNG画像](micro.webp)
+![エンコードした結果のPNG画像](micro.webp)[^5]
 
 なお、マイクロQRコードを出力する場合は`-v`オプションでシンボルのバージョンを指定する必要があります。
 
@@ -148,9 +150,9 @@ qrtool encode --foreground brown "QR code" > output.png
 
 エンコードした結果は以下のようになります。
 
-![エンコードした結果のPNG画像](fg.webp)
+![エンコードした結果のPNG画像](fg.webp)[^6]
 
-`--foreground`と`--background`には[CSS Color Module Level 4](https://www.w3.org/TR/css-color-4/)[^2]で定義されている色の値を指定することができます。
+`--foreground`と`--background`には[CSS Color Module Level 4](https://www.w3.org/TR/css-color-4/)[^7]で定義されている色の値を指定することができます。
 `--foreground`の既定値は`<named-color>`の`black` (`#000000`) で、`--background`の既定値は`<named-color>`の`white` (`#ffffff`) です。
 
 ### シェル補完スクリプトの生成
@@ -161,7 +163,7 @@ qrtool encode --foreground brown "QR code" > output.png
 qrtool --generate-completion bash > qrtool.bash
 ```
 
-以下のシェルの補完スクリプトを生成することができます[^3]。
+以下のシェルの補完スクリプトを生成することができます[^8]。
 
 - Bash
 - Elvish
@@ -191,7 +193,7 @@ magick output.jxl png:- | qrtool decode | bat -l toml
 
 `image`クレートのバージョン0.24.6から[QOI](https://qoiformat.org/)画像形式に対応していたので、`qrtool`のバージョン0.6.0の時点で`-t`オプションを指定しない場合にはQOI画像を入力することに対応していました。
 
-しかし、READMEの対応する画像形式についての表には載っていなかったことから対応していることに気が付かず[^4]、`-t`オプションでQOI画像形式を指定することができない状態でした。
+しかし、READMEの対応する画像形式についての表には載っていなかったことから対応していることに気が付かず[^9]、`-t`オプションでQOI画像形式を指定することができない状態でした。
 
 なので、この問題に対応するために`-t`オプションの値に`qoi`を追加しました。
 
@@ -219,7 +221,12 @@ magick output.jxl png:- | qrtool decode | bat -l toml
 気に入ってもらえたら[sorairolake/qrtool](https://github.com/sorairolake/qrtool)でStarを付けてもらえるとありがたいです。
 `qrtool`の改善のために[Issue](https://github.com/sorairolake/qrtool/issues)や[Pull Request](https://github.com/sorairolake/qrtool/pulls)もお待ちしています。
 
-[^1]: アーカイブの種類は`.tar.zst` (Linux、macOS) と`.7z` (Windows) です。
-[^2]: [MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/CSS/color_value)を参照。
-[^3]: [`clap_complete`](https://crates.io/crates/clap_complete)クレートに基づきます。
-[^4]: [#1948](https://github.com/image-rs/image/issues/1948)に基づき修正済み。
+[^1]: [qrtool/asset/demo.gif](https://github.com/sorairolake/qrtool/blob/v0.7.2/asset/demo.gif)。
+[^2]: アーカイブの種類は`.tar.zst` (Linux、macOS) と`.7z` (Windows) です。
+[^3]: [qrtool/tests/data/basic/basic.png](https://github.com/sorairolake/qrtool/blob/v0.7.0/tests/data/basic/basic.png)。
+[^4]: [qrtool/tests/data/decode/decode.svg](https://github.com/sorairolake/qrtool/blob/v0.7.0/tests/data/decode/decode.svg)。
+[^5]: [qrtool/tests/data/variant/micro.png](https://github.com/sorairolake/qrtool/blob/v0.7.0/tests/data/variant/micro.png)。
+[^6]: [qrtool/tests/data/colored/fg.png](https://github.com/sorairolake/qrtool/blob/v0.7.0/tests/data/colored/fg.png)。
+[^7]: [MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/CSS/color_value)を参照。
+[^8]: [`clap_complete`](https://crates.io/crates/clap_complete)クレートに基づきます。
+[^9]: [#1948](https://github.com/image-rs/image/issues/1948)に基づき修正済み。
