@@ -22,5 +22,4 @@ Copyright (C) 2021&ndash;2023 Shun Sakai
 . In addition, some files are distributed under the terms of the _CC0 1.0
   Universal_.
 
-See link:COPYRIGHT[], link:LICENSE-CC-BY-ND[] and link:LICENSE-CC0[] for more
-details.
+See link:COPYING[] for more details.
