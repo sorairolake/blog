@@ -3,7 +3,7 @@ Source: https://github.com/sorairolake/blog
 
 Files: *
 Copyright: 2021-2023 Shun Sakai
-License: CC-BY-ND-4.0
+License: CC-BY-4.0
 
 Files: justfile
 Copyright: None

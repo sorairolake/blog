@@ -18,7 +18,7 @@ https://sorairolake.github.io/blog/
 Copyright (C) 2021&ndash;2023 Shun Sakai
 
 . Unless otherwise noted, this blog is distributed under the terms of the
-  _Creative Commons Attribution-NoDerivatives 4.0 International Public License_.
+  _Creative Commons Attribution 4.0 International Public License_.
 . In addition, some files are distributed under the terms of the _CC0 1.0
   Universal_.
 
