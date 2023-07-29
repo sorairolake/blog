@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: None
+#
+# SPDX-License-Identifier: CC0-1.0
+
 baseURL = "https://sorairolake.github.io/blog/"
 copyright = """\
   &copy; 2021&ndash;2023 Shun Sakai \

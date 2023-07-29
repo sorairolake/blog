@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 None
+//
+// SPDX-License-Identifier: CC0-1.0
+
 = SorairoLake's Blog
 :project-url: https://github.com/sorairolake/blog
 :shields-url: https://img.shields.io
