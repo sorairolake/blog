@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: None
+#
+# SPDX-License-Identifier: CC0-1.0
+
+name: REUSE Compliance Check
+
+on:
+  push:
+    branches:
+      - 'develop'
+      - 'master'
+  pull_request:
+
+jobs:
+  reuse:
+    name: REUSE
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: REUSE Compliance Check
+      uses: fsfe/reuse-action@v2.0.0

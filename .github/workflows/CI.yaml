@@ -1,11 +1,14 @@
+# SPDX-FileCopyrightText: None
+#
+# SPDX-License-Identifier: CC0-1.0
+
 name: CI
 
 on:
   push:
     branches:
-      - '**'
-    tags-ignore:
-      - '**'
+      - 'develop'
+      - 'master'
   pull_request:
   schedule:
       - cron: '0 0 * * 0'

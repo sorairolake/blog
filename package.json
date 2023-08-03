@@ -3,7 +3,7 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "SorairoLake's blog",
-  "license": "CC-BY-ND-4.0 AND CC0-1.0",
+  "license": "CC-BY-4.0 AND CC0-1.0",
   "author": "Shun Sakai <sorairolake@protonmail.ch>",
   "homepage": "https://github.com/sorairolake/blog#readme",
   "repository": {
