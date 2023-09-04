@@ -1,7 +1,7 @@
 +++
 title = "qrtoolのバージョン0.7.0を公開しました"
 date = 2023-07-15T08:02:01+09:00
-lastmod = 2023-07-18T21:51:16+09:00
+lastmod = 2023-09-05T07:29:34+09:00
 draft = false
 description = ""
 summary = ""
@@ -93,7 +93,7 @@ qrtool encode "QR code" > output.png
 
 ### 基本的なデコード方法
 
-[基本的なエンコード方法](#基本的なエンコード方法)で出力したPNG画像をデコードするには以下のコマンドを実行します。
+基本的なエンコード方法で出力したPNG画像をデコードするには以下のコマンドを実行します。
 
 ```sh
 qrtool decode output.png
