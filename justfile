@@ -21,4 +21,4 @@ default: server
 
 # Run the linter for GitHub Actions workflow files
 @lint-github-actions:
-    actionlint
+    actionlint -verbose
