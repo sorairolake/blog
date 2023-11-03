@@ -7,6 +7,7 @@
 :shields-url: https://img.shields.io
 :ci-badge: {shields-url}/github/actions/workflow/status/sorairolake/blog/CI.yaml?branch=develop&label=CI&logo=github&style=for-the-badge
 :ci-url: {project-url}/actions?query=branch%3Adevelop+workflow%3ACI++
+:reuse-spec-url: https://reuse.software/spec/
 
 image:{ci-badge}[CI,link={ci-url}]
 
@@ -26,4 +27,7 @@ Copyright (C) 2021&ndash;2023 Shun Sakai
 . In addition, some files are distributed under the terms of the _CC0 1.0
   Universal_.
 
-See link:COPYING[] for more details.
+This blog is compliant with version 3.0 of the
+{reuse-spec-url}[_REUSE Specification_]. See link:COPYING[] and copyright
+notices of individual files for more details on copyright and licensing
+information.
