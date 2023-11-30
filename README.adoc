@@ -28,6 +28,5 @@ Copyright (C) 2021&ndash;2023 Shun Sakai
   Universal_.
 
 This blog is compliant with version 3.0 of the
-{reuse-spec-url}[_REUSE Specification_]. See link:COPYING[] and copyright
-notices of individual files for more details on copyright and licensing
-information.
+{reuse-spec-url}[_REUSE Specification_]. See copyright notices of individual
+files for more details on copyright and licensing information.
