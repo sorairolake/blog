@@ -4,7 +4,7 @@
 
 baseURL = "https://sorairolake.github.io/blog/"
 copyright = """\
-  &copy; 2021&ndash;2023 Shun Sakai \
+  &copy; 2021&ndash;2024 Shun Sakai \
   &middot; \
   [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)\
   """
