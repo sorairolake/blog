@@ -56,6 +56,7 @@ DateFormat = "2006-01-02"
 ShowReadingTime = true
 ShowShareButtons = true
 ShowCodeCopyButtons = true
+showtoc = true
 ShowPostNavLinks = true
 
 [params.homeInfoParams]
