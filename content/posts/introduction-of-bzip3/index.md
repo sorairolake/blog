@@ -1,7 +1,7 @@
 +++
 title = "bzip2の後継の圧縮アルゴリズムのbzip3の紹介"
 date = 2024-01-09T13:29:22+09:00
-lastmod = 2024-01-09T13:29:22+09:00
+lastmod = 2024-03-01T07:55:21+09:00
 draft = false
 description = ""
 summary = ""
