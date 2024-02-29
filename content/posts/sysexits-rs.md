@@ -1,7 +1,7 @@
 +++
 title = "Rust向けの<sysexits.h>を作成しました"
 date = 2022-06-10T15:12:38+09:00
-lastmod = 2023-07-18T21:51:16+09:00
+lastmod = 2024-01-27T11:32:55+09:00
 draft = false
 description = ""
 summary = ""
@@ -17,7 +17,7 @@ Rust 1.61.0から`main`関数の戻り値で任意の終了コードを返せる
 
 使用例は以下の通りです[^1]。
 
-```rust
+```rs
 fn main() -> sysexits::ExitCode {
     let bytes = [0xf0, 0x9f, 0x92, 0x96];
     match std::str::from_utf8(&bytes) {

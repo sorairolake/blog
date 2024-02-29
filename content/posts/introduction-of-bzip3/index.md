@@ -1,7 +1,7 @@
 +++
 title = "bzip2の後継の圧縮アルゴリズムのbzip3の紹介"
 date = 2024-01-09T13:29:22+09:00
-lastmod = 2024-01-09T13:29:22+09:00
+lastmod = 2024-03-01T07:55:21+09:00
 draft = false
 description = ""
 summary = ""
@@ -68,6 +68,8 @@ bunzip3 README.md.bz3
 | `xz git-2.43.0.tar`    | 20.552 ± 0.105 |  20.388 |  20.688 |     1.00 |
 | `zstd git-2.43.0.tar`  |  0.324 ± 0.005 |   0.316 |   0.333 |     1.00 |
 
+![圧縮速度の比較](comparison-of-compression-speed.svg)
+
 ### 展開
 
 | Command                      |      Mean [s] | Min [s] | Max [s] | Relative |
@@ -78,15 +80,19 @@ bunzip3 README.md.bz3
 | `unxz git-2.43.0.tar.xz`     | 0.540 ± 0.006 |   0.532 |   0.549 |     1.00 |
 | `unzstd git-2.43.0.tar.zst`  | 0.072 ± 0.003 |   0.067 |   0.083 |     1.00 |
 
+![展開速度の比較](comparison-of-decompression-speed.svg)
+
 ### 圧縮後のファイルサイズ
 
-| Format | Result [MiB] | Result [B] |
-| :----- | -----------: | ---------: |
-| bzip2  |          8.2 |  8,624,608 |
-| bzip3  |          6.6 |  6,888,061 |
-| gzip   |         10.5 | 11,021,005 |
-| xz     |          7.0 |  7,352,912 |
-| zstd   |          9.8 | 10,298,831 |
+| Format | Result [MiB] | Result [B] | Compression Ratio |
+| :----- | -----------: | ---------: | ----------------: |
+| bzip2  |          8.2 |  8,624,608 |             5.374 |
+| bzip3  |          6.6 |  6,888,061 |             6.728 |
+| gzip   |         10.5 | 11,021,005 |             4.205 |
+| xz     |          7.0 |  7,352,912 |             6.303 |
+| zstd   |          9.8 | 10,298,831 |             4.500 |
+
+![圧縮比の比較](comparison-of-compression-ratio.svg)
 
 ### 使用したコマンドのバージョン
 

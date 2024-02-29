@@ -1,7 +1,7 @@
 +++
 title = "RustでWindowsのファイル時刻を扱うためのライブラリのnt-timeの紹介"
 date = 2023-08-03T19:53:18+09:00
-lastmod = 2023-08-03T19:53:18+09:00
+lastmod = 2024-01-27T11:32:55+09:00
 draft = false
 description = ""
 summary = ""
@@ -36,7 +36,7 @@ RustでWindowsの[ファイル時刻](https://learn.microsoft.com/ja-jp/windows/
 
 ### コード例
 
-```rust
+```rs
 use core::time::Duration;
 
 use nt_time::{
@@ -87,7 +87,7 @@ UNIX時間との相互変換については、秒単位とナノ秒単位に対�
 
 Serdeを利用してISO 8601形式、RFC 2822形式、RFC 3339形式、UNIX時間との間でシリアライズとデシリアライズを行うことができます。
 
-```rust
+```rs
 use nt_time::{
     serde::{Deserialize, Serialize},
     serde_with::iso_8601,
