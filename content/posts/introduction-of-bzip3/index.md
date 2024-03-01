@@ -1,7 +1,7 @@
 +++
 title = "bzip2の後継の圧縮アルゴリズムのbzip3の紹介"
 date = 2024-01-09T13:29:22+09:00
-lastmod = 2024-03-01T07:55:21+09:00
+lastmod = 2024-03-02T00:49:16+09:00
 draft = false
 description = ""
 summary = ""
@@ -22,7 +22,7 @@ bzip2の後継を謳っており、連長圧縮（RLE）とLempel-Ziv + Predicti
 
 ## インストール方法
 
-[![Packaging status](https://repology.org/badge/vertical-allrepos/bzip3.svg)](https://repology.org/project/bzip3/versions)
+[![Packaging status](https://repology.org/badge/vertical-allrepos/bzip3.svg?columns=3)](https://repology.org/project/bzip3/versions)
 
 多くのOSの公式リポジトリでパッケージが提供されているので簡単にインストールすることができます。
 
