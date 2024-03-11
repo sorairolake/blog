@@ -9,7 +9,7 @@ default: server
 
 # Start a server
 @server:
-    hugo server -D
+    hugo server --bind 0.0.0.0 -D -p 8080
 
 # Run the code formatter
 @fmt:

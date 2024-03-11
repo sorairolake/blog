@@ -17,34 +17,34 @@ theme = "PaperMod"
 title = "SorairoLake's Blog"
 
 [[menu.main]]
-identifier = "archive"
 name = "アーカイブ"
 url = "/archive/"
 weight = 10
 
 [[menu.main]]
-identifier = "category"
 name = "カテゴリ"
 url = "/categories/"
 weight = 20
 
 [[menu.main]]
-identifier = "search"
 name = "検索"
 url = "/search/"
 weight = 30
 
 [[menu.main]]
-identifier = "tag"
 name = "タグ"
 url = "/tags/"
 weight = 40
 
 [[menu.main]]
-identifier = "about-blog"
+name = "ホームページ"
+url = "https://sorairolake.github.io/"
+weight = 50
+
+[[menu.main]]
 name = "このブログについて"
 url = "/about-blog/"
-weight = 50
+weight = 60
 
 [outputs]
 home = ["HTML", "JSON", "RSS"]
