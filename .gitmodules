@@ -1,7 +1,0 @@
-# SPDX-FileCopyrightText: None
-#
-# SPDX-License-Identifier: CC0-1.0
-
-[submodule "themes/PaperMod"]
-	path = themes/PaperMod
-	url = https://github.com/adityatelange/hugo-PaperMod.git

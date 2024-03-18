@@ -22,9 +22,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Setup Go environment
+        uses: actions/setup-go@v5
         with:
-          fetch-depth: 0
-          submodules: true
+          go-version: "stable"
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2.6.0
         with:
