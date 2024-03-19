@@ -1,1 +1,195 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Httpie on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/tags/httpie/</link><description>Recent content in Httpie on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>&amp;copy; 2021&amp;ndash;2024 Shun Sakai &amp;middot; [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)</copyright><lastBuildDate>Mon, 18 Mar 2024 20:44:14 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/httpie/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust製のHTTPieのxhを使ってみた</title><link>https://sorairolake.github.io/blog/posts/introduction-of-xh/</link><pubDate>Sat, 05 Aug 2023 21:06:00 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-xh/</guid><description>Rust製のHTTPieのようなHTTPクライアントのxhを使ってみたので紹介します。 xhとは xhはHTTPリクエストを送信するための高速で</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Httpie on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/tags/httpie/</link><description>Recent content in Httpie on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Sat, 05 Aug 2023 21:06:00 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/httpie/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust製のHTTPieのxhを使ってみた</title><link>https://sorairolake.github.io/blog/posts/introduction-of-xh/</link><pubDate>Sat, 05 Aug 2023 21:06:00 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-xh/</guid><description>&lt;p>Rust製の&lt;a class="link" href="https://httpie.io/" target="_blank" rel="noopener"
+>HTTPie&lt;/a>のようなHTTPクライアントのxhを使ってみたので紹介します。&lt;/p>
+&lt;h2 id="xhとは">xhとは&lt;/h2>
+&lt;p>&lt;code>xh&lt;/code>はHTTPリクエストを送信するための高速で使いやすいコマンドラインHTTPクライアントです&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。
+パフォーマンスの向上に重点を置いており、HTTPieの優れた設計を可能な限り再実装しています&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
+&lt;h2 id="インストール">インストール&lt;/h2>
+&lt;p>&lt;code>xh&lt;/code>は以下のような方法でインストールすることができます&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。
+完全な一覧については&lt;code>xh&lt;/code>の&lt;code>README.md&lt;/code>を参照して下さい&lt;sup id="fnref1:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。&lt;/p>
+&lt;h3 id="ソースコードから">ソースコードから&lt;/h3>
+&lt;p>&lt;a class="link" href="https://doc.rust-lang.org/cargo/index.html" target="_blank" rel="noopener"
+>Cargo&lt;/a>を利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>cargo install xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="linux">Linux&lt;/h3>
+&lt;p>Alpine Linuxではapkを利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>apk add xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Arch Linuxでは&lt;a class="link" href="https://archlinux.org/pacman/" target="_blank" rel="noopener"
+>pacman&lt;/a>を利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pacman -S xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>DebianやUbuntuではAPTを利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>apt install xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="macos">macOS&lt;/h3>
+&lt;p>macOSでは&lt;a class="link" href="https://brew.sh/" target="_blank" rel="noopener"
+>Homebrew&lt;/a>を利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew install xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="使い方">使い方&lt;/h2>
+&lt;p>&lt;code>GET&lt;/code>リクエストを送信してみます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh httpbin.org/get
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>結果はHTTPieと同様に色付けされており、JSONがシンタックスハイライトされる点も同様です。&lt;/p>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get.webp"
+width="590"
+height="704"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu03ded58f532ff1907c3128b489a601de_17834_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu03ded58f532ff1907c3128b489a601de_17834_1024x0_resize_q75_h2_box_2.webp 1024w"
+loading="lazy"
+alt="レスポンスの画像"
+class="gallery-image"
+data-flex-grow="83"
+data-flex-basis="201px"
+>&lt;/p>
+&lt;p>その他の使い方については&lt;a class="link" href="https://httpie.io/docs/cli" target="_blank" rel="noopener"
+>HTTPieのドキュメント&lt;/a>を参照して下さい。&lt;/p>
+&lt;h2 id="httpieとの比較">HTTPieとの比較&lt;/h2>
+&lt;p>&lt;code>xh&lt;/code>はHTTPieを可能な限り再実装していますが、以下のようなHTTPieにはない特徴が存在したり、逆にxhにはない特徴が存在したりするので、紹介します&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>。&lt;/p>
+&lt;h3 id="長所">長所&lt;/h3>
+&lt;h4 id="rust製">Rust製&lt;/h4>
+&lt;p>スクリプト言語であるPythonで実装されているHTTPieとは異なり、&lt;code>xh&lt;/code>はRustで実装されているので起動速度が向上しています。
+また、Rustで実装されているのでシングルバイナリにすることも可能で、インストールや配布を簡単に行うこともできます。&lt;/p>
+&lt;h4 id="http2をサポート">HTTP/2をサポート&lt;/h4>
+&lt;p>&lt;code>xh&lt;/code>はHTTP/2をサポートしています。
+HTTPieはこの記事を書いた時点ではHTTP/2をサポートしていません&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh -h https://example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2.webp"
+width="440"
+height="330"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_huf00bf63ca09d577102dc1858c722d82c_13086_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_huf00bf63ca09d577102dc1858c722d82c_13086_1024x0_resize_q75_h2_box_2.webp 1024w"
+loading="lazy"
+alt="レスポンスの画像"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;h4 id="curlのコマンドへの変換機能">curlのコマンドへの変換機能&lt;/h4>
+&lt;p>&lt;code>--curl&lt;/code>オプションを使用することで&lt;code>xh&lt;/code>のコマンドをそれと等価な&lt;code>curl&lt;/code>のコマンドに変換することができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh --curl --ssl tls1.3 https://example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>変換した結果は以下のようになります。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>curl --tlsv1.3 --tls-max 1.3 https://example.com/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="短所">短所&lt;/h3>
+&lt;p>&lt;code>xh&lt;/code>はこの記事を書いた時点ではHTTPieの全ての機能を実装していません。
+また、&lt;code>xh&lt;/code>はプラグインには対応していません。&lt;/p>
+&lt;h3 id="その他の違い">その他の違い&lt;/h3>
+&lt;h4 id="tlsバックエンド">TLSバックエンド&lt;/h4>
+&lt;p>&lt;code>xh&lt;/code>はデフォルトのTLSバックエンドとして&lt;a class="link" href="https://github.com/rustls/rustls" target="_blank" rel="noopener"
+>rustls&lt;/a>を使用します。
+rustlsはTLS 1.2以降のみをサポートしているので、デフォルトでは&lt;code>xh&lt;/code>でTLS 1.1などの古いプロトコルを使用することはできません。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh --offline --ssl&lt;span style="color:#f92672">=&lt;/span>tls1.1 :
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>以下のような警告が表示されます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>xh: warning: rustls does not support older TLS versions. native-tls will be enabled. Use --native-tls to silence this warning.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>TLS 1.1などの古いプロトコルを使用する場合は、コンパイル時に&lt;code>native-tls&lt;/code>機能を有効にしてビルドした上で、実行時に&lt;code>--native-tls&lt;/code>オプションを指定することで、OpenSSLなどのシステムのTLSライブラリをTLSバックエンドとして使用することができます。
+この場合に使用できるプロトコルは、そのTLSライブラリに依存します。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh --offline --ssl&lt;span style="color:#f92672">=&lt;/span>tls1.1 --native-tls :
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="出力">出力&lt;/h4>
+&lt;p>フォーマットされた出力は常にUTF-8です。&lt;/p>
+&lt;h2 id="終わりに">終わりに&lt;/h2>
+&lt;p>Rust製のHTTPieのようなHTTPクライアントのxhを紹介しました。
+起動速度が向上していることや、HTTP/2をサポートしているなどHTTPieにはない長所がかなりあると思いました。
+また、古いバージョンのTLSをデフォルトではサポートしていない点も個人的には評価できます。
+モダンなプロトコルをサポートした手軽に利用できるHTTPクライアントとして使ってみてはどうでしょうか。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://github.com/ducaale/xh/tree/v0.18.0#xh" target="_blank" rel="noopener"
+>https://github.com/ducaale/xh/tree/v0.18.0#xh&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://github.com/ducaale/xh/tree/v0.18.0#installation" target="_blank" rel="noopener"
+>https://github.com/ducaale/xh/tree/v0.18.0#installation&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>&lt;a class="link" href="https://github.com/ducaale/xh/tree/v0.18.0#how-xh-compares-to-httpie" target="_blank" rel="noopener"
+>https://github.com/ducaale/xh/tree/v0.18.0#how-xh-compares-to-httpie&lt;/a>&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>&lt;a class="link" href="https://daniel.haxx.se/docs/curl-vs-httpie.html" target="_blank" rel="noopener"
+>curl vs HTTPie&lt;/a>&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>&lt;a class="link" href="https://github.com/httpie/cli/issues/692" target="_blank" rel="noopener"
+>Support HTTP/2 (httpie-http2 plugin doesn&amp;rsquo;t work) · Issue #692&lt;/a>&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>

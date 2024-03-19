@@ -1,1 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Sysexits on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/tags/sysexits/</link><description>Recent content in Sysexits on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>&amp;copy; 2021&amp;ndash;2024 Shun Sakai &amp;middot; [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)</copyright><lastBuildDate>Mon, 18 Mar 2024 20:44:14 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/sysexits/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust向けの&lt;sysexits.h>を作成しました</title><link>https://sorairolake.github.io/blog/posts/sysexits-rs/</link><pubDate>Fri, 10 Jun 2022 15:12:38 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/sysexits-rs/</guid><description>Rustのmain関数の戻り値で&amp;lt;sysexits.h&amp;gt;で定義されている終了コードを使えるようにするライブラリのsysexits</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sysexits on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/tags/sysexits/</link><description>Recent content in Sysexits on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Fri, 10 Jun 2022 15:12:38 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/sysexits/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust向けの&lt;sysexits.h>を作成しました</title><link>https://sorairolake.github.io/blog/posts/sysexits-rs/</link><pubDate>Fri, 10 Jun 2022 15:12:38 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/sysexits-rs/</guid><description>&lt;p>&lt;a class="link" href="https://www.rust-lang.org/" target="_blank" rel="noopener"
+>Rust&lt;/a>の&lt;code>main&lt;/code>関数の戻り値で&lt;a class="link" href="https://man.openbsd.org/sysexits" target="_blank" rel="noopener"
+>&lt;code>&amp;lt;sysexits.h&amp;gt;&lt;/code>&lt;/a>で定義されている終了コードを使えるようにするライブラリの&lt;strong>sysexits-rs&lt;/strong> (&lt;a class="link" href="https://crates.io/crates/sysexits" target="_blank" rel="noopener"
+>&lt;code>sysexits&lt;/code>&lt;/a>) を作成しました。&lt;/p>
+&lt;p>Rust 1.61.0から&lt;code>main&lt;/code>関数の戻り値で任意の終了コードを返せるようになったので、&lt;code>&amp;lt;sysexits.h&amp;gt;&lt;/code>で定義されている終了コードをこれに利用できたら便利だと思ったのがこのライブラリを作成した理由です。&lt;/p>
+&lt;h2 id="使用例">使用例&lt;/h2>
+&lt;p>使用例は以下の通りです&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rs" data-lang="rs">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() -&amp;gt; &lt;span style="color:#a6e22e">sysexits&lt;/span>::ExitCode {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> bytes &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">0xf0&lt;/span>, &lt;span style="color:#ae81ff">0x9f&lt;/span>, &lt;span style="color:#ae81ff">0x92&lt;/span>, &lt;span style="color:#ae81ff">0x96&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">match&lt;/span> std::&lt;span style="color:#66d9ef">str&lt;/span>::from_utf8(&lt;span style="color:#f92672">&amp;amp;&lt;/span>bytes) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Ok(string) &lt;span style="color:#f92672">=&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> println!(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{string}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sysexits::ExitCode::Ok
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Err(err) &lt;span style="color:#f92672">=&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> eprintln!(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{err}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sysexits::ExitCode::DataErr
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://github.com/sorairolake/sysexits-rs/tree/v0.6.1#example" target="_blank" rel="noopener"
+>sorairolake/sysexits-rs&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>

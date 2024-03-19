@@ -1,1 +1,259 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Compression on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/tags/compression/</link><description>Recent content in Compression on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>&amp;copy; 2021&amp;ndash;2024 Shun Sakai &amp;middot; [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)</copyright><lastBuildDate>Mon, 18 Mar 2024 20:44:14 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/compression/index.xml" rel="self" type="application/rss+xml"/><item><title>bzip2の後継の圧縮アルゴリズムのbzip3の紹介</title><link>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</link><pubDate>Tue, 09 Jan 2024 13:29:22 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</guid><description>bzip3とは bzip3は、2022年に登場した圧縮アルゴリズムです。 bzip2の後継を謳っており、連長圧縮（RLE）とLempel-Ziv</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Compression on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/tags/compression/</link><description>Recent content in Compression on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 09 Jan 2024 13:29:22 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/compression/index.xml" rel="self" type="application/rss+xml"/><item><title>bzip2の後継の圧縮アルゴリズムのbzip3の紹介</title><link>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</link><pubDate>Tue, 09 Jan 2024 13:29:22 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</guid><description>&lt;h2 id="bzip3とは">bzip3とは&lt;/h2>
+&lt;p>bzip3は、2022年に登場した圧縮アルゴリズムです。
+bzip2の後継を謳っており、連長圧縮（RLE）とLempel-Ziv + Prediction（LZP）、それに続くブロックソート（BWT）と算術符号を使用することによる高い圧縮率と優れたパフォーマンスを特徴としています。&lt;/p>
+&lt;p>リファレンス実装はC言語で書かれており、GNU Lesser General Public License v3.0（またはそれ以降）に基づいて配布されています。&lt;/p>
+&lt;dl>
+&lt;dt>リファレンス実装&lt;/dt>
+&lt;dd>
+&lt;p>&lt;a class="link" href="https://github.com/kspalaiologos/bzip3" target="_blank" rel="noopener"
+>https://github.com/kspalaiologos/bzip3&lt;/a>&lt;/p>
+&lt;/dd>
+&lt;/dl>
+&lt;h2 id="インストール方法">インストール方法&lt;/h2>
+&lt;p>&lt;a class="link" href="https://repology.org/project/bzip3/versions" target="_blank" rel="noopener"
+>&lt;img src="https://repology.org/badge/vertical-allrepos/bzip3.svg?columns=3"
+loading="lazy"
+alt="Packaging status"
+>&lt;/a>&lt;/p>
+&lt;p>多くのOSの公式リポジトリでパッケージが提供されているので簡単にインストールすることができます。&lt;/p>
+&lt;h2 id="使い方">使い方&lt;/h2>
+&lt;p>他の圧縮アルゴリズムと同様に、それを実装したライブラリに加えて、ファイルの圧縮などを行うためのコマンドラインユーティリティが提供されています。&lt;/p>
+&lt;p>基本的にオプションは&lt;code>gzip&lt;/code>などと同様ですが、圧縮レベルを指定するオプション（&lt;code>-1&lt;/code>や&lt;code>--best&lt;/code>）はbzip3では機能しないことから、バージョン1.4.0の時点では意図的に実装されていません&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。
+圧縮率は&lt;code>-b&lt;/code>または&lt;code>--block&lt;/code>でブロックサイズを設定することで変化する場合があります。&lt;/p>
+&lt;p>また、&lt;code>xz&lt;/code>や&lt;code>zstd&lt;/code>などと同様に並列処理に対応しており、&lt;code>-j&lt;/code>または&lt;code>--jobs&lt;/code>で使用するスレッド数を指定することができます。&lt;/p>
+&lt;h3 id="圧縮">圧縮&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>bzip3 README.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="展開">展開&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>bzip3 -d README.md.bz3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># または&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bunzip3 README.md.bz3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="他の圧縮アルゴリズムとの比較">他の圧縮アルゴリズムとの比較&lt;/h2>
+&lt;p>&lt;a class="link" href="https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.43.0.tar.xz" target="_blank" rel="noopener"
+>Git 2.43.0のtarball&lt;/a>を使用して他の圧縮アルゴリズムとの比較を行いました。
+全てデフォルトの圧縮レベルでシングルスレッドで実行しています。&lt;/p>
+&lt;dl>
+&lt;dt>元のファイルサイズ&lt;/dt>
+&lt;dd>
+&lt;p>44.2 MiB (46,346,240 B)&lt;/p>
+&lt;/dd>
+&lt;/dl>
+&lt;h3 id="圧縮-1">圧縮&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Command&lt;/th>
+&lt;th style="text-align:right">Mean [s]&lt;/th>
+&lt;th style="text-align:right">Min [s]&lt;/th>
+&lt;th style="text-align:right">Max [s]&lt;/th>
+&lt;th style="text-align:right">Relative&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bzip2 git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">5.301 ± 0.060&lt;/td>
+&lt;td style="text-align:right">5.216&lt;/td>
+&lt;td style="text-align:right">5.385&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bzip3 git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">5.421 ± 0.020&lt;/td>
+&lt;td style="text-align:right">5.387&lt;/td>
+&lt;td style="text-align:right">5.460&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>gzip git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.864 ± 0.026&lt;/td>
+&lt;td style="text-align:right">1.834&lt;/td>
+&lt;td style="text-align:right">1.923&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>xz git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">20.552 ± 0.105&lt;/td>
+&lt;td style="text-align:right">20.388&lt;/td>
+&lt;td style="text-align:right">20.688&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>zstd git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">0.324 ± 0.005&lt;/td>
+&lt;td style="text-align:right">0.316&lt;/td>
+&lt;td style="text-align:right">0.333&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.svg"
+loading="lazy"
+alt="圧縮速度の比較"
+>&lt;/p>
+&lt;h3 id="展開-1">展開&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Command&lt;/th>
+&lt;th style="text-align:right">Mean [s]&lt;/th>
+&lt;th style="text-align:right">Min [s]&lt;/th>
+&lt;th style="text-align:right">Max [s]&lt;/th>
+&lt;th style="text-align:right">Relative&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bunzip2 git-2.43.0.tar.bz2&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.972 ± 0.049&lt;/td>
+&lt;td style="text-align:right">1.927&lt;/td>
+&lt;td style="text-align:right">2.078&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bunzip3 git-2.43.0.tar.bz3&lt;/code>&lt;/td>
+&lt;td style="text-align:right">5.234 ± 0.027&lt;/td>
+&lt;td style="text-align:right">5.192&lt;/td>
+&lt;td style="text-align:right">5.281&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>gunzip git-2.43.0.tar.gz&lt;/code>&lt;/td>
+&lt;td style="text-align:right">0.312 ± 0.002&lt;/td>
+&lt;td style="text-align:right">0.309&lt;/td>
+&lt;td style="text-align:right">0.315&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>unxz git-2.43.0.tar.xz&lt;/code>&lt;/td>
+&lt;td style="text-align:right">0.540 ± 0.006&lt;/td>
+&lt;td style="text-align:right">0.532&lt;/td>
+&lt;td style="text-align:right">0.549&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>unzstd git-2.43.0.tar.zst&lt;/code>&lt;/td>
+&lt;td style="text-align:right">0.072 ± 0.003&lt;/td>
+&lt;td style="text-align:right">0.067&lt;/td>
+&lt;td style="text-align:right">0.083&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.svg"
+loading="lazy"
+alt="展開速度の比較"
+>&lt;/p>
+&lt;h3 id="圧縮後のファイルサイズ">圧縮後のファイルサイズ&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Format&lt;/th>
+&lt;th style="text-align:right">Result [MiB]&lt;/th>
+&lt;th style="text-align:right">Result [B]&lt;/th>
+&lt;th style="text-align:right">Compression Ratio&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">bzip2&lt;/td>
+&lt;td style="text-align:right">8.2&lt;/td>
+&lt;td style="text-align:right">8,624,608&lt;/td>
+&lt;td style="text-align:right">5.374&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">bzip3&lt;/td>
+&lt;td style="text-align:right">6.6&lt;/td>
+&lt;td style="text-align:right">6,888,061&lt;/td>
+&lt;td style="text-align:right">6.728&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">gzip&lt;/td>
+&lt;td style="text-align:right">10.5&lt;/td>
+&lt;td style="text-align:right">11,021,005&lt;/td>
+&lt;td style="text-align:right">4.205&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">xz&lt;/td>
+&lt;td style="text-align:right">7.0&lt;/td>
+&lt;td style="text-align:right">7,352,912&lt;/td>
+&lt;td style="text-align:right">6.303&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">zstd&lt;/td>
+&lt;td style="text-align:right">9.8&lt;/td>
+&lt;td style="text-align:right">10,298,831&lt;/td>
+&lt;td style="text-align:right">4.500&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.svg"
+loading="lazy"
+alt="圧縮比の比較"
+>&lt;/p>
+&lt;h3 id="使用したコマンドのバージョン">使用したコマンドのバージョン&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Command&lt;/th>
+&lt;th style="text-align:right">Version&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bzip2&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.0.8&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bzip3&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.4.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>gzip&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.13&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>xz&lt;/code>&lt;/td>
+&lt;td style="text-align:right">5.4.5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>zstd&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.5.5&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>これらの結果とリファレンス実装の&lt;a class="link" href="https://github.com/kspalaiologos/bzip3/blob/1.4.0/README.md" target="_blank" rel="noopener"
+>&lt;code>README.md&lt;/code>&lt;/a>にあるベンチマークの結果を見た感じでは、&lt;code>xz&lt;/code>以上の圧縮率をそれよりも短い時間で実現できるようです。&lt;/p>
+&lt;h2 id="ソフトウェアの対応状況">ソフトウェアの対応状況&lt;/h2>
+&lt;p>&lt;code>file&lt;/code>のバージョン5.44以降はbzip3形式のファイルを認識することができます&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。&lt;/p>
+&lt;h2 id="終わりに">終わりに&lt;/h2>
+&lt;p>圧縮率が高いことや&lt;code>bzip2&lt;/code>とは異なり並列処理に対応していることから、圧縮率が重要な場合に&lt;code>bzip2&lt;/code>や&lt;code>xz&lt;/code>の代わりの選択肢になるかもしれないと思いました。
+多くのOSの公式リポジトリでパッケージが提供されているので気軽に使い始めることができそうです。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://github.com/kspalaiologos/bzip3/issues/78" target="_blank" rel="noopener"
+>https://github.com/kspalaiologos/bzip3/issues/78&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://bugs.astron.com/view.php?id=395" target="_blank" rel="noopener"
+>https://bugs.astron.com/view.php?id=395&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>

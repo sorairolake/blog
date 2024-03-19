@@ -1,1 +1,1040 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>プログラミング on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link><description>Recent content in プログラミング on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>&amp;copy; 2021&amp;ndash;2024 Shun Sakai &amp;middot; [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)</copyright><lastBuildDate>Mon, 18 Mar 2024 20:44:14 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>bzip2の後継の圧縮アルゴリズムのbzip3の紹介</title><link>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</link><pubDate>Tue, 09 Jan 2024 13:29:22 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</guid><description>bzip3とは bzip3は、2022年に登場した圧縮アルゴリズムです。 bzip2の後継を謳っており、連長圧縮（RLE）とLempel-Ziv</description></item><item><title>データの暗号化のためのファイルフォーマットを作成しました</title><link>https://sorairolake.github.io/blog/posts/abcrypt/</link><pubDate>Tue, 03 Oct 2023 07:02:05 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/abcrypt/</guid><description>シンプルでモダンでセキュアなファイル暗号化ツールとファイルフォーマットとRustのライブラリのabcryptを作成したので紹介します。 abc</description></item><item><title>Rust製のHTTPieのxhを使ってみた</title><link>https://sorairolake.github.io/blog/posts/introduction-of-xh/</link><pubDate>Sat, 05 Aug 2023 21:06:00 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-xh/</guid><description>Rust製のHTTPieのようなHTTPクライアントのxhを使ってみたので紹介します。 xhとは xhはHTTPリクエストを送信するための高速で</description></item><item><title>RustでWindowsのファイル時刻を扱うためのライブラリのnt-timeの紹介</title><link>https://sorairolake.github.io/blog/posts/nt-time/</link><pubDate>Thu, 03 Aug 2023 19:53:18 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/nt-time/</guid><description>RustでWindowsのファイル時刻を扱うためのライブラリのnt-timeを開発したので紹介します。 ファイル時刻とは nt-timeクレート</description></item><item><title>qrtoolのバージョン0.7.0を公開しました</title><link>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</link><pubDate>Sat, 15 Jul 2023 08:02:01 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</guid><description>協定世界時 (UTC) の2023年7月12日にQRコードのエンコードとデコードを行うためのコマンドラインユーティリティのqrtoolのバージョン0.7</description></item><item><title>scrypt暗号化データ形式のRust実装を作成しました</title><link>https://sorairolake.github.io/blog/posts/scryptenc/</link><pubDate>Tue, 22 Nov 2022 13:22:14 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/scryptenc/</guid><description>scrypt暗号化データ形式を読み書きするためのライブラリのscryptenc-rs (scryptenc) と、この形式のためのコマンドラインユーティリティである</description></item><item><title>QRコードを読み書きするためのコマンドを作成しました</title><link>https://sorairolake.github.io/blog/posts/qrtool/</link><pubDate>Sat, 27 Aug 2022 06:32:20 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/qrtool/</guid><description>QRコードのエンコードとデコードを行うためのコマンドラインユーティリティのqrtoolを作成しました。</description></item><item><title>Rust向けの&lt;sysexits.h>を作成しました</title><link>https://sorairolake.github.io/blog/posts/sysexits-rs/</link><pubDate>Fri, 10 Jun 2022 15:12:38 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/sysexits-rs/</guid><description>Rustのmain関数の戻り値で&amp;lt;sysexits.h&amp;gt;で定義されている終了コードを使えるようにするライブラリのsysexits</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>プログラミング on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link><description>Recent content in プログラミング on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 09 Jan 2024 13:29:22 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>bzip2の後継の圧縮アルゴリズムのbzip3の紹介</title><link>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</link><pubDate>Tue, 09 Jan 2024 13:29:22 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</guid><description>&lt;h2 id="bzip3とは">bzip3とは&lt;/h2>
+&lt;p>bzip3は、2022年に登場した圧縮アルゴリズムです。
+bzip2の後継を謳っており、連長圧縮（RLE）とLempel-Ziv + Prediction（LZP）、それに続くブロックソート（BWT）と算術符号を使用することによる高い圧縮率と優れたパフォーマンスを特徴としています。&lt;/p>
+&lt;p>リファレンス実装はC言語で書かれており、GNU Lesser General Public License v3.0（またはそれ以降）に基づいて配布されています。&lt;/p>
+&lt;dl>
+&lt;dt>リファレンス実装&lt;/dt>
+&lt;dd>
+&lt;p>&lt;a class="link" href="https://github.com/kspalaiologos/bzip3" target="_blank" rel="noopener"
+>https://github.com/kspalaiologos/bzip3&lt;/a>&lt;/p>
+&lt;/dd>
+&lt;/dl>
+&lt;h2 id="インストール方法">インストール方法&lt;/h2>
+&lt;p>&lt;a class="link" href="https://repology.org/project/bzip3/versions" target="_blank" rel="noopener"
+>&lt;img src="https://repology.org/badge/vertical-allrepos/bzip3.svg?columns=3"
+loading="lazy"
+alt="Packaging status"
+>&lt;/a>&lt;/p>
+&lt;p>多くのOSの公式リポジトリでパッケージが提供されているので簡単にインストールすることができます。&lt;/p>
+&lt;h2 id="使い方">使い方&lt;/h2>
+&lt;p>他の圧縮アルゴリズムと同様に、それを実装したライブラリに加えて、ファイルの圧縮などを行うためのコマンドラインユーティリティが提供されています。&lt;/p>
+&lt;p>基本的にオプションは&lt;code>gzip&lt;/code>などと同様ですが、圧縮レベルを指定するオプション（&lt;code>-1&lt;/code>や&lt;code>--best&lt;/code>）はbzip3では機能しないことから、バージョン1.4.0の時点では意図的に実装されていません&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。
+圧縮率は&lt;code>-b&lt;/code>または&lt;code>--block&lt;/code>でブロックサイズを設定することで変化する場合があります。&lt;/p>
+&lt;p>また、&lt;code>xz&lt;/code>や&lt;code>zstd&lt;/code>などと同様に並列処理に対応しており、&lt;code>-j&lt;/code>または&lt;code>--jobs&lt;/code>で使用するスレッド数を指定することができます。&lt;/p>
+&lt;h3 id="圧縮">圧縮&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>bzip3 README.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="展開">展開&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>bzip3 -d README.md.bz3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># または&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bunzip3 README.md.bz3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="他の圧縮アルゴリズムとの比較">他の圧縮アルゴリズムとの比較&lt;/h2>
+&lt;p>&lt;a class="link" href="https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.43.0.tar.xz" target="_blank" rel="noopener"
+>Git 2.43.0のtarball&lt;/a>を使用して他の圧縮アルゴリズムとの比較を行いました。
+全てデフォルトの圧縮レベルでシングルスレッドで実行しています。&lt;/p>
+&lt;dl>
+&lt;dt>元のファイルサイズ&lt;/dt>
+&lt;dd>
+&lt;p>44.2 MiB (46,346,240 B)&lt;/p>
+&lt;/dd>
+&lt;/dl>
+&lt;h3 id="圧縮-1">圧縮&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Command&lt;/th>
+&lt;th style="text-align:right">Mean [s]&lt;/th>
+&lt;th style="text-align:right">Min [s]&lt;/th>
+&lt;th style="text-align:right">Max [s]&lt;/th>
+&lt;th style="text-align:right">Relative&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bzip2 git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">5.301 ± 0.060&lt;/td>
+&lt;td style="text-align:right">5.216&lt;/td>
+&lt;td style="text-align:right">5.385&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bzip3 git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">5.421 ± 0.020&lt;/td>
+&lt;td style="text-align:right">5.387&lt;/td>
+&lt;td style="text-align:right">5.460&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>gzip git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.864 ± 0.026&lt;/td>
+&lt;td style="text-align:right">1.834&lt;/td>
+&lt;td style="text-align:right">1.923&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>xz git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">20.552 ± 0.105&lt;/td>
+&lt;td style="text-align:right">20.388&lt;/td>
+&lt;td style="text-align:right">20.688&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>zstd git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align:right">0.324 ± 0.005&lt;/td>
+&lt;td style="text-align:right">0.316&lt;/td>
+&lt;td style="text-align:right">0.333&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.svg"
+loading="lazy"
+alt="圧縮速度の比較"
+>&lt;/p>
+&lt;h3 id="展開-1">展開&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Command&lt;/th>
+&lt;th style="text-align:right">Mean [s]&lt;/th>
+&lt;th style="text-align:right">Min [s]&lt;/th>
+&lt;th style="text-align:right">Max [s]&lt;/th>
+&lt;th style="text-align:right">Relative&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bunzip2 git-2.43.0.tar.bz2&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.972 ± 0.049&lt;/td>
+&lt;td style="text-align:right">1.927&lt;/td>
+&lt;td style="text-align:right">2.078&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bunzip3 git-2.43.0.tar.bz3&lt;/code>&lt;/td>
+&lt;td style="text-align:right">5.234 ± 0.027&lt;/td>
+&lt;td style="text-align:right">5.192&lt;/td>
+&lt;td style="text-align:right">5.281&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>gunzip git-2.43.0.tar.gz&lt;/code>&lt;/td>
+&lt;td style="text-align:right">0.312 ± 0.002&lt;/td>
+&lt;td style="text-align:right">0.309&lt;/td>
+&lt;td style="text-align:right">0.315&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>unxz git-2.43.0.tar.xz&lt;/code>&lt;/td>
+&lt;td style="text-align:right">0.540 ± 0.006&lt;/td>
+&lt;td style="text-align:right">0.532&lt;/td>
+&lt;td style="text-align:right">0.549&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>unzstd git-2.43.0.tar.zst&lt;/code>&lt;/td>
+&lt;td style="text-align:right">0.072 ± 0.003&lt;/td>
+&lt;td style="text-align:right">0.067&lt;/td>
+&lt;td style="text-align:right">0.083&lt;/td>
+&lt;td style="text-align:right">1.00&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.svg"
+loading="lazy"
+alt="展開速度の比較"
+>&lt;/p>
+&lt;h3 id="圧縮後のファイルサイズ">圧縮後のファイルサイズ&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Format&lt;/th>
+&lt;th style="text-align:right">Result [MiB]&lt;/th>
+&lt;th style="text-align:right">Result [B]&lt;/th>
+&lt;th style="text-align:right">Compression Ratio&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">bzip2&lt;/td>
+&lt;td style="text-align:right">8.2&lt;/td>
+&lt;td style="text-align:right">8,624,608&lt;/td>
+&lt;td style="text-align:right">5.374&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">bzip3&lt;/td>
+&lt;td style="text-align:right">6.6&lt;/td>
+&lt;td style="text-align:right">6,888,061&lt;/td>
+&lt;td style="text-align:right">6.728&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">gzip&lt;/td>
+&lt;td style="text-align:right">10.5&lt;/td>
+&lt;td style="text-align:right">11,021,005&lt;/td>
+&lt;td style="text-align:right">4.205&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">xz&lt;/td>
+&lt;td style="text-align:right">7.0&lt;/td>
+&lt;td style="text-align:right">7,352,912&lt;/td>
+&lt;td style="text-align:right">6.303&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">zstd&lt;/td>
+&lt;td style="text-align:right">9.8&lt;/td>
+&lt;td style="text-align:right">10,298,831&lt;/td>
+&lt;td style="text-align:right">4.500&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.svg"
+loading="lazy"
+alt="圧縮比の比較"
+>&lt;/p>
+&lt;h3 id="使用したコマンドのバージョン">使用したコマンドのバージョン&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">Command&lt;/th>
+&lt;th style="text-align:right">Version&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bzip2&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.0.8&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>bzip3&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.4.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>gzip&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.13&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>xz&lt;/code>&lt;/td>
+&lt;td style="text-align:right">5.4.5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>zstd&lt;/code>&lt;/td>
+&lt;td style="text-align:right">1.5.5&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>これらの結果とリファレンス実装の&lt;a class="link" href="https://github.com/kspalaiologos/bzip3/blob/1.4.0/README.md" target="_blank" rel="noopener"
+>&lt;code>README.md&lt;/code>&lt;/a>にあるベンチマークの結果を見た感じでは、&lt;code>xz&lt;/code>以上の圧縮率をそれよりも短い時間で実現できるようです。&lt;/p>
+&lt;h2 id="ソフトウェアの対応状況">ソフトウェアの対応状況&lt;/h2>
+&lt;p>&lt;code>file&lt;/code>のバージョン5.44以降はbzip3形式のファイルを認識することができます&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。&lt;/p>
+&lt;h2 id="終わりに">終わりに&lt;/h2>
+&lt;p>圧縮率が高いことや&lt;code>bzip2&lt;/code>とは異なり並列処理に対応していることから、圧縮率が重要な場合に&lt;code>bzip2&lt;/code>や&lt;code>xz&lt;/code>の代わりの選択肢になるかもしれないと思いました。
+多くのOSの公式リポジトリでパッケージが提供されているので気軽に使い始めることができそうです。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://github.com/kspalaiologos/bzip3/issues/78" target="_blank" rel="noopener"
+>https://github.com/kspalaiologos/bzip3/issues/78&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://bugs.astron.com/view.php?id=395" target="_blank" rel="noopener"
+>https://bugs.astron.com/view.php?id=395&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>データの暗号化のためのファイルフォーマットを作成しました</title><link>https://sorairolake.github.io/blog/posts/abcrypt/</link><pubDate>Tue, 03 Oct 2023 07:02:05 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/abcrypt/</guid><description>&lt;p>シンプルでモダンでセキュアなファイル暗号化ツールとファイルフォーマットとRustのライブラリの&lt;strong>abcrypt&lt;/strong>を作成したので紹介します。&lt;/p>
+&lt;h2 id="abcrypt暗号化データフォーマットとは">abcrypt暗号化データフォーマットとは&lt;/h2>
+&lt;p>&lt;strong>abcrypt暗号化データフォーマット&lt;/strong> (英語: &lt;strong>abcrypt encrypted data format&lt;/strong>) は、認証付きのモダンなファイル暗号化フォーマットです。&lt;/p>
+&lt;p>このファイルフォーマットは&lt;a class="link" href="https://www.tarsnap.com/scrypt.html" target="_blank" rel="noopener"
+>scrypt encrypted data format&lt;/a>から着想を得ており、秘密鍵の導出には&lt;a class="link" href="https://datatracker.ietf.org/doc/html/rfc9106" target="_blank" rel="noopener"
+>Argon2id&lt;/a>を使用し、ヘッダーの認証には&lt;a class="link" href="https://datatracker.ietf.org/doc/html/rfc7693" target="_blank" rel="noopener"
+>BLAKE2b-512-MAC&lt;/a>を使用し、データの暗号化には&lt;a class="link" href="https://datatracker.ietf.org/doc/html/draft-arciszewski-xchacha-03" target="_blank" rel="noopener"
+>XChaCha20-Poly1305&lt;/a>を使用しています。
+このファイルフォーマットを作成したのは、scrypt encrypted data formatの秘密鍵の導出の部分をArgon2に変更したものを作成してみたいと思ったのがきっかけです。
+scrypt encrypted data formatではヘッダーの認証にHMAC-SHA-256を使用していますが、abcryptフォーマットではArgon2idがBLAKE2bを使用していることと、BLAKE2bがHMACを使わないでそれ自体でメッセージ認証コード (MAC) を出力することができるので、BLAKE2b-512-MACを使用しています。
+データの暗号化部分はBLAKE2bと同様に&lt;a class="link" href="https://ja.wikipedia.org/wiki/Salsa20#ChaCha" target="_blank" rel="noopener"
+>ChaCha&lt;/a>をベースとしていることと、認証付き暗号であることと、ChaCha20-Poly1305とは異なりノンスに暗号論的擬似乱数生成器 (CSPRNG) で生成した値を使用できるので&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>、XChaCha20-Poly1305を使用しています。&lt;/p>
+&lt;p>詳細な仕様は&lt;a class="link" href="https://sorairolake.github.io/abcrypt/book/format.html" target="_blank" rel="noopener"
+>https://sorairolake.github.io/abcrypt/book/format.html&lt;/a>を参照して下さい。&lt;/p>
+&lt;h2 id="ライブラリについて">ライブラリについて&lt;/h2>
+&lt;p>abcryptフォーマットを実装したRustのライブラリの&lt;a class="link" href="https://crates.io/crates/abcrypt" target="_blank" rel="noopener"
+>&lt;code>abcrypt&lt;/code>&lt;/a>を作成しました。
+これは私が以前に作成したscrypt encrypted data formatの実装の&lt;a class="link" href="https://crates.io/crates/scryptenc" target="_blank" rel="noopener"
+>&lt;code>scryptenc&lt;/code>&lt;/a>をベースにしています。&lt;/p>
+&lt;p>このライブラリは&lt;code>no_std&lt;/code>環境で使用することができ、&lt;code>default&lt;/code> featureを無効にすることで使用することができます。
+この場合にヒープの使用を許容できる場合は、&lt;code>alloc&lt;/code> featureを有効にします&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>。
+&lt;code>alloc&lt;/code> featureを有効にした場合は暗号化や復号したデータを&lt;code>Vec&amp;lt;u8&amp;gt;&lt;/code>として出力することができ、暗号化や復号するデータの長さが事前に分かっていない場合に使用できます。
+このライブラリでは暗号化や復号するデータはスライス (&lt;code>[u8]&lt;/code>) で保持しており、暗号化や復号するデータの長さが事前に分かっている場合は出力を書き込むためのバッファを固定長の配列で確保して処理することもできるので、メモリ効率は良いはずです。&lt;/p>
+&lt;p>APIの詳細は&lt;a class="link" href="https://docs.rs/abcrypt" target="_blank" rel="noopener"
+>https://docs.rs/abcrypt&lt;/a>を参照して下さい。&lt;/p>
+&lt;h3 id="バインディングについて">バインディングについて&lt;/h3>
+&lt;p>このライブラリをC言語でも利用できるようにするためにバインディングの&lt;a class="link" href="https://crates.io/crates/abcrypt-capi" target="_blank" rel="noopener"
+>&lt;code>abcrypt-capi&lt;/code>&lt;/a>も作成しました。&lt;/p>
+&lt;p>C言語のAPI (ヘッダーファイル) の詳細は&lt;a class="link" href="https://sorairolake.github.io/abcrypt/book/capi/capi.html" target="_blank" rel="noopener"
+>https://sorairolake.github.io/abcrypt/book/capi/capi.html&lt;/a>を、RustのAPIの詳細は&lt;a class="link" href="https://docs.rs/abcrypt-capi" target="_blank" rel="noopener"
+>https://docs.rs/abcrypt-capi&lt;/a>参照して下さい。&lt;/p>
+&lt;h2 id="ファイル暗号化ツールについて">ファイル暗号化ツールについて&lt;/h2>
+&lt;p>abcryptフォーマットを利用してファイルの暗号化を行うためのコマンドラインユーティリティの&lt;a class="link" href="https://crates.io/crates/abcrypt-cli" target="_blank" rel="noopener"
+>&lt;code>abcrypt-cli&lt;/code>&lt;/a>を作成しました。
+コマンド名は&lt;code>abcrypt&lt;/code>です。
+これは私が以前に作成した&lt;code>scrypt(1)&lt;/code>のRust実装の&lt;a class="link" href="https://crates.io/crates/scryptenc-cli" target="_blank" rel="noopener"
+>&lt;code>scryptenc-cli&lt;/code>&lt;/a>をベースにしています。&lt;/p>
+&lt;p>基本的なファイルの暗号化は以下のコマンドで行います。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>abcrypt encrypt data.txt &amp;gt; data.txt.abcrypt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>また、基本的なファイルの復号は以下のコマンドで行います。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>abcrypt decrypt data.txt.abcrypt &amp;gt; data.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>暗号化時にはコマンドラインオプションでArgon2パラメータを指定することができます&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>。
+パスフレーズは&lt;code>/dev/tty&lt;/code>、標準入力、環境変数またはファイルから入力することができます。
+また、コマンドラインオプションでシェル補完スクリプトを生成することもできます。&lt;/p>
+&lt;p>詳細な利用方法は&lt;a class="link" href="https://sorairolake.github.io/abcrypt/book/cli/index.html" target="_blank" rel="noopener"
+>https://sorairolake.github.io/abcrypt/book/cli/index.html&lt;/a>やmanページを参照して下さい。&lt;/p>
+&lt;h2 id="終わりに">終わりに&lt;/h2>
+&lt;p>abcryptの紹介をしました。&lt;/p>
+&lt;p>気に入ってもらえたら&lt;a class="link" href="https://github.com/sorairolake/abcrypt" target="_blank" rel="noopener"
+>sorairolake/abcrypt&lt;/a>でStarを付けてもらえるとありがたいです。
+abcryptの改善のために&lt;a class="link" href="https://github.com/sorairolake/abcrypt/issues" target="_blank" rel="noopener"
+>Issue&lt;/a>や&lt;a class="link" href="https://github.com/sorairolake/abcrypt/pulls" target="_blank" rel="noopener"
+>Pull Request&lt;/a>もお待ちしています。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://doc.libsodium.org/secret-key_cryptography/aead/chacha20-poly1305/xchacha20-poly1305_construction" target="_blank" rel="noopener"
+>XChaCha20-Poly1305 construction - libsodium&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://datatracker.ietf.org/doc/html/draft-arciszewski-xchacha-03#section-2.1" target="_blank" rel="noopener"
+>Motivation for XChaCha20-Poly1305&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>有効にしない場合はArgon2で秘密鍵を導出する際に使用するメモリブロックの大きさが制限されます (v0.2.5の時点では256 KiB)。&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>指定しない場合は&lt;a class="link" href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#argon2id" target="_blank" rel="noopener"
+>OWASP Cheat Sheet&lt;/a>の推奨値を使用します。&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Rust製のHTTPieのxhを使ってみた</title><link>https://sorairolake.github.io/blog/posts/introduction-of-xh/</link><pubDate>Sat, 05 Aug 2023 21:06:00 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-xh/</guid><description>&lt;p>Rust製の&lt;a class="link" href="https://httpie.io/" target="_blank" rel="noopener"
+>HTTPie&lt;/a>のようなHTTPクライアントのxhを使ってみたので紹介します。&lt;/p>
+&lt;h2 id="xhとは">xhとは&lt;/h2>
+&lt;p>&lt;code>xh&lt;/code>はHTTPリクエストを送信するための高速で使いやすいコマンドラインHTTPクライアントです&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。
+パフォーマンスの向上に重点を置いており、HTTPieの優れた設計を可能な限り再実装しています&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
+&lt;h2 id="インストール">インストール&lt;/h2>
+&lt;p>&lt;code>xh&lt;/code>は以下のような方法でインストールすることができます&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。
+完全な一覧については&lt;code>xh&lt;/code>の&lt;code>README.md&lt;/code>を参照して下さい&lt;sup id="fnref1:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。&lt;/p>
+&lt;h3 id="ソースコードから">ソースコードから&lt;/h3>
+&lt;p>&lt;a class="link" href="https://doc.rust-lang.org/cargo/index.html" target="_blank" rel="noopener"
+>Cargo&lt;/a>を利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>cargo install xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="linux">Linux&lt;/h3>
+&lt;p>Alpine Linuxではapkを利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>apk add xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Arch Linuxでは&lt;a class="link" href="https://archlinux.org/pacman/" target="_blank" rel="noopener"
+>pacman&lt;/a>を利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pacman -S xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>DebianやUbuntuではAPTを利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>apt install xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="macos">macOS&lt;/h3>
+&lt;p>macOSでは&lt;a class="link" href="https://brew.sh/" target="_blank" rel="noopener"
+>Homebrew&lt;/a>を利用してインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew install xh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="使い方">使い方&lt;/h2>
+&lt;p>&lt;code>GET&lt;/code>リクエストを送信してみます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh httpbin.org/get
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>結果はHTTPieと同様に色付けされており、JSONがシンタックスハイライトされる点も同様です。&lt;/p>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get.webp"
+width="590"
+height="704"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu03ded58f532ff1907c3128b489a601de_17834_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu03ded58f532ff1907c3128b489a601de_17834_1024x0_resize_q75_h2_box_2.webp 1024w"
+loading="lazy"
+alt="レスポンスの画像"
+class="gallery-image"
+data-flex-grow="83"
+data-flex-basis="201px"
+>&lt;/p>
+&lt;p>その他の使い方については&lt;a class="link" href="https://httpie.io/docs/cli" target="_blank" rel="noopener"
+>HTTPieのドキュメント&lt;/a>を参照して下さい。&lt;/p>
+&lt;h2 id="httpieとの比較">HTTPieとの比較&lt;/h2>
+&lt;p>&lt;code>xh&lt;/code>はHTTPieを可能な限り再実装していますが、以下のようなHTTPieにはない特徴が存在したり、逆にxhにはない特徴が存在したりするので、紹介します&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>。&lt;/p>
+&lt;h3 id="長所">長所&lt;/h3>
+&lt;h4 id="rust製">Rust製&lt;/h4>
+&lt;p>スクリプト言語であるPythonで実装されているHTTPieとは異なり、&lt;code>xh&lt;/code>はRustで実装されているので起動速度が向上しています。
+また、Rustで実装されているのでシングルバイナリにすることも可能で、インストールや配布を簡単に行うこともできます。&lt;/p>
+&lt;h4 id="http2をサポート">HTTP/2をサポート&lt;/h4>
+&lt;p>&lt;code>xh&lt;/code>はHTTP/2をサポートしています。
+HTTPieはこの記事を書いた時点ではHTTP/2をサポートしていません&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh -h https://example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2.webp"
+width="440"
+height="330"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_huf00bf63ca09d577102dc1858c722d82c_13086_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_huf00bf63ca09d577102dc1858c722d82c_13086_1024x0_resize_q75_h2_box_2.webp 1024w"
+loading="lazy"
+alt="レスポンスの画像"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;h4 id="curlのコマンドへの変換機能">curlのコマンドへの変換機能&lt;/h4>
+&lt;p>&lt;code>--curl&lt;/code>オプションを使用することで&lt;code>xh&lt;/code>のコマンドをそれと等価な&lt;code>curl&lt;/code>のコマンドに変換することができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh --curl --ssl tls1.3 https://example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>変換した結果は以下のようになります。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>curl --tlsv1.3 --tls-max 1.3 https://example.com/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="短所">短所&lt;/h3>
+&lt;p>&lt;code>xh&lt;/code>はこの記事を書いた時点ではHTTPieの全ての機能を実装していません。
+また、&lt;code>xh&lt;/code>はプラグインには対応していません。&lt;/p>
+&lt;h3 id="その他の違い">その他の違い&lt;/h3>
+&lt;h4 id="tlsバックエンド">TLSバックエンド&lt;/h4>
+&lt;p>&lt;code>xh&lt;/code>はデフォルトのTLSバックエンドとして&lt;a class="link" href="https://github.com/rustls/rustls" target="_blank" rel="noopener"
+>rustls&lt;/a>を使用します。
+rustlsはTLS 1.2以降のみをサポートしているので、デフォルトでは&lt;code>xh&lt;/code>でTLS 1.1などの古いプロトコルを使用することはできません。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh --offline --ssl&lt;span style="color:#f92672">=&lt;/span>tls1.1 :
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>以下のような警告が表示されます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>xh: warning: rustls does not support older TLS versions. native-tls will be enabled. Use --native-tls to silence this warning.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>TLS 1.1などの古いプロトコルを使用する場合は、コンパイル時に&lt;code>native-tls&lt;/code>機能を有効にしてビルドした上で、実行時に&lt;code>--native-tls&lt;/code>オプションを指定することで、OpenSSLなどのシステムのTLSライブラリをTLSバックエンドとして使用することができます。
+この場合に使用できるプロトコルは、そのTLSライブラリに依存します。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh --offline --ssl&lt;span style="color:#f92672">=&lt;/span>tls1.1 --native-tls :
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="出力">出力&lt;/h4>
+&lt;p>フォーマットされた出力は常にUTF-8です。&lt;/p>
+&lt;h2 id="終わりに">終わりに&lt;/h2>
+&lt;p>Rust製のHTTPieのようなHTTPクライアントのxhを紹介しました。
+起動速度が向上していることや、HTTP/2をサポートしているなどHTTPieにはない長所がかなりあると思いました。
+また、古いバージョンのTLSをデフォルトではサポートしていない点も個人的には評価できます。
+モダンなプロトコルをサポートした手軽に利用できるHTTPクライアントとして使ってみてはどうでしょうか。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://github.com/ducaale/xh/tree/v0.18.0#xh" target="_blank" rel="noopener"
+>https://github.com/ducaale/xh/tree/v0.18.0#xh&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://github.com/ducaale/xh/tree/v0.18.0#installation" target="_blank" rel="noopener"
+>https://github.com/ducaale/xh/tree/v0.18.0#installation&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>&lt;a class="link" href="https://github.com/ducaale/xh/tree/v0.18.0#how-xh-compares-to-httpie" target="_blank" rel="noopener"
+>https://github.com/ducaale/xh/tree/v0.18.0#how-xh-compares-to-httpie&lt;/a>&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>&lt;a class="link" href="https://daniel.haxx.se/docs/curl-vs-httpie.html" target="_blank" rel="noopener"
+>curl vs HTTPie&lt;/a>&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>&lt;a class="link" href="https://github.com/httpie/cli/issues/692" target="_blank" rel="noopener"
+>Support HTTP/2 (httpie-http2 plugin doesn&amp;rsquo;t work) · Issue #692&lt;/a>&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>RustでWindowsのファイル時刻を扱うためのライブラリのnt-timeの紹介</title><link>https://sorairolake.github.io/blog/posts/nt-time/</link><pubDate>Thu, 03 Aug 2023 19:53:18 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/nt-time/</guid><description>&lt;p>RustでWindowsの&lt;a class="link" href="https://learn.microsoft.com/ja-jp/windows/win32/sysinfo/file-times" target="_blank" rel="noopener"
+>ファイル時刻&lt;/a>を扱うためのライブラリの&lt;a class="link" href="https://crates.io/crates/nt-time" target="_blank" rel="noopener"
+>&lt;code>nt-time&lt;/code>&lt;/a>を開発したので紹介します。&lt;/p>
+&lt;h2 id="ファイル時刻とは">ファイル時刻とは&lt;/h2>
+&lt;p>&lt;code>nt-time&lt;/code>クレートについて説明する前に、ファイル時刻について説明します。&lt;/p>
+&lt;p>ファイル時刻は、1601年1月1日0時0分0秒 (UTC) から経過した100ナノ秒間隔の数を表す64ビット整数値で、Unix系のシステムにおけるUNIX時間に相当するものです。
+ファイル時刻は、NTFSや7zのタイムスタンプとして利用されています&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。
+ファイル時刻は、Win32 APIでは&lt;a class="link" href="https://learn.microsoft.com/ja-jp/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemtime" target="_blank" rel="noopener"
+>&lt;code>GetSystemTime()&lt;/code>&lt;/a>を使用することで取得することができ、.NETでは&lt;a class="link" href="https://learn.microsoft.com/ja-jp/dotnet/api/system.datetime.tofiletime" target="_blank" rel="noopener"
+>&lt;code>DateTime.ToFileTime()&lt;/code>&lt;/a>を使用することで取得することができます。
+最大値は60056年5月28日5時36分10秒955161500 (UTC) ですが、WindowsのAPIでは最大値は64ビット符号付き整数の最大値に制限されます。&lt;/p>
+&lt;h2 id="nt-timeとは">nt-timeとは&lt;/h2>
+&lt;p>&lt;code>nt-time&lt;/code>クレートはこのファイル時刻を扱うためのライブラリです。&lt;/p>
+&lt;p>ファイル時刻を表す型として&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html" target="_blank" rel="noopener"
+>&lt;code>nt_time::FileTime&lt;/code>&lt;/a>を定義しています。
+この型はNew Type Patternを利用しており、内部的には&lt;a class="link" href="https://doc.rust-lang.org/core/primitive.u64.html" target="_blank" rel="noopener"
+>&lt;code>u64&lt;/code>&lt;/a>です。&lt;/p>
+&lt;p>&lt;code>FileTime&lt;/code>は以下のような機能を実装しています。&lt;/p>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://doc.rust-lang.org/core/time/struct.Duration.html" target="_blank" rel="noopener"
+>&lt;code>core::time::Duration&lt;/code>&lt;/a>などとの加算や減算&lt;/li>
+&lt;li>&lt;a class="link" href="https://doc.rust-lang.org/std/index.html" target="_blank" rel="noopener"
+>&lt;code>std&lt;/code>&lt;/a>や&lt;a class="link" href="https://crates.io/crates/time" target="_blank" rel="noopener"
+>&lt;code>time&lt;/code>&lt;/a>クレートや&lt;a class="link" href="https://crates.io/crates/chrono" target="_blank" rel="noopener"
+>&lt;code>chrono&lt;/code>&lt;/a>クレートの時間を表す型との相互変換&lt;/li>
+&lt;li>UNIX時間との相互変換&lt;/li>
+&lt;li>&lt;a class="link" href="https://serde.rs/" target="_blank" rel="noopener"
+>Serde&lt;/a>を利用したシリアライズとデシリアライズ&lt;/li>
+&lt;/ol>
+&lt;h3 id="コード例">コード例&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rs" data-lang="rs">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> core::time::Duration;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> nt_time::{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time::{macros::datetime, OffsetDateTime},
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FileTime,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> ft &lt;span style="color:#f92672">=&lt;/span> FileTime::&lt;span style="color:#66d9ef">NT_TIME_EPOCH&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>assert_eq!(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> OffsetDateTime::try_from(ft).unwrap(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> datetime!(&lt;span style="color:#ae81ff">1601&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">01&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">01&lt;/span> &lt;span style="color:#ae81ff">00&lt;/span>:&lt;span style="color:#ae81ff">00&lt;/span> &lt;span style="color:#66d9ef">UTC&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> ft &lt;span style="color:#f92672">=&lt;/span> ft &lt;span style="color:#f92672">+&lt;/span> Duration::from_secs(&lt;span style="color:#ae81ff">11_644_473_600&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>assert_eq!(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> OffsetDateTime::try_from(ft).unwrap(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> OffsetDateTime::&lt;span style="color:#66d9ef">UNIX_EPOCH&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>assert_eq!(ft.to_raw(), &lt;span style="color:#ae81ff">116_444_736_000_000_000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>assert_eq!(FileTime::new(&lt;span style="color:#66d9ef">u64&lt;/span>::&lt;span style="color:#66d9ef">MAX&lt;/span>), FileTime::&lt;span style="color:#66d9ef">MAX&lt;/span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="定数">定数&lt;/h3>
+&lt;p>以下の3つの定数を定義しています。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#associatedconstant.NT_TIME_EPOCH" target="_blank" rel="noopener"
+>&lt;code>FileTime::NT_TIME_EPOCH&lt;/code>&lt;/a> - NT time epoch (1601-01-01 00:00:00 UTC) を表します&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#associatedconstant.UNIX_EPOCH" target="_blank" rel="noopener"
+>&lt;code>FileTime::UNIX_EPOCH&lt;/code>&lt;/a> - Unix epoch (1970-01-01 00:00:00 UTC) を表します&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#associatedconstant.MAX" target="_blank" rel="noopener"
+>&lt;code>FileTime::MAX&lt;/code>&lt;/a> - &lt;code>FileTime&lt;/code>が表すことのできる最大値 (+60056-05-28 05:36:10.955161500 UTC) を表します&lt;/li>
+&lt;/ul>
+&lt;h3 id="演算">演算&lt;/h3>
+&lt;p>&lt;code>FileTime&lt;/code>は&lt;a class="link" href="https://doc.rust-lang.org/core/ops/trait.Add.html" target="_blank" rel="noopener"
+>&lt;code>Add&lt;/code>&lt;/a>を実装しているので、&lt;code>core::time::Duration&lt;/code>や&lt;a class="link" href="https://docs.rs/time/0.3.23/time/struct.Duration.html" target="_blank" rel="noopener"
+>&lt;code>time::Duration&lt;/code>&lt;/a>の値を加算することができます。
+&lt;a class="link" href="https://doc.rust-lang.org/core/ops/trait.Sub.html" target="_blank" rel="noopener"
+>&lt;code>Sub&lt;/code>&lt;/a>ではこれらに加えて&lt;a class="link" href="https://doc.rust-lang.org/std/time/struct.SystemTime.html" target="_blank" rel="noopener"
+>&lt;code>std::time::SystemTime&lt;/code>&lt;/a>などの時間を表す型との演算を実装しているので、&lt;code>FileTime&lt;/code>からこれらの型の値を減算することができます。
+&lt;code>core::time::Duration&lt;/code>との演算ではオーバーフローした場合に飽和するメソッド (&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.saturating_add" target="_blank" rel="noopener"
+>&lt;code>FileTime::saturating_add()&lt;/code>&lt;/a>、&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.saturating_sub" target="_blank" rel="noopener"
+>&lt;code>FileTime::saturating_sub()&lt;/code>&lt;/a>) や&lt;code>None&lt;/code>を返すメソッド (&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.checked_add" target="_blank" rel="noopener"
+>&lt;code>FileTime::checked_add()&lt;/code>&lt;/a>、&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.checked_sub" target="_blank" rel="noopener"
+>&lt;code>FileTime::checked_sub()&lt;/code>&lt;/a>) を定義しています。
+また、&lt;a class="link" href="https://doc.rust-lang.org/core/cmp/trait.PartialEq.html" target="_blank" rel="noopener"
+>&lt;code>PartialEq&lt;/code>&lt;/a>と&lt;a class="link" href="https://doc.rust-lang.org/core/cmp/trait.PartialOrd.html" target="_blank" rel="noopener"
+>&lt;code>PartialOrd&lt;/code>&lt;/a>も実装しているので、これらの期間や時間を表す型との同値関係と順序関係を比較することができます。&lt;/p>
+&lt;h3 id="相互変換">相互変換&lt;/h3>
+&lt;p>&lt;code>FileTime&lt;/code>は&lt;a class="link" href="https://doc.rust-lang.org/core/convert/trait.From.html" target="_blank" rel="noopener"
+>&lt;code>From&lt;/code>&lt;/a>や&lt;a class="link" href="https://doc.rust-lang.org/core/convert/trait.TryFrom.html" target="_blank" rel="noopener"
+>&lt;code>TryFrom&lt;/code>&lt;/a>によって&lt;code>std::time::SystemTime&lt;/code>、&lt;a class="link" href="https://docs.rs/time/0.3.23/time/struct.OffsetDateTime.html" target="_blank" rel="noopener"
+>&lt;code>time::OffsetDateTime&lt;/code>&lt;/a>、&lt;a class="link" href="https://docs.rs/chrono/0.4.26/chrono/struct.DateTime.html" target="_blank" rel="noopener"
+>&lt;code>chrono::DateTime&amp;lt;chrono::offset::Utc&amp;gt;&lt;/code>&lt;/a>と相互変換することができます。
+これらは変換元の値が変換先の型の範囲外の場合は&lt;code>TryFrom&lt;/code>を使うようになっています。
+また、&lt;code>u64&lt;/code>の値から&lt;code>FileTime&lt;/code>を作成すること (&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.new" target="_blank" rel="noopener"
+>&lt;code>FileTime::new()&lt;/code>&lt;/a>) とその逆 (&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.to_raw" target="_blank" rel="noopener"
+>&lt;code>FileTime::to_raw()&lt;/code>&lt;/a>) にも対応しています。&lt;/p>
+&lt;p>UNIX時間との相互変換については、秒単位とナノ秒単位に対応しています&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>。&lt;/p>
+&lt;h3 id="シリアライズとデシリアライズ">シリアライズとデシリアライズ&lt;/h3>
+&lt;p>Serdeを利用してISO 8601形式、RFC 2822形式、RFC 3339形式、UNIX時間との間でシリアライズとデシリアライズを行うことができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rs" data-lang="rs">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">use&lt;/span> nt_time::{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> serde::{Deserialize, Serialize},
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> serde_with::iso_8601,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FileTime,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#[derive(Debug, Deserialize, PartialEq, Serialize)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">DateTime&lt;/span>(&lt;span style="color:#75715e">#[serde(with = &lt;/span>&lt;span style="color:#e6db74">&amp;#34;iso_8601&amp;#34;&lt;/span>&lt;span style="color:#75715e">)]&lt;/span> FileTime);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> json &lt;span style="color:#f92672">=&lt;/span> serde_json::to_string(&lt;span style="color:#f92672">&amp;amp;&lt;/span>DateTime(FileTime::&lt;span style="color:#66d9ef">UNIX_EPOCH&lt;/span>)).unwrap();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>assert_eq!(json, &lt;span style="color:#e6db74">r&lt;/span>&lt;span style="color:#e6db74">#&amp;#34;&amp;#34;+001970-01-01T00:00:00.000000000Z&amp;#34;&amp;#34;#&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>assert_eq!(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> serde_json::from_str::&lt;span style="color:#f92672">&amp;lt;&lt;/span>DateTime&lt;span style="color:#f92672">&amp;gt;&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>json).unwrap(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> DateTime(FileTime::&lt;span style="color:#66d9ef">UNIX_EPOCH&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="終わりに">終わりに&lt;/h2>
+&lt;p>RustでWindowsのファイル時刻を扱うためのライブラリの&lt;code>nt-time&lt;/code>クレートを紹介しました。&lt;/p>
+&lt;p>詳細なドキュメントは&lt;a class="link" href="https://docs.rs/nt-time" target="_blank" rel="noopener"
+>Docs.rs&lt;/a>で確認することができます。&lt;/p>
+&lt;p>気に入ってもらえたら&lt;a class="link" href="https://github.com/sorairolake/nt-time" target="_blank" rel="noopener"
+>sorairolake/nt-time&lt;/a>でStarを付けてもらえるとありがたいです。
+&lt;code>nt-time&lt;/code>クレートの改善のために&lt;a class="link" href="https://github.com/sorairolake/nt-time/issues" target="_blank" rel="noopener"
+>Issue&lt;/a>や&lt;a class="link" href="https://github.com/sorairolake/nt-time/pulls" target="_blank" rel="noopener"
+>Pull Request&lt;/a>もお待ちしています。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://learn.microsoft.com/ja-jp/windows/win32/sysinfo/file-times" target="_blank" rel="noopener"
+>https://learn.microsoft.com/ja-jp/windows/win32/sysinfo/file-times&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://py7zr.readthedocs.io/en/v0.20.5/archive_format.html#filetime" target="_blank" rel="noopener"
+>https://py7zr.readthedocs.io/en/v0.20.5/archive_format.html#filetime&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.to_unix_time" target="_blank" rel="noopener"
+>https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.to_unix_time&lt;/a>&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.to_unix_time_nanos" target="_blank" rel="noopener"
+>https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.to_unix_time_nanos&lt;/a>&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.from_unix_time" target="_blank" rel="noopener"
+>https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.from_unix_time&lt;/a>&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:6">
+&lt;p>&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.from_unix_time_nanos" target="_blank" rel="noopener"
+>https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.from_unix_time_nanos&lt;/a>&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>qrtoolのバージョン0.7.0を公開しました</title><link>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</link><pubDate>Sat, 15 Jul 2023 08:02:01 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</guid><description>&lt;p>協定世界時 (UTC) の2023年7月12日にQRコードのエンコードとデコードを行うためのコマンドラインユーティリティの&lt;code>qrtool&lt;/code>のバージョン0.7.0を公開しました。&lt;/p>
+&lt;p>この記事では、&lt;code>qrtool&lt;/code>の紹介と、バージョン0.7.0の主な変更点について書こうと思います。&lt;/p>
+&lt;h2 id="qrtoolとは">qrtoolとは&lt;/h2>
+&lt;p>&lt;a class="link" href="https://github.com/sorairolake/qrtool" target="_blank" rel="noopener"
+>&lt;code>qrtool&lt;/code>&lt;/a>はQRコードのエンコードとデコードを行うためのコマンドラインユーティリティで、エンコードを行うサブコマンドの&lt;code>encode&lt;/code>と、デコードを行うサブコマンドの&lt;code>decode&lt;/code>で構成されています。
+&lt;code>encode&lt;/code>については&lt;a class="link" href="https://fukuchi.org/works/qrencode/" target="_blank" rel="noopener"
+>&lt;code>qrencode&lt;/code>&lt;/a>の影響を受けており、&lt;code>decode&lt;/code>については&lt;a class="link" href="https://github.com/mchehab/zbar" target="_blank" rel="noopener"
+>&lt;code>zbarimg&lt;/code>&lt;/a>の影響を受けています。&lt;/p>
+&lt;h2 id="機能">機能&lt;/h2>
+&lt;ul>
+&lt;li>誤り訂正レベルの設定 (&lt;code>-l&lt;/code>)&lt;/li>
+&lt;li>シンボルのバージョンの設定 (&lt;code>-v&lt;/code>)&lt;/li>
+&lt;li>マージンの設定 (&lt;code>-m&lt;/code>)&lt;/li>
+&lt;li>モードの設定 (&lt;code>--mode&lt;/code>)&lt;/li>
+&lt;li>マイクロQRコードの出力に対応 (&lt;code>--variant&lt;/code>)&lt;/li>
+&lt;li>前景色と背景色の設定 (&lt;code>--foreground&lt;/code>、&lt;code>--background&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="対応する出力形式">対応する出力形式&lt;/h3>
+&lt;p>&lt;code>encode&lt;/code>サブコマンドは以下の3種類の出力形式に対応しています。&lt;/p>
+&lt;ul>
+&lt;li>PNG (32ビットRGBA、既定値)&lt;/li>
+&lt;li>SVG&lt;/li>
+&lt;li>ターミナルへの出力 (UTF-8文字列)&lt;/li>
+&lt;/ul>
+&lt;p>PNGとSVG以外の画像形式については、&lt;a class="link" href="https://imagemagick.org/" target="_blank" rel="noopener"
+>ImageMagick&lt;/a>などによって容易に変換することができるので、これらを利用することを想定しています。&lt;/p>
+&lt;h3 id="対応する入力形式">対応する入力形式&lt;/h3>
+&lt;p>&lt;code>decode&lt;/code>サブコマンドが対応する入力形式は&lt;a class="link" href="https://crates.io/crates/image" target="_blank" rel="noopener"
+>&lt;code>image&lt;/code>&lt;/a>クレートがデコードできる画像形式で、以下の画像形式です。&lt;/p>
+&lt;ul>
+&lt;li>BMP&lt;/li>
+&lt;li>DDS&lt;/li>
+&lt;li>Farbfeld&lt;/li>
+&lt;li>GIF&lt;/li>
+&lt;li>RGBE&lt;/li>
+&lt;li>ICO&lt;/li>
+&lt;li>JPEG&lt;/li>
+&lt;li>OpenEXR&lt;/li>
+&lt;li>PNG&lt;/li>
+&lt;li>PNM&lt;/li>
+&lt;li>QOI&lt;/li>
+&lt;li>TGA&lt;/li>
+&lt;li>TIFF&lt;/li>
+&lt;li>WebP&lt;/li>
+&lt;/ul>
+&lt;p>また、SVG画像を入力することにも対応しています。
+SVG画像の入力については&lt;a class="link" href="https://crates.io/crates/resvg" target="_blank" rel="noopener"
+>&lt;code>resvg&lt;/code>&lt;/a>クレートに依存しており、ビルド時に&lt;code>--no-default-features&lt;/code>オプションを指定することで無効にすることができます。&lt;/p>
+&lt;h2 id="インストール方法">インストール方法&lt;/h2>
+&lt;p>&lt;a class="link" href="https://crates.io/" target="_blank" rel="noopener"
+>crates.io&lt;/a>からインストールする場合は、以下のコマンドを実行します。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>cargo install qrtool
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>また、GitHubの&lt;a class="link" href="https://github.com/sorairolake/qrtool/releases" target="_blank" rel="noopener"
+>リリースページ&lt;/a>でLinux、macOS及びWindows向けの実行ファイルとドキュメントを含んだアーカイブファイル&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>を公開しているので、これをダウンロードして利用することもできます。&lt;/p>
+&lt;h2 id="使い方">使い方&lt;/h2>
+&lt;h3 id="基本的なエンコード方法">基本的なエンコード方法&lt;/h3>
+&lt;p>UTF-8文字列をQRコードにエンコードしてPNG画像として出力するには以下のコマンドを実行します。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>qrtool encode &lt;span style="color:#e6db74">&amp;#34;QR code&amp;#34;&lt;/span> &amp;gt; output.png
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>エンコードした結果は以下のようになります。&lt;/p>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode.webp"
+width="232"
+height="232"
+srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_1024x0_resize_q75_h2_box_2.webp 1024w"
+loading="lazy"
+alt="エンコードした結果のPNG画像"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>エンコードするデータの入力は、以下のいずれかの方法によって行います。&lt;/p>
+&lt;ol>
+&lt;li>位置引数に文字列を指定する (UTF-8文字列の場合のみ利用可能)&lt;/li>
+&lt;li>&lt;code>-r&lt;/code>オプションでファイルを指定する&lt;/li>
+&lt;li>位置引数を省略して、標準入力からデータを読み取る (UTF-8文字列以外も入力可能)&lt;/li>
+&lt;/ol>
+&lt;h3 id="基本的なデコード方法">基本的なデコード方法&lt;/h3>
+&lt;p>基本的なエンコード方法で出力したPNG画像をデコードするには以下のコマンドを実行します。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>qrtool decode output.png
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>デコードした結果は以下のようになります。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>QR code
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>位置引数に画像ファイルを指定しなかった場合と、&lt;code>-&lt;/code>を指定した場合は、データは標準入力から読み取られます。&lt;/p>
+&lt;p>入力された画像の形式は拡張子やマジックナンバーを基に決定されます。
+これが失敗する場合は、&lt;code>-t&lt;/code>オプションで明示的に画像形式を指定して下さい。&lt;/p>
+&lt;h3 id="エンコードした結果をsvg画像として出力する">エンコードした結果をSVG画像として出力する&lt;/h3>
+&lt;p>&lt;code>encode&lt;/code>サブコマンドはデフォルトではPNG画像を出力しますが、エンコードした結果をSVG画像として出力する場合は以下のコマンドを実行します。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>qrtool encode -o output.svg -t svg &lt;span style="color:#e6db74">&amp;#34;QR code&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>エンコードした結果は以下のようになります。&lt;/p>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/encode.svg"
+loading="lazy"
+alt="エンコードした結果のSVG画像"
+>&lt;/p>
+&lt;p>この例では&lt;code>-t&lt;/code>オプションで出力形式としてSVGを指定しています。
+また、&lt;code>-o&lt;/code>オプションではエンコードした結果を出力するファイルを指定しています。
+デフォルトでは、エンコードした結果は標準出力に出力されます。&lt;/p>
+&lt;h3 id="マイクロqrコードを出力する">マイクロQRコードを出力する&lt;/h3>
+&lt;p>マイクロQRコードを出力するには以下のコマンドを実行します。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>qrtool encode -v &lt;span style="color:#ae81ff">3&lt;/span> --variant micro &lt;span style="color:#e6db74">&amp;#34;QR code&amp;#34;&lt;/span> &amp;gt; output.png
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>エンコードした結果は以下のようになります。&lt;/p>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro.webp"
+width="184"
+height="184"
+srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_1024x0_resize_q75_h2_box_2.webp 1024w"
+loading="lazy"
+alt="エンコードした結果のPNG画像"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>なお、マイクロQRコードを出力する場合は&lt;code>-v&lt;/code>オプションでシンボルのバージョンを指定する必要があります。&lt;/p>
+&lt;h3 id="前景色や背景色を変更したqrコードを出力する">前景色や背景色を変更したQRコードを出力する&lt;/h3>
+&lt;p>前景色にCSSの&lt;code>&amp;lt;named-color&amp;gt;&lt;/code>の&lt;code>brown&lt;/code>を指定して出力するには以下のコマンドを実行します。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>qrtool encode --foreground brown &lt;span style="color:#e6db74">&amp;#34;QR code&amp;#34;&lt;/span> &amp;gt; output.png
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>エンコードした結果は以下のようになります。&lt;/p>
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg.webp"
+width="232"
+height="232"
+srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_1024x0_resize_q75_h2_box_2.webp 1024w"
+loading="lazy"
+alt="エンコードした結果のPNG画像"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>&lt;code>--foreground&lt;/code>と&lt;code>--background&lt;/code>には&lt;a class="link" href="https://www.w3.org/TR/css-color-4/" target="_blank" rel="noopener"
+>CSS Color Module Level 4&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>で定義されている色の値を指定することができます。
+&lt;code>--foreground&lt;/code>の既定値は&lt;code>&amp;lt;named-color&amp;gt;&lt;/code>の&lt;code>black&lt;/code> (&lt;code>#000000&lt;/code>) で、&lt;code>--background&lt;/code>の既定値は&lt;code>&amp;lt;named-color&amp;gt;&lt;/code>の&lt;code>white&lt;/code> (&lt;code>#ffffff&lt;/code>) です。&lt;/p>
+&lt;h3 id="シェル補完スクリプトの生成">シェル補完スクリプトの生成&lt;/h3>
+&lt;p>&lt;code>--generate-completion&lt;/code>オプションを指定することでシェル補完スクリプトを生成することができます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>qrtool --generate-completion bash &amp;gt; qrtool.bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>以下のシェルの補完スクリプトを生成することができます&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>。&lt;/p>
+&lt;ul>
+&lt;li>Bash&lt;/li>
+&lt;li>Elvish&lt;/li>
+&lt;li>Fish&lt;/li>
+&lt;li>PowerShell&lt;/li>
+&lt;li>Zsh&lt;/li>
+&lt;/ul>
+&lt;h3 id="別のコマンドとの連携">別のコマンドとの連携&lt;/h3>
+&lt;p>&lt;code>encode&lt;/code>サブコマンドと&lt;code>decode&lt;/code>サブコマンドはどちらも標準入力からの読み取りと標準出力への書き込みに対応しているので、&lt;a class="link" href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF_%28%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%29" target="_blank" rel="noopener"
+>フィルタープログラム&lt;/a>として利用することもできます。&lt;/p>
+&lt;p>以下の例では、&lt;code>Cargo.toml&lt;/code>の内容を標準入力から読み取って、QRコードにエンコードした結果をPNG画像として標準出力に出力して、ImageMagickの&lt;code>magick&lt;/code>コマンドでPNG画像からJPEG XL画像に変換しています。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>cat Cargo.toml | qrtool encode | magick png:- output.jxl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>以下の例では、&lt;code>magick&lt;/code>コマンドでJPEG XL画像からPNG画像に変換したQRコードを標準入力から読み取って、これをデコードした結果を標準出力に出力し、&lt;a class="link" href="https://github.com/sharkdp/bat" target="_blank" rel="noopener"
+>&lt;code>bat&lt;/code>&lt;/a>コマンドでTOMLとしてシンタックスハイライトして表示しています。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>magick output.jxl png:- | qrtool decode | bat -l toml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="バージョン070の主な変更点">バージョン0.7.0の主な変更点&lt;/h2>
+&lt;h3 id="qoi画像形式を明示的に指定できるようになった">QOI画像形式を明示的に指定できるようになった&lt;/h3>
+&lt;p>&lt;code>image&lt;/code>クレートのバージョン0.24.6から&lt;a class="link" href="https://qoiformat.org/" target="_blank" rel="noopener"
+>QOI&lt;/a>画像形式に対応していたので、&lt;code>qrtool&lt;/code>のバージョン0.6.0の時点で&lt;code>-t&lt;/code>オプションを指定しない場合にはQOI画像を入力することに対応していました。&lt;/p>
+&lt;p>しかし、READMEの対応する画像形式についての表には載っていなかったことから対応していることに気が付かず&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>、&lt;code>-t&lt;/code>オプションでQOI画像形式を指定することができない状態でした。&lt;/p>
+&lt;p>なので、この問題に対応するために&lt;code>-t&lt;/code>オプションの値に&lt;code>qoi&lt;/code>を追加しました。&lt;/p>
+&lt;h3 id="前景色と背景色を指定する際に指定できる値の種類を増やした">前景色と背景色を指定する際に指定できる値の種類を増やした&lt;/h3>
+&lt;p>従来は独自に値をパースしており、16進数表記 (&lt;code>#ff0000&lt;/code>など) にだけ対応していました。
+独自にパースするのを止めたいと考え、&lt;a class="link" href="https://crates.io/crates/csscolorparser" target="_blank" rel="noopener"
+>&lt;code>csscolorparser&lt;/code>&lt;/a>クレートを利用するように変更しました。
+この結果として、&lt;code>rgb()&lt;/code>関数表記や&lt;code>hsl()&lt;/code>関数表記などでも前景色と背景色を指定できるようになりました。&lt;/p>
+&lt;h3 id="manページなどのドキュメントのライセンスをcc-by-40に変更した">manページなどのドキュメントのライセンスをCC BY 4.0に変更した&lt;/h3>
+&lt;p>従来はドキュメントも含めてプロジェクト全体に&lt;em>Apache License 2.0&lt;/em>と&lt;em>MIT License&lt;/em>のデュアルライセンスとしていましたが、これらのライセンスはドキュメントには適していないことや、プロジェクトの人間の貢献者が自分だけでライセンスの変更が容易なので、manページなどのドキュメントのライセンスをこれらにより適した&lt;em>CC BY 4.0&lt;/em>に変更しました。&lt;/p>
+&lt;h3 id="ラスター画像の形式の決定に拡張子も利用するように変更した">ラスター画像の形式の決定に拡張子も利用するように変更した&lt;/h3>
+&lt;p>従来はラスター画像の形式はマジックナンバーだけを基に決定していましたが、拡張子も利用するように変更しました。
+これによって、TGA形式の画像を入力する場合に明示的に画像形式を指定することが必須ではなくなりました。&lt;/p>
+&lt;h2 id="終わりに">終わりに&lt;/h2>
+&lt;p>&lt;code>qrtool&lt;/code>とバージョン0.7.0の主な変更点の紹介をしました。&lt;/p>
+&lt;p>詳細な利用方法は&lt;a class="link" href="https://sorairolake.github.io/qrtool/" target="_blank" rel="noopener"
+>qrtool Documentation&lt;/a>のmanページでも確認することができます。&lt;/p>
+&lt;p>気に入ってもらえたら&lt;a class="link" href="https://github.com/sorairolake/qrtool" target="_blank" rel="noopener"
+>sorairolake/qrtool&lt;/a>でStarを付けてもらえるとありがたいです。
+&lt;code>qrtool&lt;/code>の改善のために&lt;a class="link" href="https://github.com/sorairolake/qrtool/issues" target="_blank" rel="noopener"
+>Issue&lt;/a>や&lt;a class="link" href="https://github.com/sorairolake/qrtool/pulls" target="_blank" rel="noopener"
+>Pull Request&lt;/a>もお待ちしています。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>アーカイブの種類は&lt;code>.tar.zst&lt;/code> (Linux、macOS) と&lt;code>.7z&lt;/code> (Windows) です。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://developer.mozilla.org/ja/docs/Web/CSS/color_value" target="_blank" rel="noopener"
+>MDN Web Docs&lt;/a>を参照。&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>&lt;a class="link" href="https://crates.io/crates/clap_complete" target="_blank" rel="noopener"
+>&lt;code>clap_complete&lt;/code>&lt;/a>クレートに基づきます。&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>&lt;a class="link" href="https://github.com/image-rs/image/issues/1948" target="_blank" rel="noopener"
+>#1948&lt;/a>に基づき修正済み。&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>scrypt暗号化データ形式のRust実装を作成しました</title><link>https://sorairolake.github.io/blog/posts/scryptenc/</link><pubDate>Tue, 22 Nov 2022 13:22:14 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/scryptenc/</guid><description>&lt;p>&lt;a class="link" href="https://github.com/Tarsnap/scrypt/blob/d7a543fb19dca17688e34947aee4558a94200877/FORMAT" target="_blank" rel="noopener"
+>scrypt暗号化データ形式&lt;/a>を読み書きするためのライブラリの&lt;strong>scryptenc-rs&lt;/strong> (&lt;a class="link" href="https://crates.io/crates/scryptenc" target="_blank" rel="noopener"
+>&lt;code>scryptenc&lt;/code>&lt;/a>) と、この形式のためのコマンドラインユーティリティである&lt;code>scrypt(1)&lt;/code>のRust実装の&lt;strong>rscrypt&lt;/strong> (&lt;a class="link" href="https://crates.io/crates/scryptenc-cli" target="_blank" rel="noopener"
+>&lt;code>scryptenc-cli&lt;/code>&lt;/a>) を作成しました。&lt;/p></description></item><item><title>QRコードを読み書きするためのコマンドを作成しました</title><link>https://sorairolake.github.io/blog/posts/qrtool/</link><pubDate>Sat, 27 Aug 2022 06:32:20 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/qrtool/</guid><description>&lt;p>QRコードのエンコードとデコードを行うためのコマンドラインユーティリティの&lt;a class="link" href="https://crates.io/crates/qrtool" target="_blank" rel="noopener"
+>&lt;strong>qrtool&lt;/strong>&lt;/a>を作成しました。&lt;/p></description></item><item><title>Rust向けの&lt;sysexits.h>を作成しました</title><link>https://sorairolake.github.io/blog/posts/sysexits-rs/</link><pubDate>Fri, 10 Jun 2022 15:12:38 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/sysexits-rs/</guid><description>&lt;p>&lt;a class="link" href="https://www.rust-lang.org/" target="_blank" rel="noopener"
+>Rust&lt;/a>の&lt;code>main&lt;/code>関数の戻り値で&lt;a class="link" href="https://man.openbsd.org/sysexits" target="_blank" rel="noopener"
+>&lt;code>&amp;lt;sysexits.h&amp;gt;&lt;/code>&lt;/a>で定義されている終了コードを使えるようにするライブラリの&lt;strong>sysexits-rs&lt;/strong> (&lt;a class="link" href="https://crates.io/crates/sysexits" target="_blank" rel="noopener"
+>&lt;code>sysexits&lt;/code>&lt;/a>) を作成しました。&lt;/p>
+&lt;p>Rust 1.61.0から&lt;code>main&lt;/code>関数の戻り値で任意の終了コードを返せるようになったので、&lt;code>&amp;lt;sysexits.h&amp;gt;&lt;/code>で定義されている終了コードをこれに利用できたら便利だと思ったのがこのライブラリを作成した理由です。&lt;/p>
+&lt;h2 id="使用例">使用例&lt;/h2>
+&lt;p>使用例は以下の通りです&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rs" data-lang="rs">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() -&amp;gt; &lt;span style="color:#a6e22e">sysexits&lt;/span>::ExitCode {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> bytes &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">0xf0&lt;/span>, &lt;span style="color:#ae81ff">0x9f&lt;/span>, &lt;span style="color:#ae81ff">0x92&lt;/span>, &lt;span style="color:#ae81ff">0x96&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">match&lt;/span> std::&lt;span style="color:#66d9ef">str&lt;/span>::from_utf8(&lt;span style="color:#f92672">&amp;amp;&lt;/span>bytes) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Ok(string) &lt;span style="color:#f92672">=&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> println!(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{string}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sysexits::ExitCode::Ok
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Err(err) &lt;span style="color:#f92672">=&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> eprintln!(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{err}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sysexits::ExitCode::DataErr
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://github.com/sorairolake/sysexits-rs/tree/v0.6.1#example" target="_blank" rel="noopener"
+>sorairolake/sysexits-rs&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>

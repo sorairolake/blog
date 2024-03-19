@@ -1,1 +1,87 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Crypto on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/tags/crypto/</link><description>Recent content in Crypto on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>&amp;copy; 2021&amp;ndash;2024 Shun Sakai &amp;middot; [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)</copyright><lastBuildDate>Mon, 18 Mar 2024 20:44:14 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/crypto/index.xml" rel="self" type="application/rss+xml"/><item><title>データの暗号化のためのファイルフォーマットを作成しました</title><link>https://sorairolake.github.io/blog/posts/abcrypt/</link><pubDate>Tue, 03 Oct 2023 07:02:05 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/abcrypt/</guid><description>シンプルでモダンでセキュアなファイル暗号化ツールとファイルフォーマットとRustのライブラリのabcryptを作成したので紹介します。 abc</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crypto on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/tags/crypto/</link><description>Recent content in Crypto on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 03 Oct 2023 07:02:05 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/crypto/index.xml" rel="self" type="application/rss+xml"/><item><title>データの暗号化のためのファイルフォーマットを作成しました</title><link>https://sorairolake.github.io/blog/posts/abcrypt/</link><pubDate>Tue, 03 Oct 2023 07:02:05 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/abcrypt/</guid><description>&lt;p>シンプルでモダンでセキュアなファイル暗号化ツールとファイルフォーマットとRustのライブラリの&lt;strong>abcrypt&lt;/strong>を作成したので紹介します。&lt;/p>
+&lt;h2 id="abcrypt暗号化データフォーマットとは">abcrypt暗号化データフォーマットとは&lt;/h2>
+&lt;p>&lt;strong>abcrypt暗号化データフォーマット&lt;/strong> (英語: &lt;strong>abcrypt encrypted data format&lt;/strong>) は、認証付きのモダンなファイル暗号化フォーマットです。&lt;/p>
+&lt;p>このファイルフォーマットは&lt;a class="link" href="https://www.tarsnap.com/scrypt.html" target="_blank" rel="noopener"
+>scrypt encrypted data format&lt;/a>から着想を得ており、秘密鍵の導出には&lt;a class="link" href="https://datatracker.ietf.org/doc/html/rfc9106" target="_blank" rel="noopener"
+>Argon2id&lt;/a>を使用し、ヘッダーの認証には&lt;a class="link" href="https://datatracker.ietf.org/doc/html/rfc7693" target="_blank" rel="noopener"
+>BLAKE2b-512-MAC&lt;/a>を使用し、データの暗号化には&lt;a class="link" href="https://datatracker.ietf.org/doc/html/draft-arciszewski-xchacha-03" target="_blank" rel="noopener"
+>XChaCha20-Poly1305&lt;/a>を使用しています。
+このファイルフォーマットを作成したのは、scrypt encrypted data formatの秘密鍵の導出の部分をArgon2に変更したものを作成してみたいと思ったのがきっかけです。
+scrypt encrypted data formatではヘッダーの認証にHMAC-SHA-256を使用していますが、abcryptフォーマットではArgon2idがBLAKE2bを使用していることと、BLAKE2bがHMACを使わないでそれ自体でメッセージ認証コード (MAC) を出力することができるので、BLAKE2b-512-MACを使用しています。
+データの暗号化部分はBLAKE2bと同様に&lt;a class="link" href="https://ja.wikipedia.org/wiki/Salsa20#ChaCha" target="_blank" rel="noopener"
+>ChaCha&lt;/a>をベースとしていることと、認証付き暗号であることと、ChaCha20-Poly1305とは異なりノンスに暗号論的擬似乱数生成器 (CSPRNG) で生成した値を使用できるので&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>、XChaCha20-Poly1305を使用しています。&lt;/p>
+&lt;p>詳細な仕様は&lt;a class="link" href="https://sorairolake.github.io/abcrypt/book/format.html" target="_blank" rel="noopener"
+>https://sorairolake.github.io/abcrypt/book/format.html&lt;/a>を参照して下さい。&lt;/p>
+&lt;h2 id="ライブラリについて">ライブラリについて&lt;/h2>
+&lt;p>abcryptフォーマットを実装したRustのライブラリの&lt;a class="link" href="https://crates.io/crates/abcrypt" target="_blank" rel="noopener"
+>&lt;code>abcrypt&lt;/code>&lt;/a>を作成しました。
+これは私が以前に作成したscrypt encrypted data formatの実装の&lt;a class="link" href="https://crates.io/crates/scryptenc" target="_blank" rel="noopener"
+>&lt;code>scryptenc&lt;/code>&lt;/a>をベースにしています。&lt;/p>
+&lt;p>このライブラリは&lt;code>no_std&lt;/code>環境で使用することができ、&lt;code>default&lt;/code> featureを無効にすることで使用することができます。
+この場合にヒープの使用を許容できる場合は、&lt;code>alloc&lt;/code> featureを有効にします&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>。
+&lt;code>alloc&lt;/code> featureを有効にした場合は暗号化や復号したデータを&lt;code>Vec&amp;lt;u8&amp;gt;&lt;/code>として出力することができ、暗号化や復号するデータの長さが事前に分かっていない場合に使用できます。
+このライブラリでは暗号化や復号するデータはスライス (&lt;code>[u8]&lt;/code>) で保持しており、暗号化や復号するデータの長さが事前に分かっている場合は出力を書き込むためのバッファを固定長の配列で確保して処理することもできるので、メモリ効率は良いはずです。&lt;/p>
+&lt;p>APIの詳細は&lt;a class="link" href="https://docs.rs/abcrypt" target="_blank" rel="noopener"
+>https://docs.rs/abcrypt&lt;/a>を参照して下さい。&lt;/p>
+&lt;h3 id="バインディングについて">バインディングについて&lt;/h3>
+&lt;p>このライブラリをC言語でも利用できるようにするためにバインディングの&lt;a class="link" href="https://crates.io/crates/abcrypt-capi" target="_blank" rel="noopener"
+>&lt;code>abcrypt-capi&lt;/code>&lt;/a>も作成しました。&lt;/p>
+&lt;p>C言語のAPI (ヘッダーファイル) の詳細は&lt;a class="link" href="https://sorairolake.github.io/abcrypt/book/capi/capi.html" target="_blank" rel="noopener"
+>https://sorairolake.github.io/abcrypt/book/capi/capi.html&lt;/a>を、RustのAPIの詳細は&lt;a class="link" href="https://docs.rs/abcrypt-capi" target="_blank" rel="noopener"
+>https://docs.rs/abcrypt-capi&lt;/a>参照して下さい。&lt;/p>
+&lt;h2 id="ファイル暗号化ツールについて">ファイル暗号化ツールについて&lt;/h2>
+&lt;p>abcryptフォーマットを利用してファイルの暗号化を行うためのコマンドラインユーティリティの&lt;a class="link" href="https://crates.io/crates/abcrypt-cli" target="_blank" rel="noopener"
+>&lt;code>abcrypt-cli&lt;/code>&lt;/a>を作成しました。
+コマンド名は&lt;code>abcrypt&lt;/code>です。
+これは私が以前に作成した&lt;code>scrypt(1)&lt;/code>のRust実装の&lt;a class="link" href="https://crates.io/crates/scryptenc-cli" target="_blank" rel="noopener"
+>&lt;code>scryptenc-cli&lt;/code>&lt;/a>をベースにしています。&lt;/p>
+&lt;p>基本的なファイルの暗号化は以下のコマンドで行います。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>abcrypt encrypt data.txt &amp;gt; data.txt.abcrypt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>また、基本的なファイルの復号は以下のコマンドで行います。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>abcrypt decrypt data.txt.abcrypt &amp;gt; data.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>暗号化時にはコマンドラインオプションでArgon2パラメータを指定することができます&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>。
+パスフレーズは&lt;code>/dev/tty&lt;/code>、標準入力、環境変数またはファイルから入力することができます。
+また、コマンドラインオプションでシェル補完スクリプトを生成することもできます。&lt;/p>
+&lt;p>詳細な利用方法は&lt;a class="link" href="https://sorairolake.github.io/abcrypt/book/cli/index.html" target="_blank" rel="noopener"
+>https://sorairolake.github.io/abcrypt/book/cli/index.html&lt;/a>やmanページを参照して下さい。&lt;/p>
+&lt;h2 id="終わりに">終わりに&lt;/h2>
+&lt;p>abcryptの紹介をしました。&lt;/p>
+&lt;p>気に入ってもらえたら&lt;a class="link" href="https://github.com/sorairolake/abcrypt" target="_blank" rel="noopener"
+>sorairolake/abcrypt&lt;/a>でStarを付けてもらえるとありがたいです。
+abcryptの改善のために&lt;a class="link" href="https://github.com/sorairolake/abcrypt/issues" target="_blank" rel="noopener"
+>Issue&lt;/a>や&lt;a class="link" href="https://github.com/sorairolake/abcrypt/pulls" target="_blank" rel="noopener"
+>Pull Request&lt;/a>もお待ちしています。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://doc.libsodium.org/secret-key_cryptography/aead/chacha20-poly1305/xchacha20-poly1305_construction" target="_blank" rel="noopener"
+>XChaCha20-Poly1305 construction - libsodium&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://datatracker.ietf.org/doc/html/draft-arciszewski-xchacha-03#section-2.1" target="_blank" rel="noopener"
+>Motivation for XChaCha20-Poly1305&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>有効にしない場合はArgon2で秘密鍵を導出する際に使用するメモリブロックの大きさが制限されます (v0.2.5の時点では256 KiB)。&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>指定しない場合は&lt;a class="link" href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#argon2id" target="_blank" rel="noopener"
+>OWASP Cheat Sheet&lt;/a>の推奨値を使用します。&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>
