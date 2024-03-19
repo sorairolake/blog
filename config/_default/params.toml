@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: None
+#
+# SPDX-License-Identifier: CC0-1.0
+
+description = "SorairoLakeのブログ。"
+mainSections = ["posts"]
+
+[dateFormat]
+published = "2006-01-02"
+lastUpdated = "2006-01-02"
+
+[sidebar]
+subtitle = "Welcome to my blog!"
+
+[sidebar.avatar]
+enabled = false
+
+[footer]
+since = 2021
+
+[article]
+math = true
+toc = true
+
+[article.license]
+enabled = true
+default = "[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)"
+
+[[widgets.homepage]]
+type = "search"
+
+[[widgets.homepage]]
+type = "archives"
+
+[[widgets.homepage]]
+type = "categories"
+
+[[widgets.homepage]]
+type = "tag-cloud"
+
+[[widgets.page]]
+type = "toc"

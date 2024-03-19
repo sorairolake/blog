@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: None
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[[imports]]
+path = "github.com/CaiJimmy/hugo-theme-stack/v3"
