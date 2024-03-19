@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: None
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[[social]]
+name = "X"
+url = "https://twitter.com/sorairolake"
+
+[social.params]
+icon = "brand-twitter"
+
+[[social]]
+name = "GitHub"
+url = "https://github.com/sorairolake"
+
+[social.params]
+icon = "brand-github"
+
+[[social]]
+name = "ホームページ"
+url = "https://sorairolake.github.io/"
+
+[social.params]
+icon = "home"

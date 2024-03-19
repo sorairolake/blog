@@ -7,8 +7,14 @@ description = ""
 summary = ""
 categories = [""]
 tags = [""]
-disableShare = true
-ShowReadingTime = false
+license = false
+readingTime = false
+
+[menu.main]
+weight = 30
+
+[menu.main.params]
+icon = "user"
 +++
 
 ## ソースコード
