@@ -67,7 +67,7 @@ xh httpbin.org/get
 
 結果はHTTPieと同様に色付けされており、JSONがシンタックスハイライトされる点も同様です。
 
-![レスポンスの画像](get.webp)
+![レスポンス](get.webp)
 
 その他の使い方については[HTTPieのドキュメント](https://httpie.io/docs/cli)を参照して下さい。
 
@@ -91,7 +91,7 @@ HTTPieはこの記事を書いた時点ではHTTP/2をサポートしていま�
 xh -h https://example.com
 ```
 
-![レスポンスの画像](http2.webp)
+![レスポンス](http2.webp)
 
 #### curlのコマンドへの変換機能
 

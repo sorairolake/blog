@@ -81,7 +81,7 @@ qrtool encode "QR code" > output.png
 
 エンコードした結果は以下のようになります。
 
-![エンコードした結果のPNG画像](basic-encode.webp)
+![エンコード結果](basic-encode.webp)
 
 エンコードするデータの入力は、以下のいずれかの方法によって行います。
 
@@ -116,10 +116,6 @@ QR code
 qrtool encode -o output.svg -t svg "QR code"
 ```
 
-エンコードした結果は以下のようになります。
-
-![エンコードした結果のSVG画像](encode.svg)
-
 この例では`-t`オプションで出力形式としてSVGを指定しています。
 また、`-o`オプションではエンコードした結果を出力するファイルを指定しています。
 デフォルトでは、エンコードした結果は標準出力に出力されます。
@@ -134,7 +130,7 @@ qrtool encode -v 3 --variant micro "QR code" > output.png
 
 エンコードした結果は以下のようになります。
 
-![エンコードした結果のPNG画像](micro.webp)
+![エンコード結果](micro.webp)
 
 なお、マイクロQRコードを出力する場合は`-v`オプションでシンボルのバージョンを指定する必要があります。
 
@@ -148,7 +144,7 @@ qrtool encode --foreground brown "QR code" > output.png
 
 エンコードした結果は以下のようになります。
 
-![エンコードした結果のPNG画像](fg.webp)
+![エンコード結果](fg.webp)
 
 `--foreground`と`--background`には[CSS Color Module Level 4](https://www.w3.org/TR/css-color-4/)[^2]で定義されている色の値を指定することができます。
 `--foreground`の既定値は`<named-color>`の`black` (`#000000`) で、`--background`の既定値は`<named-color>`の`white` (`#ffffff`) です。
