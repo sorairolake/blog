@@ -76,7 +76,7 @@ width="232"
 height="232"
 srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
-alt="エンコードした結果のPNG画像"
+alt="エンコード結果"
 class="gallery-image"
 data-flex-grow="100"
 data-flex-basis="240px"
@@ -119,12 +119,7 @@ data-flex-basis="240px"
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>qrtool encode -o output.svg -t svg &lt;span style="color:#e6db74">&amp;#34;QR code&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>エンコードした結果は以下のようになります。&lt;/p>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/encode.svg"
-loading="lazy"
-alt="エンコードした結果のSVG画像"
->&lt;/p>
-&lt;p>この例では&lt;code>-t&lt;/code>オプションで出力形式としてSVGを指定しています。
+&lt;/div>&lt;p>この例では&lt;code>-t&lt;/code>オプションで出力形式としてSVGを指定しています。
 また、&lt;code>-o&lt;/code>オプションではエンコードした結果を出力するファイルを指定しています。
 デフォルトでは、エンコードした結果は標準出力に出力されます。&lt;/p>
 &lt;h3 id="マイクロqrコードを出力する">マイクロQRコードを出力する&lt;/h3>
@@ -143,7 +138,7 @@ width="184"
 height="184"
 srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
-alt="エンコードした結果のPNG画像"
+alt="エンコード結果"
 class="gallery-image"
 data-flex-grow="100"
 data-flex-basis="240px"
@@ -165,7 +160,7 @@ width="232"
 height="232"
 srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
-alt="エンコードした結果のPNG画像"
+alt="エンコード結果"
 class="gallery-image"
 data-flex-grow="100"
 data-flex-basis="240px"

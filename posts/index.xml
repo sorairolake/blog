@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/posts/</link><description>Recent content in Posts on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 09 Jan 2024 13:29:22 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>bzip2の後継の圧縮アルゴリズムのbzip3の紹介</title><link>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</link><pubDate>Tue, 09 Jan 2024 13:29:22 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</guid><description>&lt;h2 id="bzip3とは">bzip3とは&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on SorairoLake's Blog</title><link>https://sorairolake.github.io/blog/posts/</link><description>Recent content in Posts on SorairoLake's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Thu, 21 Mar 2024 10:43:38 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>ブログで使うテーマを変更した話</title><link>https://sorairolake.github.io/blog/posts/changed-hugo-theme-to-stack/</link><pubDate>Thu, 21 Mar 2024 10:43:38 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/changed-hugo-theme-to-stack/</guid><description>&lt;p>このブログで使用するHugoのテーマを&lt;a class="link" href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener"
+>PaperMod&lt;/a>から&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>Stack&lt;/a>に変更しました。&lt;/p>
+&lt;h2 id="きっかけ">きっかけ&lt;/h2>
+&lt;p>テーマを変更したきっかけはこの直前にHugo Modulesを使用するように変更したことです。
+当初はPaperModのままでこれを行いましたが、&lt;code>go.mod&lt;/code>でテーマのバージョンを固定することが難しかったので、これを解決するついでにテーマを変更しました。&lt;/p>
+&lt;h2 id="手順">手順&lt;/h2>
+&lt;h3 id="テーマの変更">テーマの変更&lt;/h3>
+&lt;p>設定ファイルを編集してテーマを変更しました。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-diff" data-lang="diff">&lt;span style="display:flex;">&lt;span>[[module.imports]]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">-path = &amp;#34;github.com/adityatelange/hugo-PaperMod&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&lt;/span>&lt;span style="color:#a6e22e">+path = &amp;#34;github.com/CaiJimmy/hugo-theme-stack/v3&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="構成の変更">構成の変更&lt;/h3>
+&lt;p>従来は単一の設定ファイルで全てを管理していましたが、複数のファイルに分割した上で設定用のディレクトリを使う構成に変更しました。&lt;/p></description></item><item><title>bzip2の後継の圧縮アルゴリズムのbzip3の紹介</title><link>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</link><pubDate>Tue, 09 Jan 2024 13:29:22 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-bzip3/</guid><description>&lt;h2 id="bzip3とは">bzip3とは&lt;/h2>
 &lt;p>bzip3は、2022年に登場した圧縮アルゴリズムです。
 bzip2の後継を謳っており、連長圧縮（RLE）とLempel-Ziv + Prediction（LZP）、それに続くブロックソート（BWT）と算術符号を使用することによる高い圧縮率と優れたパフォーマンスを特徴としています。&lt;/p>
 &lt;p>リファレンス実装はC言語で書かれており、GNU Lesser General Public License v3.0（またはそれ以降）に基づいて配布されています。&lt;/p>
@@ -102,9 +124,15 @@ alt="Packaging status"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.svg"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.webp"
+width="2458"
+height="1843"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu68d23819a0c47c6c3528a30a00df3d61_19008_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu68d23819a0c47c6c3528a30a00df3d61_19008_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
 alt="圧縮速度の比較"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="展開-1">展開&lt;/h3>
 &lt;table>
@@ -155,9 +183,15 @@ alt="圧縮速度の比較"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.svg"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.webp"
+width="2458"
+height="1843"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hud1510122bac8500fa4a9d7ae1efd5804_15960_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hud1510122bac8500fa4a9d7ae1efd5804_15960_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
 alt="展開速度の比較"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="圧縮後のファイルサイズ">圧縮後のファイルサイズ&lt;/h3>
 &lt;table>
@@ -202,9 +236,15 @@ alt="展開速度の比較"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.svg"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.webp"
+width="2458"
+height="1843"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu6798a119cfa636b34793435a1f2a784a_17226_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu6798a119cfa636b34793435a1f2a784a_17226_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
 alt="圧縮比の比較"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="使用したコマンドのバージョン">使用したコマンドのバージョン&lt;/h3>
 &lt;table>
@@ -417,7 +457,7 @@ width="590"
 height="704"
 srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu03ded58f532ff1907c3128b489a601de_17834_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu03ded58f532ff1907c3128b489a601de_17834_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
-alt="レスポンスの画像"
+alt="レスポンス"
 class="gallery-image"
 data-flex-grow="83"
 data-flex-basis="201px"
@@ -446,7 +486,7 @@ width="440"
 height="330"
 srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_huf00bf63ca09d577102dc1858c722d82c_13086_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_huf00bf63ca09d577102dc1858c722d82c_13086_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
-alt="レスポンスの画像"
+alt="レスポンス"
 class="gallery-image"
 data-flex-grow="133"
 data-flex-basis="320px"
@@ -805,7 +845,7 @@ width="232"
 height="232"
 srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
-alt="エンコードした結果のPNG画像"
+alt="エンコード結果"
 class="gallery-image"
 data-flex-grow="100"
 data-flex-basis="240px"
@@ -848,12 +888,7 @@ data-flex-basis="240px"
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>qrtool encode -o output.svg -t svg &lt;span style="color:#e6db74">&amp;#34;QR code&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>エンコードした結果は以下のようになります。&lt;/p>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/encode.svg"
-loading="lazy"
-alt="エンコードした結果のSVG画像"
->&lt;/p>
-&lt;p>この例では&lt;code>-t&lt;/code>オプションで出力形式としてSVGを指定しています。
+&lt;/div>&lt;p>この例では&lt;code>-t&lt;/code>オプションで出力形式としてSVGを指定しています。
 また、&lt;code>-o&lt;/code>オプションではエンコードした結果を出力するファイルを指定しています。
 デフォルトでは、エンコードした結果は標準出力に出力されます。&lt;/p>
 &lt;h3 id="マイクロqrコードを出力する">マイクロQRコードを出力する&lt;/h3>
@@ -872,7 +907,7 @@ width="184"
 height="184"
 srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
-alt="エンコードした結果のPNG画像"
+alt="エンコード結果"
 class="gallery-image"
 data-flex-grow="100"
 data-flex-basis="240px"
@@ -894,7 +929,7 @@ width="232"
 height="232"
 srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
-alt="エンコードした結果のPNG画像"
+alt="エンコード結果"
 class="gallery-image"
 data-flex-grow="100"
 data-flex-basis="240px"

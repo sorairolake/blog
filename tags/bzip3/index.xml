@@ -102,9 +102,15 @@ alt="Packaging status"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.svg"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.webp"
+width="2458"
+height="1843"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu68d23819a0c47c6c3528a30a00df3d61_19008_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu68d23819a0c47c6c3528a30a00df3d61_19008_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
 alt="圧縮速度の比較"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="展開-1">展開&lt;/h3>
 &lt;table>
@@ -155,9 +161,15 @@ alt="圧縮速度の比較"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.svg"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.webp"
+width="2458"
+height="1843"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hud1510122bac8500fa4a9d7ae1efd5804_15960_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hud1510122bac8500fa4a9d7ae1efd5804_15960_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
 alt="展開速度の比較"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="圧縮後のファイルサイズ">圧縮後のファイルサイズ&lt;/h3>
 &lt;table>
@@ -202,9 +214,15 @@ alt="展開速度の比較"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.svg"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.webp"
+width="2458"
+height="1843"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu6798a119cfa636b34793435a1f2a784a_17226_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu6798a119cfa636b34793435a1f2a784a_17226_1024x0_resize_q75_h2_box_2.webp 1024w"
 loading="lazy"
 alt="圧縮比の比較"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
 >&lt;/p>
 &lt;h3 id="使用したコマンドのバージョン">使用したコマンドのバージョン&lt;/h3>
 &lt;table>
