@@ -68,7 +68,7 @@ bunzip3 README.md.bz3
 | `xz git-2.43.0.tar`    | 20.552 ± 0.105 |  20.388 |  20.688 |     1.00 |
 | `zstd git-2.43.0.tar`  |  0.324 ± 0.005 |   0.316 |   0.333 |     1.00 |
 
-![圧縮速度の比較](comparison-of-compression-speed.svg)
+![圧縮速度の比較](comparison-of-compression-speed.webp)
 
 ### 展開
 
@@ -80,7 +80,7 @@ bunzip3 README.md.bz3
 | `unxz git-2.43.0.tar.xz`     | 0.540 ± 0.006 |   0.532 |   0.549 |     1.00 |
 | `unzstd git-2.43.0.tar.zst`  | 0.072 ± 0.003 |   0.067 |   0.083 |     1.00 |
 
-![展開速度の比較](comparison-of-decompression-speed.svg)
+![展開速度の比較](comparison-of-decompression-speed.webp)
 
 ### 圧縮後のファイルサイズ
 
@@ -92,7 +92,7 @@ bunzip3 README.md.bz3
 | xz     |          7.0 |  7,352,912 |             6.303 |
 | zstd   |          9.8 | 10,298,831 |             4.500 |
 
-![圧縮比の比較](comparison-of-compression-ratio.svg)
+![圧縮比の比較](comparison-of-compression-ratio.webp)
 
 ### 使用したコマンドのバージョン
 

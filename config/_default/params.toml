@@ -24,7 +24,7 @@ toc = true
 
 [article.license]
 enabled = true
-default = "[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)"
+default = "この記事は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)の下でライセンスされています"
 
 [[widgets.homepage]]
 type = "search"
