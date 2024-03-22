@@ -2,18 +2,19 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
-description = "SorairoLakeのブログ。"
+description = "SorairoLakeの個人ブログ"
 mainSections = ["posts"]
 
 [dateFormat]
-published = "2006-01-02"
-lastUpdated = "2006-01-02"
+published = "2006年1月2日"
+lastUpdated = "2006年1月2日 15:04 MST"
 
 [sidebar]
-subtitle = "Welcome to my blog!"
+emoji = "🐧"
+subtitle = "書きたいと思ったことを適当に書きます"
 
 [sidebar.avatar]
-enabled = false
+src = "images/profile.png"
 
 [footer]
 since = 2021
@@ -40,3 +41,12 @@ type = "tag-cloud"
 
 [[widgets.page]]
 type = "toc"
+
+[opengraph.twitter]
+site = "sorairolake"
+card = "summary"
+
+[defaultImage.opengraph]
+enabled = true
+src = "images/profile.png"
+local = true
