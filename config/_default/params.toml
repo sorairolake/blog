@@ -4,7 +4,6 @@
 
 description = "SorairoLakeの個人ブログ"
 mainSections = ["posts"]
-favicon = "/favicon.ico"
 
 [dateFormat]
 published = "2006年1月2日"
