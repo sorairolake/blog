@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qrtool on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/qrtool/</link><description>Recent content in Qrtool on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Sat, 15 Jul 2023 08:02:01 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/qrtool/index.xml" rel="self" type="application/rss+xml"/><item><title>qrtoolのバージョン0.7.0を公開しました</title><link>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</link><pubDate>Sat, 15 Jul 2023 08:02:01 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</guid><description>&lt;p>協定世界時 (UTC) の2023年7月12日にQRコードのエンコードとデコードを行うためのコマンドラインユーティリティの&lt;code>qrtool&lt;/code>のバージョン0.7.0を公開しました。&lt;/p>
 &lt;p>この記事では、&lt;code>qrtool&lt;/code>の紹介と、バージョン0.7.0の主な変更点について書こうと思います。&lt;/p>
-&lt;h2 id="qrtoolとは">qrtoolとは&lt;/h2>
-&lt;p>&lt;a class="link" href="https://github.com/sorairolake/qrtool" target="_blank" rel="noopener"
+&lt;h2 id="qrtoolとは">
+&lt;a href="#qrtool%e3%81%a8%e3%81%af">#&lt;/a>
+qrtoolとは
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/sorairolake/qrtool" target="_blank" rel="noopener"
 >&lt;code>qrtool&lt;/code>&lt;/a>はQRコードのエンコードとデコードを行うためのコマンドラインユーティリティで、エンコードを行うサブコマンドの&lt;code>encode&lt;/code>と、デコードを行うサブコマンドの&lt;code>decode&lt;/code>で構成されています。
 &lt;code>encode&lt;/code>については&lt;a class="link" href="https://fukuchi.org/works/qrencode/" target="_blank" rel="noopener"
 >&lt;code>qrencode&lt;/code>&lt;/a>の影響を受けており、&lt;code>decode&lt;/code>については&lt;a class="link" href="https://github.com/mchehab/zbar" target="_blank" rel="noopener"
 >&lt;code>zbarimg&lt;/code>&lt;/a>の影響を受けています。&lt;/p>
-&lt;h2 id="機能">機能&lt;/h2>
-&lt;ul>
+&lt;h2 id="機能">
+&lt;a href="#%e6%a9%9f%e8%83%bd">#&lt;/a>
+機能
+&lt;/h2>&lt;ul>
 &lt;li>誤り訂正レベルの設定 (&lt;code>-l&lt;/code>)&lt;/li>
 &lt;li>シンボルのバージョンの設定 (&lt;code>-v&lt;/code>)&lt;/li>
 &lt;li>マージンの設定 (&lt;code>-m&lt;/code>)&lt;/li>
@@ -15,8 +19,10 @@
 &lt;li>マイクロQRコードの出力に対応 (&lt;code>--variant&lt;/code>)&lt;/li>
 &lt;li>前景色と背景色の設定 (&lt;code>--foreground&lt;/code>、&lt;code>--background&lt;/code>)&lt;/li>
 &lt;/ul>
-&lt;h3 id="対応する出力形式">対応する出力形式&lt;/h3>
-&lt;p>&lt;code>encode&lt;/code>サブコマンドは以下の3種類の出力形式に対応しています。&lt;/p>
+&lt;h3 id="対応する出力形式">
+&lt;a href="#%e5%af%be%e5%bf%9c%e3%81%99%e3%82%8b%e5%87%ba%e5%8a%9b%e5%bd%a2%e5%bc%8f">#&lt;/a>
+対応する出力形式
+&lt;/h3>&lt;p>&lt;code>encode&lt;/code>サブコマンドは以下の3種類の出力形式に対応しています。&lt;/p>
 &lt;ul>
 &lt;li>PNG (32ビットRGBA、既定値)&lt;/li>
 &lt;li>SVG&lt;/li>
@@ -24,8 +30,10 @@
 &lt;/ul>
 &lt;p>PNGとSVG以外の画像形式については、&lt;a class="link" href="https://imagemagick.org/" target="_blank" rel="noopener"
 >ImageMagick&lt;/a>などによって容易に変換することができるので、これらを利用することを想定しています。&lt;/p>
-&lt;h3 id="対応する入力形式">対応する入力形式&lt;/h3>
-&lt;p>&lt;code>decode&lt;/code>サブコマンドが対応する入力形式は&lt;a class="link" href="https://crates.io/crates/image" target="_blank" rel="noopener"
+&lt;h3 id="対応する入力形式">
+&lt;a href="#%e5%af%be%e5%bf%9c%e3%81%99%e3%82%8b%e5%85%a5%e5%8a%9b%e5%bd%a2%e5%bc%8f">#&lt;/a>
+対応する入力形式
+&lt;/h3>&lt;p>&lt;code>decode&lt;/code>サブコマンドが対応する入力形式は&lt;a class="link" href="https://crates.io/crates/image" target="_blank" rel="noopener"
 >&lt;code>image&lt;/code>&lt;/a>クレートがデコードできる画像形式で、以下の画像形式です。&lt;/p>
 &lt;ul>
 &lt;li>BMP&lt;/li>
@@ -46,8 +54,10 @@
 &lt;p>また、SVG画像を入力することにも対応しています。
 SVG画像の入力については&lt;a class="link" href="https://crates.io/crates/resvg" target="_blank" rel="noopener"
 >&lt;code>resvg&lt;/code>&lt;/a>クレートに依存しており、ビルド時に&lt;code>--no-default-features&lt;/code>オプションを指定することで無効にすることができます。&lt;/p>
-&lt;h2 id="インストール方法">インストール方法&lt;/h2>
-&lt;p>&lt;a class="link" href="https://crates.io/" target="_blank" rel="noopener"
+&lt;h2 id="インストール方法">
+&lt;a href="#%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e6%96%b9%e6%b3%95">#&lt;/a>
+インストール方法
+&lt;/h2>&lt;p>&lt;a class="link" href="https://crates.io/" target="_blank" rel="noopener"
 >crates.io&lt;/a>からインストールする場合は、以下のコマンドを実行します。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -59,9 +69,13 @@ SVG画像の入力については&lt;a class="link" href="https://crates.io/crat
 &lt;/div>
 &lt;/div>&lt;p>また、GitHubの&lt;a class="link" href="https://github.com/sorairolake/qrtool/releases" target="_blank" rel="noopener"
 >リリースページ&lt;/a>でLinux、macOS及びWindows向けの実行ファイルとドキュメントを含んだアーカイブファイル&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>を公開しているので、これをダウンロードして利用することもできます。&lt;/p>
-&lt;h2 id="使い方">使い方&lt;/h2>
-&lt;h3 id="基本的なエンコード方法">基本的なエンコード方法&lt;/h3>
-&lt;p>UTF-8文字列をQRコードにエンコードしてPNG画像として出力するには以下のコマンドを実行します。&lt;/p>
+&lt;h2 id="使い方">
+&lt;a href="#%e4%bd%bf%e3%81%84%e6%96%b9">#&lt;/a>
+使い方
+&lt;/h2>&lt;h3 id="基本的なエンコード方法">
+&lt;a href="#%e5%9f%ba%e6%9c%ac%e7%9a%84%e3%81%aa%e3%82%a8%e3%83%b3%e3%82%b3%e3%83%bc%e3%83%89%e6%96%b9%e6%b3%95">#&lt;/a>
+基本的なエンコード方法
+&lt;/h3>&lt;p>UTF-8文字列をQRコードにエンコードしてPNG画像として出力するには以下のコマンドを実行します。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -87,8 +101,10 @@ data-flex-basis="240px"
 &lt;li>&lt;code>-r&lt;/code>オプションでファイルを指定する&lt;/li>
 &lt;li>位置引数を省略して、標準入力からデータを読み取る (UTF-8文字列以外も入力可能)&lt;/li>
 &lt;/ol>
-&lt;h3 id="基本的なデコード方法">基本的なデコード方法&lt;/h3>
-&lt;p>基本的なエンコード方法で出力したPNG画像をデコードするには以下のコマンドを実行します。&lt;/p>
+&lt;h3 id="基本的なデコード方法">
+&lt;a href="#%e5%9f%ba%e6%9c%ac%e7%9a%84%e3%81%aa%e3%83%87%e3%82%b3%e3%83%bc%e3%83%89%e6%96%b9%e6%b3%95">#&lt;/a>
+基本的なデコード方法
+&lt;/h3>&lt;p>基本的なエンコード方法で出力したPNG画像をデコードするには以下のコマンドを実行します。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -109,8 +125,10 @@ data-flex-basis="240px"
 &lt;/div>&lt;p>位置引数に画像ファイルを指定しなかった場合と、&lt;code>-&lt;/code>を指定した場合は、データは標準入力から読み取られます。&lt;/p>
 &lt;p>入力された画像の形式は拡張子やマジックナンバーを基に決定されます。
 これが失敗する場合は、&lt;code>-t&lt;/code>オプションで明示的に画像形式を指定して下さい。&lt;/p>
-&lt;h3 id="エンコードした結果をsvg画像として出力する">エンコードした結果をSVG画像として出力する&lt;/h3>
-&lt;p>&lt;code>encode&lt;/code>サブコマンドはデフォルトではPNG画像を出力しますが、エンコードした結果をSVG画像として出力する場合は以下のコマンドを実行します。&lt;/p>
+&lt;h3 id="エンコードした結果をsvg画像として出力する">
+&lt;a href="#%e3%82%a8%e3%83%b3%e3%82%b3%e3%83%bc%e3%83%89%e3%81%97%e3%81%9f%e7%b5%90%e6%9e%9c%e3%82%92svg%e7%94%bb%e5%83%8f%e3%81%a8%e3%81%97%e3%81%a6%e5%87%ba%e5%8a%9b%e3%81%99%e3%82%8b">#&lt;/a>
+エンコードした結果をSVG画像として出力する
+&lt;/h3>&lt;p>&lt;code>encode&lt;/code>サブコマンドはデフォルトではPNG画像を出力しますが、エンコードした結果をSVG画像として出力する場合は以下のコマンドを実行します。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -122,8 +140,10 @@ data-flex-basis="240px"
 &lt;/div>&lt;p>この例では&lt;code>-t&lt;/code>オプションで出力形式としてSVGを指定しています。
 また、&lt;code>-o&lt;/code>オプションではエンコードした結果を出力するファイルを指定しています。
 デフォルトでは、エンコードした結果は標準出力に出力されます。&lt;/p>
-&lt;h3 id="マイクロqrコードを出力する">マイクロQRコードを出力する&lt;/h3>
-&lt;p>マイクロQRコードを出力するには以下のコマンドを実行します。&lt;/p>
+&lt;h3 id="マイクロqrコードを出力する">
+&lt;a href="#%e3%83%9e%e3%82%a4%e3%82%af%e3%83%adqr%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e5%87%ba%e5%8a%9b%e3%81%99%e3%82%8b">#&lt;/a>
+マイクロQRコードを出力する
+&lt;/h3>&lt;p>マイクロQRコードを出力するには以下のコマンドを実行します。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -144,8 +164,10 @@ data-flex-grow="100"
 data-flex-basis="240px"
 >&lt;/p>
 &lt;p>なお、マイクロQRコードを出力する場合は&lt;code>-v&lt;/code>オプションでシンボルのバージョンを指定する必要があります。&lt;/p>
-&lt;h3 id="前景色や背景色を変更したqrコードを出力する">前景色や背景色を変更したQRコードを出力する&lt;/h3>
-&lt;p>前景色にCSSの&lt;code>&amp;lt;named-color&amp;gt;&lt;/code>の&lt;code>brown&lt;/code>を指定して出力するには以下のコマンドを実行します。&lt;/p>
+&lt;h3 id="前景色や背景色を変更したqrコードを出力する">
+&lt;a href="#%e5%89%8d%e6%99%af%e8%89%b2%e3%82%84%e8%83%8c%e6%99%af%e8%89%b2%e3%82%92%e5%a4%89%e6%9b%b4%e3%81%97%e3%81%9fqr%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e5%87%ba%e5%8a%9b%e3%81%99%e3%82%8b">#&lt;/a>
+前景色や背景色を変更したQRコードを出力する
+&lt;/h3>&lt;p>前景色にCSSの&lt;code>&amp;lt;named-color&amp;gt;&lt;/code>の&lt;code>brown&lt;/code>を指定して出力するには以下のコマンドを実行します。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -168,8 +190,10 @@ data-flex-basis="240px"
 &lt;p>&lt;code>--foreground&lt;/code>と&lt;code>--background&lt;/code>には&lt;a class="link" href="https://www.w3.org/TR/css-color-4/" target="_blank" rel="noopener"
 >CSS Color Module Level 4&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>で定義されている色の値を指定することができます。
 &lt;code>--foreground&lt;/code>の既定値は&lt;code>&amp;lt;named-color&amp;gt;&lt;/code>の&lt;code>black&lt;/code> (&lt;code>#000000&lt;/code>) で、&lt;code>--background&lt;/code>の既定値は&lt;code>&amp;lt;named-color&amp;gt;&lt;/code>の&lt;code>white&lt;/code> (&lt;code>#ffffff&lt;/code>) です。&lt;/p>
-&lt;h3 id="シェル補完スクリプトの生成">シェル補完スクリプトの生成&lt;/h3>
-&lt;p>&lt;code>--generate-completion&lt;/code>オプションを指定することでシェル補完スクリプトを生成することができます。&lt;/p>
+&lt;h3 id="シェル補完スクリプトの生成">
+&lt;a href="#%e3%82%b7%e3%82%a7%e3%83%ab%e8%a3%9c%e5%ae%8c%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e3%81%ae%e7%94%9f%e6%88%90">#&lt;/a>
+シェル補完スクリプトの生成
+&lt;/h3>&lt;p>&lt;code>--generate-completion&lt;/code>オプションを指定することでシェル補完スクリプトを生成することができます。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -186,8 +210,10 @@ data-flex-basis="240px"
 &lt;li>PowerShell&lt;/li>
 &lt;li>Zsh&lt;/li>
 &lt;/ul>
-&lt;h3 id="別のコマンドとの連携">別のコマンドとの連携&lt;/h3>
-&lt;p>&lt;code>encode&lt;/code>サブコマンドと&lt;code>decode&lt;/code>サブコマンドはどちらも標準入力からの読み取りと標準出力への書き込みに対応しているので、&lt;a class="link" href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF_%28%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%29" target="_blank" rel="noopener"
+&lt;h3 id="別のコマンドとの連携">
+&lt;a href="#%e5%88%a5%e3%81%ae%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a8%e3%81%ae%e9%80%a3%e6%90%ba">#&lt;/a>
+別のコマンドとの連携
+&lt;/h3>&lt;p>&lt;code>encode&lt;/code>サブコマンドと&lt;code>decode&lt;/code>サブコマンドはどちらも標準入力からの読み取りと標準出力への書き込みに対応しているので、&lt;a class="link" href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF_%28%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%29" target="_blank" rel="noopener"
 >フィルタープログラム&lt;/a>として利用することもできます。&lt;/p>
 &lt;p>以下の例では、&lt;code>Cargo.toml&lt;/code>の内容を標準入力から読み取って、QRコードにエンコードした結果をPNG画像として標準出力に出力して、ImageMagickの&lt;code>magick&lt;/code>コマンドでPNG画像からJPEG XL画像に変換しています。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -208,24 +234,36 @@ data-flex-basis="240px"
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>magick output.jxl png:- | qrtool decode | bat -l toml
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="バージョン070の主な変更点">バージョン0.7.0の主な変更点&lt;/h2>
-&lt;h3 id="qoi画像形式を明示的に指定できるようになった">QOI画像形式を明示的に指定できるようになった&lt;/h3>
-&lt;p>&lt;code>image&lt;/code>クレートのバージョン0.24.6から&lt;a class="link" href="https://qoiformat.org/" target="_blank" rel="noopener"
+&lt;/div>&lt;h2 id="バージョン070の主な変更点">
+&lt;a href="#%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3070%e3%81%ae%e4%b8%bb%e3%81%aa%e5%a4%89%e6%9b%b4%e7%82%b9">#&lt;/a>
+バージョン0.7.0の主な変更点
+&lt;/h2>&lt;h3 id="qoi画像形式を明示的に指定できるようになった">
+&lt;a href="#qoi%e7%94%bb%e5%83%8f%e5%bd%a2%e5%bc%8f%e3%82%92%e6%98%8e%e7%a4%ba%e7%9a%84%e3%81%ab%e6%8c%87%e5%ae%9a%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%88%e3%81%86%e3%81%ab%e3%81%aa%e3%81%a3%e3%81%9f">#&lt;/a>
+QOI画像形式を明示的に指定できるようになった
+&lt;/h3>&lt;p>&lt;code>image&lt;/code>クレートのバージョン0.24.6から&lt;a class="link" href="https://qoiformat.org/" target="_blank" rel="noopener"
 >QOI&lt;/a>画像形式に対応していたので、&lt;code>qrtool&lt;/code>のバージョン0.6.0の時点で&lt;code>-t&lt;/code>オプションを指定しない場合にはQOI画像を入力することに対応していました。&lt;/p>
 &lt;p>しかし、READMEの対応する画像形式についての表には載っていなかったことから対応していることに気が付かず&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>、&lt;code>-t&lt;/code>オプションでQOI画像形式を指定することができない状態でした。&lt;/p>
 &lt;p>なので、この問題に対応するために&lt;code>-t&lt;/code>オプションの値に&lt;code>qoi&lt;/code>を追加しました。&lt;/p>
-&lt;h3 id="前景色と背景色を指定する際に指定できる値の種類を増やした">前景色と背景色を指定する際に指定できる値の種類を増やした&lt;/h3>
-&lt;p>従来は独自に値をパースしており、16進数表記 (&lt;code>#ff0000&lt;/code>など) にだけ対応していました。
+&lt;h3 id="前景色と背景色を指定する際に指定できる値の種類を増やした">
+&lt;a href="#%e5%89%8d%e6%99%af%e8%89%b2%e3%81%a8%e8%83%8c%e6%99%af%e8%89%b2%e3%82%92%e6%8c%87%e5%ae%9a%e3%81%99%e3%82%8b%e9%9a%9b%e3%81%ab%e6%8c%87%e5%ae%9a%e3%81%a7%e3%81%8d%e3%82%8b%e5%80%a4%e3%81%ae%e7%a8%ae%e9%a1%9e%e3%82%92%e5%a2%97%e3%82%84%e3%81%97%e3%81%9f">#&lt;/a>
+前景色と背景色を指定する際に指定できる値の種類を増やした
+&lt;/h3>&lt;p>従来は独自に値をパースしており、16進数表記 (&lt;code>#ff0000&lt;/code>など) にだけ対応していました。
 独自にパースするのを止めたいと考え、&lt;a class="link" href="https://crates.io/crates/csscolorparser" target="_blank" rel="noopener"
 >&lt;code>csscolorparser&lt;/code>&lt;/a>クレートを利用するように変更しました。
 この結果として、&lt;code>rgb()&lt;/code>関数表記や&lt;code>hsl()&lt;/code>関数表記などでも前景色と背景色を指定できるようになりました。&lt;/p>
-&lt;h3 id="manページなどのドキュメントのライセンスをcc-by-40に変更した">manページなどのドキュメントのライセンスをCC BY 4.0に変更した&lt;/h3>
-&lt;p>従来はドキュメントも含めてプロジェクト全体に&lt;em>Apache License 2.0&lt;/em>と&lt;em>MIT License&lt;/em>のデュアルライセンスとしていましたが、これらのライセンスはドキュメントには適していないことや、プロジェクトの人間の貢献者が自分だけでライセンスの変更が容易なので、manページなどのドキュメントのライセンスをこれらにより適した&lt;em>CC BY 4.0&lt;/em>に変更しました。&lt;/p>
-&lt;h3 id="ラスター画像の形式の決定に拡張子も利用するように変更した">ラスター画像の形式の決定に拡張子も利用するように変更した&lt;/h3>
-&lt;p>従来はラスター画像の形式はマジックナンバーだけを基に決定していましたが、拡張子も利用するように変更しました。
+&lt;h3 id="manページなどのドキュメントのライセンスをcc-by-40に変更した">
+&lt;a href="#man%e3%83%9a%e3%83%bc%e3%82%b8%e3%81%aa%e3%81%a9%e3%81%ae%e3%83%89%e3%82%ad%e3%83%a5%e3%83%a1%e3%83%b3%e3%83%88%e3%81%ae%e3%83%a9%e3%82%a4%e3%82%bb%e3%83%b3%e3%82%b9%e3%82%92cc-by-40%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%97%e3%81%9f">#&lt;/a>
+manページなどのドキュメントのライセンスをCC BY 4.0に変更した
+&lt;/h3>&lt;p>従来はドキュメントも含めてプロジェクト全体に&lt;em>Apache License 2.0&lt;/em>と&lt;em>MIT License&lt;/em>のデュアルライセンスとしていましたが、これらのライセンスはドキュメントには適していないことや、プロジェクトの人間の貢献者が自分だけでライセンスの変更が容易なので、manページなどのドキュメントのライセンスをこれらにより適した&lt;em>CC BY 4.0&lt;/em>に変更しました。&lt;/p>
+&lt;h3 id="ラスター画像の形式の決定に拡張子も利用するように変更した">
+&lt;a href="#%e3%83%a9%e3%82%b9%e3%82%bf%e3%83%bc%e7%94%bb%e5%83%8f%e3%81%ae%e5%bd%a2%e5%bc%8f%e3%81%ae%e6%b1%ba%e5%ae%9a%e3%81%ab%e6%8b%a1%e5%bc%b5%e5%ad%90%e3%82%82%e5%88%a9%e7%94%a8%e3%81%99%e3%82%8b%e3%82%88%e3%81%86%e3%81%ab%e5%a4%89%e6%9b%b4%e3%81%97%e3%81%9f">#&lt;/a>
+ラスター画像の形式の決定に拡張子も利用するように変更した
+&lt;/h3>&lt;p>従来はラスター画像の形式はマジックナンバーだけを基に決定していましたが、拡張子も利用するように変更しました。
 これによって、TGA形式の画像を入力する場合に明示的に画像形式を指定することが必須ではなくなりました。&lt;/p>
-&lt;h2 id="終わりに">終わりに&lt;/h2>
-&lt;p>&lt;code>qrtool&lt;/code>とバージョン0.7.0の主な変更点の紹介をしました。&lt;/p>
+&lt;h2 id="終わりに">
+&lt;a href="#%e7%b5%82%e3%82%8f%e3%82%8a%e3%81%ab">#&lt;/a>
+終わりに
+&lt;/h2>&lt;p>&lt;code>qrtool&lt;/code>とバージョン0.7.0の主な変更点の紹介をしました。&lt;/p>
 &lt;p>詳細な利用方法は&lt;a class="link" href="https://sorairolake.github.io/qrtool/" target="_blank" rel="noopener"
 >qrtool Documentation&lt;/a>のmanページでも確認することができます。&lt;/p>
 &lt;p>気に入ってもらえたら&lt;a class="link" href="https://github.com/sorairolake/qrtool" target="_blank" rel="noopener"

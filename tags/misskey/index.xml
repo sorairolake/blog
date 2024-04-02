@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Misskey on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/misskey/</link><description>Recent content in Misskey on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Mon, 27 Feb 2023 20:15:26 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/misskey/index.xml" rel="self" type="application/rss+xml"/><item><title>SNSを始めました</title><link>https://sorairolake.github.io/blog/posts/start-sns/</link><pubDate>Mon, 27 Feb 2023 20:15:26 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/start-sns/</guid><description>&lt;p>今更ながらSNSを始めました。&lt;/p>
-&lt;h2 id="アカウント">アカウント&lt;/h2>
-&lt;dl>
+&lt;h2 id="アカウント">
+&lt;a href="#%e3%82%a2%e3%82%ab%e3%82%a6%e3%83%b3%e3%83%88">#&lt;/a>
+アカウント
+&lt;/h2>&lt;dl>
 &lt;dt>Twitter&lt;/dt>
 &lt;dd>
 &lt;p>&lt;a class="link" href="https://twitter.com/sorairolake" target="_blank" rel="noopener"
@@ -12,9 +14,13 @@
 >@sorairolake&lt;/a>&lt;/p>
 &lt;/dd>
 &lt;/dl>
-&lt;h2 id="始めた理由">始めた理由&lt;/h2>
-&lt;p>Twitterについては、技術系の情報や趣味に関する情報の収集に便利だと思ったからです。
+&lt;h2 id="始めた理由">
+&lt;a href="#%e5%a7%8b%e3%82%81%e3%81%9f%e7%90%86%e7%94%b1">#&lt;/a>
+始めた理由
+&lt;/h2>&lt;p>Twitterについては、技術系の情報や趣味に関する情報の収集に便利だと思ったからです。
 Misskeyについては、FediverseとActivityPubに興味があったことが理由です。
 これだけならMastodonなどでも該当しますが、機能が豊富なことと、TypeScriptで実装されていることが気に入ったので、Misskeyにしました。&lt;/p>
-&lt;h2 id="終わりに">終わりに&lt;/h2>
-&lt;p>とりあえずアカウントは作成しましたが、投稿したいことが思いつかないので、思いつくまでは他人の投稿を見るだけになりそうです。&lt;/p></description></item></channel></rss>
+&lt;h2 id="終わりに">
+&lt;a href="#%e7%b5%82%e3%82%8f%e3%82%8a%e3%81%ab">#&lt;/a>
+終わりに
+&lt;/h2>&lt;p>とりあえずアカウントは作成しましたが、投稿したいことが思いつかないので、思いつくまでは他人の投稿を見るだけになりそうです。&lt;/p></description></item></channel></rss>

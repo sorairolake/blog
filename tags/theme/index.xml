@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Theme on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/theme/</link><description>Recent content in Theme on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Thu, 21 Mar 2024 10:43:38 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/theme/index.xml" rel="self" type="application/rss+xml"/><item><title>ブログで使うテーマを変更した話</title><link>https://sorairolake.github.io/blog/posts/changed-hugo-theme-to-stack/</link><pubDate>Thu, 21 Mar 2024 10:43:38 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/changed-hugo-theme-to-stack/</guid><description>&lt;p>このブログで使用するHugoのテーマを&lt;a class="link" href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener"
 >PaperMod&lt;/a>から&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
 >Stack&lt;/a>に変更しました。&lt;/p>
-&lt;h2 id="きっかけ">きっかけ&lt;/h2>
-&lt;p>テーマを変更したきっかけはこの直前にHugo Modulesを使用するように変更したことです。
+&lt;h2 id="きっかけ">
+&lt;a href="#%e3%81%8d%e3%81%a3%e3%81%8b%e3%81%91">#&lt;/a>
+きっかけ
+&lt;/h2>&lt;p>テーマを変更したきっかけはこの直前にHugo Modulesを使用するように変更したことです。
 当初はPaperModのままでこれを行いましたが、&lt;code>go.mod&lt;/code>でテーマのバージョンを固定することが難しかったので、これを解決するついでにテーマを変更しました。&lt;/p>
-&lt;h2 id="手順">手順&lt;/h2>
-&lt;h3 id="テーマの変更">テーマの変更&lt;/h3>
-&lt;p>設定ファイルを編集してテーマを変更しました。&lt;/p>
+&lt;h2 id="手順">
+&lt;a href="#%e6%89%8b%e9%a0%86">#&lt;/a>
+手順
+&lt;/h2>&lt;h3 id="テーマの変更">
+&lt;a href="#%e3%83%86%e3%83%bc%e3%83%9e%e3%81%ae%e5%a4%89%e6%9b%b4">#&lt;/a>
+テーマの変更
+&lt;/h3>&lt;p>設定ファイルを編集してテーマを変更しました。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -19,5 +25,7 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&lt;/span>&lt;span style="color:#a6e22e">+path = &amp;#34;github.com/CaiJimmy/hugo-theme-stack/v3&amp;#34;
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="構成の変更">構成の変更&lt;/h3>
-&lt;p>従来は単一の設定ファイルで全てを管理していましたが、複数のファイルに分割した上で設定用のディレクトリを使う構成に変更しました。&lt;/p></description></item></channel></rss>
+&lt;/div>&lt;h3 id="構成の変更">
+&lt;a href="#%e6%a7%8b%e6%88%90%e3%81%ae%e5%a4%89%e6%9b%b4">#&lt;/a>
+構成の変更
+&lt;/h3>&lt;p>従来は単一の設定ファイルで全てを管理していましたが、複数のファイルに分割した上で設定用のディレクトリを使う構成に変更しました。&lt;/p></description></item></channel></rss>
