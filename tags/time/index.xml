@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Time on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/time/</link><description>Recent content in Time on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Thu, 03 Aug 2023 19:53:18 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/time/index.xml" rel="self" type="application/rss+xml"/><item><title>RustでWindowsのファイル時刻を扱うためのライブラリのnt-timeの紹介</title><link>https://sorairolake.github.io/blog/posts/nt-time/</link><pubDate>Thu, 03 Aug 2023 19:53:18 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/nt-time/</guid><description>&lt;p>RustでWindowsの&lt;a class="link" href="https://learn.microsoft.com/ja-jp/windows/win32/sysinfo/file-times" target="_blank" rel="noopener"
 >ファイル時刻&lt;/a>を扱うためのライブラリの&lt;a class="link" href="https://crates.io/crates/nt-time" target="_blank" rel="noopener"
 >&lt;code>nt-time&lt;/code>&lt;/a>を開発したので紹介します。&lt;/p>
-&lt;h2 id="ファイル時刻とは">
-&lt;a href="#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e6%99%82%e5%88%bb%e3%81%a8%e3%81%af">#&lt;/a>
-ファイル時刻とは
+&lt;h2 id="ファイル時刻とは">ファイル時刻とは
 &lt;/h2>&lt;p>&lt;code>nt-time&lt;/code>クレートについて説明する前に、ファイル時刻について説明します。&lt;/p>
 &lt;p>ファイル時刻は、1601年1月1日0時0分0秒 (UTC) から経過した100ナノ秒間隔の数を表す64ビット整数値で、Unix系のシステムにおけるUNIX時間に相当するものです。
 ファイル時刻は、NTFSや7zのタイムスタンプとして利用されています&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。
@@ -11,9 +9,7 @@
 >&lt;code>GetSystemTime()&lt;/code>&lt;/a>を使用することで取得することができ、.NETでは&lt;a class="link" href="https://learn.microsoft.com/ja-jp/dotnet/api/system.datetime.tofiletime" target="_blank" rel="noopener"
 >&lt;code>DateTime.ToFileTime()&lt;/code>&lt;/a>を使用することで取得することができます。
 最大値は60056年5月28日5時36分10秒955161500 (UTC) ですが、WindowsのAPIでは最大値は64ビット符号付き整数の最大値に制限されます。&lt;/p>
-&lt;h2 id="nt-timeとは">
-&lt;a href="#nt-time%e3%81%a8%e3%81%af">#&lt;/a>
-nt-timeとは
+&lt;h2 id="nt-timeとは">nt-timeとは
 &lt;/h2>&lt;p>&lt;code>nt-time&lt;/code>クレートはこのファイル時刻を扱うためのライブラリです。&lt;/p>
 &lt;p>ファイル時刻を表す型として&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html" target="_blank" rel="noopener"
 >&lt;code>nt_time::FileTime&lt;/code>&lt;/a>を定義しています。
@@ -31,9 +27,7 @@ nt-timeとは
 &lt;li>&lt;a class="link" href="https://serde.rs/" target="_blank" rel="noopener"
 >Serde&lt;/a>を利用したシリアライズとデシリアライズ&lt;/li>
 &lt;/ol>
-&lt;h3 id="コード例">
-&lt;a href="#%e3%82%b3%e3%83%bc%e3%83%89%e4%be%8b">#&lt;/a>
-コード例
+&lt;h3 id="コード例">コード例
 &lt;/h3>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -82,9 +76,7 @@ nt-timeとは
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>assert_eq!(FileTime::new(&lt;span style="color:#66d9ef">u64&lt;/span>::&lt;span style="color:#66d9ef">MAX&lt;/span>), FileTime::&lt;span style="color:#66d9ef">MAX&lt;/span>);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="定数">
-&lt;a href="#%e5%ae%9a%e6%95%b0">#&lt;/a>
-定数
+&lt;/div>&lt;h3 id="定数">定数
 &lt;/h3>&lt;p>以下の3つの定数を定義しています。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#associatedconstant.NT_TIME_EPOCH" target="_blank" rel="noopener"
@@ -94,9 +86,7 @@ nt-timeとは
 &lt;li>&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#associatedconstant.MAX" target="_blank" rel="noopener"
 >&lt;code>FileTime::MAX&lt;/code>&lt;/a> - &lt;code>FileTime&lt;/code>が表すことのできる最大値 (+60056-05-28 05:36:10.955161500 UTC) を表します&lt;/li>
 &lt;/ul>
-&lt;h3 id="演算">
-&lt;a href="#%e6%bc%94%e7%ae%97">#&lt;/a>
-演算
+&lt;h3 id="演算">演算
 &lt;/h3>&lt;p>&lt;code>FileTime&lt;/code>は&lt;a class="link" href="https://doc.rust-lang.org/core/ops/trait.Add.html" target="_blank" rel="noopener"
 >&lt;code>Add&lt;/code>&lt;/a>を実装しているので、&lt;code>core::time::Duration&lt;/code>や&lt;a class="link" href="https://docs.rs/time/0.3.23/time/struct.Duration.html" target="_blank" rel="noopener"
 >&lt;code>time::Duration&lt;/code>&lt;/a>の値を加算することができます。
@@ -111,9 +101,7 @@ nt-timeとは
 また、&lt;a class="link" href="https://doc.rust-lang.org/core/cmp/trait.PartialEq.html" target="_blank" rel="noopener"
 >&lt;code>PartialEq&lt;/code>&lt;/a>と&lt;a class="link" href="https://doc.rust-lang.org/core/cmp/trait.PartialOrd.html" target="_blank" rel="noopener"
 >&lt;code>PartialOrd&lt;/code>&lt;/a>も実装しているので、これらの期間や時間を表す型との同値関係と順序関係を比較することができます。&lt;/p>
-&lt;h3 id="相互変換">
-&lt;a href="#%e7%9b%b8%e4%ba%92%e5%a4%89%e6%8f%9b">#&lt;/a>
-相互変換
+&lt;h3 id="相互変換">相互変換
 &lt;/h3>&lt;p>&lt;code>FileTime&lt;/code>は&lt;a class="link" href="https://doc.rust-lang.org/core/convert/trait.From.html" target="_blank" rel="noopener"
 >&lt;code>From&lt;/code>&lt;/a>や&lt;a class="link" href="https://doc.rust-lang.org/core/convert/trait.TryFrom.html" target="_blank" rel="noopener"
 >&lt;code>TryFrom&lt;/code>&lt;/a>によって&lt;code>std::time::SystemTime&lt;/code>、&lt;a class="link" href="https://docs.rs/time/0.3.23/time/struct.OffsetDateTime.html" target="_blank" rel="noopener"
@@ -124,9 +112,7 @@ nt-timeとは
 >&lt;code>FileTime::new()&lt;/code>&lt;/a>) とその逆 (&lt;a class="link" href="https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.to_raw" target="_blank" rel="noopener"
 >&lt;code>FileTime::to_raw()&lt;/code>&lt;/a>) にも対応しています。&lt;/p>
 &lt;p>UNIX時間との相互変換については、秒単位とナノ秒単位に対応しています&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>。&lt;/p>
-&lt;h3 id="シリアライズとデシリアライズ">
-&lt;a href="#%e3%82%b7%e3%83%aa%e3%82%a2%e3%83%a9%e3%82%a4%e3%82%ba%e3%81%a8%e3%83%87%e3%82%b7%e3%83%aa%e3%82%a2%e3%83%a9%e3%82%a4%e3%82%ba">#&lt;/a>
-シリアライズとデシリアライズ
+&lt;h3 id="シリアライズとデシリアライズ">シリアライズとデシリアライズ
 &lt;/h3>&lt;p>Serdeを利用してISO 8601形式、RFC 2822形式、RFC 3339形式、UNIX時間との間でシリアライズとデシリアライズを行うことができます。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -166,9 +152,7 @@ nt-timeとは
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="終わりに">
-&lt;a href="#%e7%b5%82%e3%82%8f%e3%82%8a%e3%81%ab">#&lt;/a>
-終わりに
+&lt;/div>&lt;h2 id="終わりに">終わりに
 &lt;/h2>&lt;p>RustでWindowsのファイル時刻を扱うためのライブラリの&lt;code>nt-time&lt;/code>クレートを紹介しました。&lt;/p>
 &lt;p>詳細なドキュメントは&lt;a class="link" href="https://docs.rs/nt-time" target="_blank" rel="noopener"
 >Docs.rs&lt;/a>で確認することができます。&lt;/p>

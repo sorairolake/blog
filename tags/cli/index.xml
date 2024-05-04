@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cli on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/cli/</link><description>Recent content in Cli on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 02 Apr 2024 16:47:16 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/cli/index.xml" rel="self" type="application/rss+xml"/><item><title>クロスプラットフォームな隠しファイルを操作するコマンドとライブラリを開発したはなし</title><link>https://sorairolake.github.io/blog/posts/library-for-hidden-file/</link><pubDate>Tue, 02 Apr 2024 16:47:16 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/library-for-hidden-file/</guid><description>&lt;p>UnixとWindowsで共通のAPIで隠しファイルと隠しディレクトリを操作できるライブラリと、これを使ったコマンドラインユーティリティの&lt;a class="link" href="https://github.com/sorairolake/hf" target="_blank" rel="noopener"
 >&lt;code>hf&lt;/code>&lt;/a>を開発しました。&lt;/p>
-&lt;h2 id="概要">
-&lt;a href="#%e6%a6%82%e8%a6%81">#&lt;/a>
-概要
+&lt;h2 id="概要">概要
 &lt;/h2>&lt;p>ライブラリとコマンドの両方ともRustで書かれており、クレートは同じです。&lt;/p>
 &lt;p>&lt;a class="link" href="https://crates.io/crates/hf" target="_blank" rel="noopener"
 >crates.io&lt;/a>&lt;/p>
@@ -36,9 +34,7 @@ Unixではファイル名がドットで始まるかを見て、Windowsでは隠
 Unixではファイル名をドットで始まるように改名し、Windowsでは隠しファイル属性を設定します。&lt;/p>
 &lt;p>最期の&lt;code>hf::show&lt;/code>は&lt;code>hf::hide&lt;/code>と逆の処理を行います。
 Unixではファイル名の先頭の全てのドットを削除し、Windowsでは隠しファイル属性を解除します。&lt;/p>
-&lt;h2 id="コード例">
-&lt;a href="#%e3%82%b3%e3%83%bc%e3%83%89%e4%be%8b">#&lt;/a>
-コード例
+&lt;h2 id="コード例">コード例
 &lt;/h2>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -84,14 +80,10 @@ Unixではファイル名の先頭の全てのドットを削除し、Windowsで
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Unixでは隠しファイル化とその逆は改名によって行うので、処理した後のパスを取得するための関数の&lt;code>hf::unix::hidden_file_name&lt;/code>と&lt;code>hf::unix::normal_file_name&lt;/code>を提供しています。&lt;/p>
-&lt;h2 id="コマンド">
-&lt;a href="#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89">#&lt;/a>
-コマンド
+&lt;h2 id="コマンド">コマンド
 &lt;/h2>&lt;p>コマンドラインユーティリティは&lt;code>git clean&lt;/code>のように処理の前に対象となるファイルを確認してから実際の処理を行うようになっています。
 処理が不要なファイルには何も行いませんが、どのファイルが処理の対象外かを確認できるようにしてあります。&lt;/p>
-&lt;h3 id="隠しファイルにする">
-&lt;a href="#%e9%9a%a0%e3%81%97%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e3%81%99%e3%82%8b">#&lt;/a>
-隠しファイルにする
+&lt;h3 id="隠しファイルにする">隠しファイルにする
 &lt;/h3>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -108,9 +100,7 @@ Unixではファイル名の先頭の全てのドットを削除し、Windowsで
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hf hide -f .gitignore README.md src/
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="通常のファイルにする">
-&lt;a href="#%e9%80%9a%e5%b8%b8%e3%81%ae%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e3%81%99%e3%82%8b">#&lt;/a>
-通常のファイルにする
+&lt;/div>&lt;h3 id="通常のファイルにする">通常のファイルにする
 &lt;/h3>&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -127,15 +117,11 @@ Unixではファイル名の先頭の全てのドットを削除し、Windowsで
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hf show -f .github/ .gitignore Cargo.toml
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="終わりに">
-&lt;a href="#%e7%b5%82%e3%82%8f%e3%82%8a%e3%81%ab">#&lt;/a>
-終わりに
+&lt;/div>&lt;h2 id="終わりに">終わりに
 &lt;/h2>&lt;p>隠しファイルを操作できるライブラリとコマンドのhfの紹介をしました。&lt;/p>
 &lt;p>ソースコードは&lt;a class="link" href="https://github.com/sorairolake/hf" target="_blank" rel="noopener"
 >GitHub&lt;/a>で公開しているので試していただけると幸いです。&lt;/p>
-&lt;h2 id="参考文献">
-&lt;a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae">#&lt;/a>
-参考文献
+&lt;h2 id="参考文献">参考文献
 &lt;/h2>&lt;ul>
 &lt;li>&lt;a class="link" href="https://sorairolake.github.io/hf/" target="_blank" rel="noopener"
 >ホームページ&lt;/a>&lt;/li>

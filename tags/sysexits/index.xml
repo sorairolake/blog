@@ -3,9 +3,7 @@
 >&lt;code>&amp;lt;sysexits.h&amp;gt;&lt;/code>&lt;/a>で定義されている終了コードを使えるようにするライブラリの&lt;strong>sysexits-rs&lt;/strong> (&lt;a class="link" href="https://crates.io/crates/sysexits" target="_blank" rel="noopener"
 >&lt;code>sysexits&lt;/code>&lt;/a>) を作成しました。&lt;/p>
 &lt;p>Rust 1.61.0から&lt;code>main&lt;/code>関数の戻り値で任意の終了コードを返せるようになったので、&lt;code>&amp;lt;sysexits.h&amp;gt;&lt;/code>で定義されている終了コードをこれに利用できたら便利だと思ったのがこのライブラリを作成した理由です。&lt;/p>
-&lt;h2 id="使用例">
-&lt;a href="#%e4%bd%bf%e7%94%a8%e4%be%8b">#&lt;/a>
-使用例
+&lt;h2 id="使用例">使用例
 &lt;/h2>&lt;p>使用例は以下の通りです&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
