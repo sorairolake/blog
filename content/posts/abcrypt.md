@@ -72,6 +72,9 @@ abcryptの紹介をしました。
 abcryptの改善のために[Issue](https://github.com/sorairolake/abcrypt/issues)や[Pull Request](https://github.com/sorairolake/abcrypt/pulls)もお待ちしています。
 
 [^1]: [XChaCha20-Poly1305 construction - libsodium](https://doc.libsodium.org/secret-key_cryptography/aead/chacha20-poly1305/xchacha20-poly1305_construction)
+
 [^2]: [Motivation for XChaCha20-Poly1305](https://datatracker.ietf.org/doc/html/draft-arciszewski-xchacha-03#section-2.1)
+
 [^3]: 有効にしない場合はArgon2で秘密鍵を導出する際に使用するメモリブロックの大きさが制限されます (v0.2.5の時点では256 KiB)。
+
 [^4]: 指定しない場合は[OWASP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#argon2id)の推奨値を使用します。

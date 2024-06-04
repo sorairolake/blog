@@ -116,8 +116,13 @@ RustでWindowsのファイル時刻を扱うためのライブラリの`nt-time`
 `nt-time`クレートの改善のために[Issue](https://github.com/sorairolake/nt-time/issues)や[Pull Request](https://github.com/sorairolake/nt-time/pulls)もお待ちしています。
 
 [^1]: <https://learn.microsoft.com/ja-jp/windows/win32/sysinfo/file-times>
+
 [^2]: <https://py7zr.readthedocs.io/en/v0.20.5/archive_format.html#filetime>
+
 [^3]: <https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.to_unix_time>
+
 [^4]: <https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.to_unix_time_nanos>
+
 [^5]: <https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.from_unix_time>
+
 [^6]: <https://docs.rs/nt-time/0.5.1/nt_time/struct.FileTime.html#method.from_unix_time_nanos>

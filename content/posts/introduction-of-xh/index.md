@@ -148,7 +148,11 @@ Rust製のHTTPieのようなHTTPクライアントのxhを紹介しました。
 モダンなプロトコルをサポートした手軽に利用できるHTTPクライアントとして使ってみてはどうでしょうか。
 
 [^1]: <https://github.com/ducaale/xh/tree/v0.18.0#xh>
+
 [^2]: <https://github.com/ducaale/xh/tree/v0.18.0#installation>
+
 [^3]: <https://github.com/ducaale/xh/tree/v0.18.0#how-xh-compares-to-httpie>
+
 [^4]: [curl vs HTTPie](https://daniel.haxx.se/docs/curl-vs-httpie.html)
+
 [^5]: [Support HTTP/2 (httpie-http2 plugin doesn't work) · Issue #692](https://github.com/httpie/cli/issues/692)

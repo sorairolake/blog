@@ -116,4 +116,5 @@ bunzip3 README.md.bz3
 多くのOSの公式リポジトリでパッケージが提供されているので気軽に使い始めることができそうです。
 
 [^1]: <https://github.com/kspalaiologos/bzip3/issues/78>
+
 [^2]: <https://bugs.astron.com/view.php?id=395>
