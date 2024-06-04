@@ -1,7 +1,7 @@
 +++
 title = "Rust製のHTTPieのxhを使ってみた"
 date = 2023-08-05T21:06:00+09:00
-lastmod = 2023-08-05T21:06:00+09:00
+lastmod = 2024-06-04T12:48:55+09:00
 draft = false
 description = ""
 summary = ""

@@ -1,7 +1,7 @@
 +++
 title = "RustでWindowsのファイル時刻を扱うためのライブラリのnt-timeの紹介"
 date = 2023-08-03T19:53:18+09:00
-lastmod = 2024-01-27T11:32:55+09:00
+lastmod = 2024-06-04T12:48:55+09:00
 draft = false
 description = ""
 summary = ""

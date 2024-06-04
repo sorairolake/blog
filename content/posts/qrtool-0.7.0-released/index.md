@@ -1,7 +1,7 @@
 +++
 title = "qrtoolのバージョン0.7.0を公開しました"
 date = 2023-07-15T08:02:01+09:00
-lastmod = 2024-03-19T18:02:55+09:00
+lastmod = 2024-06-04T12:48:55+09:00
 draft = false
 description = ""
 summary = ""
