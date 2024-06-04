@@ -1,7 +1,7 @@
 +++
 title = "qrtoolのバージョン0.7.0を公開しました"
 date = 2023-07-15T08:02:01+09:00
-lastmod = 2024-03-19T18:02:55+09:00
+lastmod = 2024-06-04T12:48:55+09:00
 draft = false
 description = ""
 summary = ""
@@ -216,6 +216,9 @@ magick output.jxl png:- | qrtool decode | bat -l toml
 `qrtool`の改善のために[Issue](https://github.com/sorairolake/qrtool/issues)や[Pull Request](https://github.com/sorairolake/qrtool/pulls)もお待ちしています。
 
 [^1]: アーカイブの種類は`.tar.zst` (Linux、macOS) と`.7z` (Windows) です。
+
 [^2]: [MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/CSS/color_value)を参照。
+
 [^3]: [`clap_complete`](https://crates.io/crates/clap_complete)クレートに基づきます。
+
 [^4]: [#1948](https://github.com/image-rs/image/issues/1948)に基づき修正済み。
