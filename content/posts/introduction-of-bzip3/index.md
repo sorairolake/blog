@@ -1,7 +1,7 @@
 +++
 title = "bzip2の後継の圧縮アルゴリズムのbzip3の紹介"
 date = 2024-01-09T13:29:22+09:00
-lastmod = 2024-03-02T00:49:16+09:00
+lastmod = 2024-06-04T12:48:55+09:00
 draft = false
 description = ""
 summary = ""
@@ -116,4 +116,5 @@ bunzip3 README.md.bz3
 多くのOSの公式リポジトリでパッケージが提供されているので気軽に使い始めることができそうです。
 
 [^1]: <https://github.com/kspalaiologos/bzip3/issues/78>
+
 [^2]: <https://bugs.astron.com/view.php?id=395>
