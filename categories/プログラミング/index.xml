@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>プログラミング on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link><description>Recent content in プログラミング on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 09 Apr 2024 06:50:06 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>lzipのGo言語実装を開発した</title><link>https://sorairolake.github.io/blog/posts/lzip-for-golang/</link><pubDate>Tue, 09 Apr 2024 06:50:06 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/lzip-for-golang/</guid><description>&lt;p>&lt;a class="link" href="https://www.nongnu.org/lzip/" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>プログラミング on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link><description>Recent content in プログラミング on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 10 Sep 2024 00:34:06 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/categories/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>lzipのGo言語実装を開発した</title><link>https://sorairolake.github.io/blog/posts/lzip-for-golang/</link><pubDate>Tue, 09 Apr 2024 06:50:06 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/lzip-for-golang/</guid><description>&lt;p>&lt;a class="link" href="https://www.nongnu.org/lzip/" target="_blank" rel="noopener"
 >lzip&lt;/a>の実装を&lt;a class="link" href="https://go.dev/" target="_blank" rel="noopener"
 >Go言語&lt;/a>で開発しました。
 &lt;a class="link" href="https://pkg.go.dev/" target="_blank" rel="noopener"
@@ -24,54 +24,54 @@ LZMA2は複数のLZMAで圧縮されたデータと非圧縮データが混在�
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th>&lt;/th>
-&lt;th>オフセット&lt;/th>
-&lt;th>バイト数&lt;/th>
-&lt;th>説明&lt;/th>
+&lt;th style="text-align: left">&lt;/th>
+&lt;th style="text-align: left">オフセット&lt;/th>
+&lt;th style="text-align: left">バイト数&lt;/th>
+&lt;th style="text-align: left">説明&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td>マジックナンバー&lt;/td>
-&lt;td>$0$&lt;/td>
-&lt;td>$4$&lt;/td>
-&lt;td>lzip形式を識別するための文字列（&lt;code>LZIP&lt;/code>）。&lt;/td>
+&lt;td style="text-align: left">マジックナンバー&lt;/td>
+&lt;td style="text-align: left">$0$&lt;/td>
+&lt;td style="text-align: left">$4$&lt;/td>
+&lt;td style="text-align: left">lzip形式を識別するための文字列（&lt;code>LZIP&lt;/code>）。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>バージョン番号&lt;/td>
-&lt;td>$4$&lt;/td>
-&lt;td>$1$&lt;/td>
-&lt;td>将来フォーマットを変更する場合に備えたバージョン番号。&lt;/td>
+&lt;td style="text-align: left">バージョン番号&lt;/td>
+&lt;td style="text-align: left">$4$&lt;/td>
+&lt;td style="text-align: left">$1$&lt;/td>
+&lt;td style="text-align: left">将来フォーマットを変更する場合に備えたバージョン番号。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>辞書サイズ&lt;/td>
-&lt;td>$5$&lt;/td>
-&lt;td>$1$&lt;/td>
-&lt;td>LZMAの辞書の大きさで、符号化されている。&lt;/td>
+&lt;td style="text-align: left">辞書サイズ&lt;/td>
+&lt;td style="text-align: left">$5$&lt;/td>
+&lt;td style="text-align: left">$1$&lt;/td>
+&lt;td style="text-align: left">LZMAの辞書の大きさで、符号化されている。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>LZMAストリーム&lt;/td>
-&lt;td>$6$&lt;/td>
-&lt;td>$n$&lt;/td>
-&lt;td>「End Of Stream」マーカーで終わるLZMAストリーム。&lt;/td>
+&lt;td style="text-align: left">LZMAストリーム&lt;/td>
+&lt;td style="text-align: left">$6$&lt;/td>
+&lt;td style="text-align: left">$n$&lt;/td>
+&lt;td style="text-align: left">「End Of Stream」マーカーで終わるLZMAストリーム。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>CRC-32&lt;/td>
-&lt;td>$6+n$&lt;/td>
-&lt;td>$4$&lt;/td>
-&lt;td>圧縮前のデータのCRC。&lt;/td>
+&lt;td style="text-align: left">CRC-32&lt;/td>
+&lt;td style="text-align: left">$6+n$&lt;/td>
+&lt;td style="text-align: left">$4$&lt;/td>
+&lt;td style="text-align: left">圧縮前のデータのCRC。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>データサイズ&lt;/td>
-&lt;td>$10+n$&lt;/td>
-&lt;td>$8$&lt;/td>
-&lt;td>圧縮前のデータの大きさ。&lt;/td>
+&lt;td style="text-align: left">データサイズ&lt;/td>
+&lt;td style="text-align: left">$10+n$&lt;/td>
+&lt;td style="text-align: left">$8$&lt;/td>
+&lt;td style="text-align: left">圧縮前のデータの大きさ。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>メンバーサイズ&lt;/td>
-&lt;td>$18+n$&lt;/td>
-&lt;td>$8$&lt;/td>
-&lt;td>ヘッダーなども含めたファイルの先頭から終端までの大きさ。&lt;/td>
+&lt;td style="text-align: left">メンバーサイズ&lt;/td>
+&lt;td style="text-align: left">$18+n$&lt;/td>
+&lt;td style="text-align: left">$8$&lt;/td>
+&lt;td style="text-align: left">ヘッダーなども含めたファイルの先頭から終端までの大きさ。&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -289,55 +289,55 @@ alt="Packaging status"
 &lt;/h3>&lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align:left">Command&lt;/th>
-&lt;th style="text-align:right">Mean [s]&lt;/th>
-&lt;th style="text-align:right">Min [s]&lt;/th>
-&lt;th style="text-align:right">Max [s]&lt;/th>
-&lt;th style="text-align:right">Relative&lt;/th>
+&lt;th style="text-align: left">Command&lt;/th>
+&lt;th style="text-align: right">Mean [s]&lt;/th>
+&lt;th style="text-align: right">Min [s]&lt;/th>
+&lt;th style="text-align: right">Max [s]&lt;/th>
+&lt;th style="text-align: right">Relative&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>bzip2 git-2.43.0.tar&lt;/code>&lt;/td>
-&lt;td style="text-align:right">5.301 ± 0.060&lt;/td>
-&lt;td style="text-align:right">5.216&lt;/td>
-&lt;td style="text-align:right">5.385&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>bzip2 git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align: right">5.301 ± 0.060&lt;/td>
+&lt;td style="text-align: right">5.216&lt;/td>
+&lt;td style="text-align: right">5.385&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>bzip3 git-2.43.0.tar&lt;/code>&lt;/td>
-&lt;td style="text-align:right">5.421 ± 0.020&lt;/td>
-&lt;td style="text-align:right">5.387&lt;/td>
-&lt;td style="text-align:right">5.460&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>bzip3 git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align: right">5.421 ± 0.020&lt;/td>
+&lt;td style="text-align: right">5.387&lt;/td>
+&lt;td style="text-align: right">5.460&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>gzip git-2.43.0.tar&lt;/code>&lt;/td>
-&lt;td style="text-align:right">1.864 ± 0.026&lt;/td>
-&lt;td style="text-align:right">1.834&lt;/td>
-&lt;td style="text-align:right">1.923&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>gzip git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align: right">1.864 ± 0.026&lt;/td>
+&lt;td style="text-align: right">1.834&lt;/td>
+&lt;td style="text-align: right">1.923&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>xz git-2.43.0.tar&lt;/code>&lt;/td>
-&lt;td style="text-align:right">20.552 ± 0.105&lt;/td>
-&lt;td style="text-align:right">20.388&lt;/td>
-&lt;td style="text-align:right">20.688&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>xz git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align: right">20.552 ± 0.105&lt;/td>
+&lt;td style="text-align: right">20.388&lt;/td>
+&lt;td style="text-align: right">20.688&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>zstd git-2.43.0.tar&lt;/code>&lt;/td>
-&lt;td style="text-align:right">0.324 ± 0.005&lt;/td>
-&lt;td style="text-align:right">0.316&lt;/td>
-&lt;td style="text-align:right">0.333&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>zstd git-2.43.0.tar&lt;/code>&lt;/td>
+&lt;td style="text-align: right">0.324 ± 0.005&lt;/td>
+&lt;td style="text-align: right">0.316&lt;/td>
+&lt;td style="text-align: right">0.333&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.webp"
 width="2458"
 height="1843"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu68d23819a0c47c6c3528a30a00df3d61_19008_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu68d23819a0c47c6c3528a30a00df3d61_19008_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu817557120458833261.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu2670766026623736214.webp 1024w"
 loading="lazy"
 alt="圧縮速度の比較"
 class="gallery-image"
@@ -348,55 +348,55 @@ data-flex-basis="320px"
 &lt;/h3>&lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align:left">Command&lt;/th>
-&lt;th style="text-align:right">Mean [s]&lt;/th>
-&lt;th style="text-align:right">Min [s]&lt;/th>
-&lt;th style="text-align:right">Max [s]&lt;/th>
-&lt;th style="text-align:right">Relative&lt;/th>
+&lt;th style="text-align: left">Command&lt;/th>
+&lt;th style="text-align: right">Mean [s]&lt;/th>
+&lt;th style="text-align: right">Min [s]&lt;/th>
+&lt;th style="text-align: right">Max [s]&lt;/th>
+&lt;th style="text-align: right">Relative&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>bunzip2 git-2.43.0.tar.bz2&lt;/code>&lt;/td>
-&lt;td style="text-align:right">1.972 ± 0.049&lt;/td>
-&lt;td style="text-align:right">1.927&lt;/td>
-&lt;td style="text-align:right">2.078&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>bunzip2 git-2.43.0.tar.bz2&lt;/code>&lt;/td>
+&lt;td style="text-align: right">1.972 ± 0.049&lt;/td>
+&lt;td style="text-align: right">1.927&lt;/td>
+&lt;td style="text-align: right">2.078&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>bunzip3 git-2.43.0.tar.bz3&lt;/code>&lt;/td>
-&lt;td style="text-align:right">5.234 ± 0.027&lt;/td>
-&lt;td style="text-align:right">5.192&lt;/td>
-&lt;td style="text-align:right">5.281&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>bunzip3 git-2.43.0.tar.bz3&lt;/code>&lt;/td>
+&lt;td style="text-align: right">5.234 ± 0.027&lt;/td>
+&lt;td style="text-align: right">5.192&lt;/td>
+&lt;td style="text-align: right">5.281&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>gunzip git-2.43.0.tar.gz&lt;/code>&lt;/td>
-&lt;td style="text-align:right">0.312 ± 0.002&lt;/td>
-&lt;td style="text-align:right">0.309&lt;/td>
-&lt;td style="text-align:right">0.315&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>gunzip git-2.43.0.tar.gz&lt;/code>&lt;/td>
+&lt;td style="text-align: right">0.312 ± 0.002&lt;/td>
+&lt;td style="text-align: right">0.309&lt;/td>
+&lt;td style="text-align: right">0.315&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>unxz git-2.43.0.tar.xz&lt;/code>&lt;/td>
-&lt;td style="text-align:right">0.540 ± 0.006&lt;/td>
-&lt;td style="text-align:right">0.532&lt;/td>
-&lt;td style="text-align:right">0.549&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>unxz git-2.43.0.tar.xz&lt;/code>&lt;/td>
+&lt;td style="text-align: right">0.540 ± 0.006&lt;/td>
+&lt;td style="text-align: right">0.532&lt;/td>
+&lt;td style="text-align: right">0.549&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>unzstd git-2.43.0.tar.zst&lt;/code>&lt;/td>
-&lt;td style="text-align:right">0.072 ± 0.003&lt;/td>
-&lt;td style="text-align:right">0.067&lt;/td>
-&lt;td style="text-align:right">0.083&lt;/td>
-&lt;td style="text-align:right">1.00&lt;/td>
+&lt;td style="text-align: left">&lt;code>unzstd git-2.43.0.tar.zst&lt;/code>&lt;/td>
+&lt;td style="text-align: right">0.072 ± 0.003&lt;/td>
+&lt;td style="text-align: right">0.067&lt;/td>
+&lt;td style="text-align: right">0.083&lt;/td>
+&lt;td style="text-align: right">1.00&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.webp"
 width="2458"
 height="1843"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hud1510122bac8500fa4a9d7ae1efd5804_15960_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hud1510122bac8500fa4a9d7ae1efd5804_15960_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu7815111348955497621.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu483845761189552335.webp 1024w"
 loading="lazy"
 alt="展開速度の比較"
 class="gallery-image"
@@ -407,49 +407,49 @@ data-flex-basis="320px"
 &lt;/h3>&lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align:left">Format&lt;/th>
-&lt;th style="text-align:right">Result [MiB]&lt;/th>
-&lt;th style="text-align:right">Result [B]&lt;/th>
-&lt;th style="text-align:right">Compression Ratio&lt;/th>
+&lt;th style="text-align: left">Format&lt;/th>
+&lt;th style="text-align: right">Result [MiB]&lt;/th>
+&lt;th style="text-align: right">Result [B]&lt;/th>
+&lt;th style="text-align: right">Compression Ratio&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align:left">bzip2&lt;/td>
-&lt;td style="text-align:right">8.2&lt;/td>
-&lt;td style="text-align:right">8,624,608&lt;/td>
-&lt;td style="text-align:right">5.374&lt;/td>
+&lt;td style="text-align: left">bzip2&lt;/td>
+&lt;td style="text-align: right">8.2&lt;/td>
+&lt;td style="text-align: right">8,624,608&lt;/td>
+&lt;td style="text-align: right">5.374&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">bzip3&lt;/td>
-&lt;td style="text-align:right">6.6&lt;/td>
-&lt;td style="text-align:right">6,888,061&lt;/td>
-&lt;td style="text-align:right">6.728&lt;/td>
+&lt;td style="text-align: left">bzip3&lt;/td>
+&lt;td style="text-align: right">6.6&lt;/td>
+&lt;td style="text-align: right">6,888,061&lt;/td>
+&lt;td style="text-align: right">6.728&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">gzip&lt;/td>
-&lt;td style="text-align:right">10.5&lt;/td>
-&lt;td style="text-align:right">11,021,005&lt;/td>
-&lt;td style="text-align:right">4.205&lt;/td>
+&lt;td style="text-align: left">gzip&lt;/td>
+&lt;td style="text-align: right">10.5&lt;/td>
+&lt;td style="text-align: right">11,021,005&lt;/td>
+&lt;td style="text-align: right">4.205&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">xz&lt;/td>
-&lt;td style="text-align:right">7.0&lt;/td>
-&lt;td style="text-align:right">7,352,912&lt;/td>
-&lt;td style="text-align:right">6.303&lt;/td>
+&lt;td style="text-align: left">xz&lt;/td>
+&lt;td style="text-align: right">7.0&lt;/td>
+&lt;td style="text-align: right">7,352,912&lt;/td>
+&lt;td style="text-align: right">6.303&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">zstd&lt;/td>
-&lt;td style="text-align:right">9.8&lt;/td>
-&lt;td style="text-align:right">10,298,831&lt;/td>
-&lt;td style="text-align:right">4.500&lt;/td>
+&lt;td style="text-align: left">zstd&lt;/td>
+&lt;td style="text-align: right">9.8&lt;/td>
+&lt;td style="text-align: right">10,298,831&lt;/td>
+&lt;td style="text-align: right">4.500&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.webp"
 width="2458"
 height="1843"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu6798a119cfa636b34793435a1f2a784a_17226_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu6798a119cfa636b34793435a1f2a784a_17226_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu10444043724869238417.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu11769931060244721046.webp 1024w"
 loading="lazy"
 alt="圧縮比の比較"
 class="gallery-image"
@@ -460,30 +460,30 @@ data-flex-basis="320px"
 &lt;/h3>&lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align:left">Command&lt;/th>
-&lt;th style="text-align:right">Version&lt;/th>
+&lt;th style="text-align: left">Command&lt;/th>
+&lt;th style="text-align: right">Version&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>bzip2&lt;/code>&lt;/td>
-&lt;td style="text-align:right">1.0.8&lt;/td>
+&lt;td style="text-align: left">&lt;code>bzip2&lt;/code>&lt;/td>
+&lt;td style="text-align: right">1.0.8&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>bzip3&lt;/code>&lt;/td>
-&lt;td style="text-align:right">1.4.0&lt;/td>
+&lt;td style="text-align: left">&lt;code>bzip3&lt;/code>&lt;/td>
+&lt;td style="text-align: right">1.4.0&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>gzip&lt;/code>&lt;/td>
-&lt;td style="text-align:right">1.13&lt;/td>
+&lt;td style="text-align: left">&lt;code>gzip&lt;/code>&lt;/td>
+&lt;td style="text-align: right">1.13&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>xz&lt;/code>&lt;/td>
-&lt;td style="text-align:right">5.4.5&lt;/td>
+&lt;td style="text-align: left">&lt;code>xz&lt;/code>&lt;/td>
+&lt;td style="text-align: right">5.4.5&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:left">&lt;code>zstd&lt;/code>&lt;/td>
-&lt;td style="text-align:right">1.5.5&lt;/td>
+&lt;td style="text-align: left">&lt;code>zstd&lt;/code>&lt;/td>
+&lt;td style="text-align: right">1.5.5&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -665,7 +665,7 @@ abcryptの改善のために&lt;a class="link" href="https://github.com/sorairol
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get.webp"
 width="590"
 height="704"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu03ded58f532ff1907c3128b489a601de_17834_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu03ded58f532ff1907c3128b489a601de_17834_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu3427906390877340530.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu139935138867295035.webp 1024w"
 loading="lazy"
 alt="レスポンス"
 class="gallery-image"
@@ -694,7 +694,7 @@ HTTPieはこの記事を書いた時点ではHTTP/2をサポートしていま�
 &lt;/div>&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2.webp"
 width="440"
 height="330"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_huf00bf63ca09d577102dc1858c722d82c_13086_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_huf00bf63ca09d577102dc1858c722d82c_13086_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_hu17065730593876756384.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_hu16023401892436149625.webp 1024w"
 loading="lazy"
 alt="レスポンス"
 class="gallery-image"
@@ -1053,7 +1053,7 @@ SVG画像の入力については&lt;a class="link" href="https://crates.io/crat
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode.webp"
 width="232"
 height="232"
-srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu1315351954038190395.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu17853851117327245781.webp 1024w"
 loading="lazy"
 alt="エンコード結果"
 class="gallery-image"
@@ -1115,7 +1115,7 @@ data-flex-basis="240px"
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro.webp"
 width="184"
 height="184"
-srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9146124905923227060.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu4744105701291985986.webp 1024w"
 loading="lazy"
 alt="エンコード結果"
 class="gallery-image"
@@ -1137,7 +1137,7 @@ data-flex-basis="240px"
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg.webp"
 width="232"
 height="232"
-srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hu12061156462587815184.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hu12560396939434057928.webp 1024w"
 loading="lazy"
 alt="エンコード結果"
 class="gallery-image"

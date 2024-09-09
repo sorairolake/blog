@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qrcode on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/qrcode/</link><description>Recent content in Qrcode on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Sat, 15 Jul 2023 08:02:01 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/qrcode/index.xml" rel="self" type="application/rss+xml"/><item><title>qrtoolのバージョン0.7.0を公開しました</title><link>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</link><pubDate>Sat, 15 Jul 2023 08:02:01 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</guid><description>&lt;p>協定世界時 (UTC) の2023年7月12日にQRコードのエンコードとデコードを行うためのコマンドラインユーティリティの&lt;code>qrtool&lt;/code>のバージョン0.7.0を公開しました。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qrcode on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/qrcode/</link><description>Recent content in Qrcode on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 10 Sep 2024 00:34:06 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/qrcode/index.xml" rel="self" type="application/rss+xml"/><item><title>qrtoolのバージョン0.7.0を公開しました</title><link>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</link><pubDate>Sat, 15 Jul 2023 08:02:01 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/</guid><description>&lt;p>協定世界時 (UTC) の2023年7月12日にQRコードのエンコードとデコードを行うためのコマンドラインユーティリティの&lt;code>qrtool&lt;/code>のバージョン0.7.0を公開しました。&lt;/p>
 &lt;p>この記事では、&lt;code>qrtool&lt;/code>の紹介と、バージョン0.7.0の主な変更点について書こうと思います。&lt;/p>
 &lt;h2 id="qrtoolとは">qrtoolとは
 &lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/sorairolake/qrtool" target="_blank" rel="noopener"
@@ -74,7 +74,7 @@ SVG画像の入力については&lt;a class="link" href="https://crates.io/crat
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode.webp"
 width="232"
 height="232"
-srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu71b59736054e6068dbb9d3942afa50c9_152_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu1315351954038190395.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu17853851117327245781.webp 1024w"
 loading="lazy"
 alt="エンコード結果"
 class="gallery-image"
@@ -136,7 +136,7 @@ data-flex-basis="240px"
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro.webp"
 width="184"
 height="184"
-srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9800223419e72f6c714130ff442d30c8_114_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9146124905923227060.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu4744105701291985986.webp 1024w"
 loading="lazy"
 alt="エンコード結果"
 class="gallery-image"
@@ -158,7 +158,7 @@ data-flex-basis="240px"
 &lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg.webp"
 width="232"
 height="232"
-srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_480x0_resize_q75_h2_box_2.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hue51b4c88e773bb4c93bd5b7f31061553_154_1024x0_resize_q75_h2_box_2.webp 1024w"
+srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hu12061156462587815184.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hu12560396939434057928.webp 1024w"
 loading="lazy"
 alt="エンコード結果"
 class="gallery-image"
