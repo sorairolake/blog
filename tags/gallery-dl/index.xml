@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gallery-Dl on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/gallery-dl/</link><description>Recent content in Gallery-Dl on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 10 Sep 2024 00:43:17 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/gallery-dl/index.xml" rel="self" type="application/rss+xml"/><item><title>Wikimedia Commonsのカテゴリにある画像を一括ダウンロードする</title><link>https://sorairolake.github.io/blog/posts/how-to-download-images-from-wikimedia-commons/</link><pubDate>Mon, 09 Sep 2024 23:32:34 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/how-to-download-images-from-wikimedia-commons/</guid><description>&lt;p>&lt;a class="link" href="https://commons.wikimedia.org/" target="_blank" rel="noopener"
+>Wikimedia Commons&lt;/a>のカテゴリに属している画像をダウンロードするときに以下の方法が便利だったのでメモ。&lt;/p>
+&lt;h2 id="方法">方法
+&lt;/h2>&lt;p>結論として、&lt;a class="link" href="https://github.com/mikf/gallery-dl" target="_blank" rel="noopener"
+>&lt;code>gallery-dl&lt;/code>&lt;/a>を使うことで簡単にダウンロードできます。
+&lt;code>gallery-dl&lt;/code>は画像向けの&lt;a class="link" href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noopener"
+>&lt;code>yt-dlp&lt;/code>&lt;/a>のようなコマンドで、&lt;code>yt-dlp&lt;/code>と同じくPythonで書かれています。&lt;/p>
+&lt;p>&lt;a class="link" href="https://repology.org/project/gallery-dl/versions" target="_blank" rel="noopener"
+>&lt;img src="https://repology.org/badge/vertical-allrepos/gallery-dl.svg?columns=3"
+loading="lazy"
+alt="Packaging status"
+>&lt;/a>&lt;/p>
+&lt;p>&lt;code>gallery-dl&lt;/code>は多くのウェブサイトに対応していますが、その中の1つとしてWikimedia Commonsにも対応しています。&lt;/p>
+&lt;p>以下のコマンドで&lt;a class="link" href="https://commons.wikimedia.org/wiki/Category:Official_Python_icons_and_direct_derivatives" target="_blank" rel="noopener"
+>Category:Official Python icons and direct derivatives&lt;/a>に直接属している全ての画像をダウンロードできます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gallery-dl &lt;span style="color:#e6db74">&amp;#34;https://commons.wikimedia.org/wiki/Category:Official_Python_icons_and_direct_derivatives&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>個々のファイルをダウンロードすることもできます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gallery-dl &lt;span style="color:#e6db74">&amp;#34;https://commons.wikimedia.org/wiki/File:Logo_of_Hugo_the_static_website_generator.svg&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>
