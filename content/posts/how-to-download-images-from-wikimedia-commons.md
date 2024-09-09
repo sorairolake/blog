@@ -2,7 +2,7 @@
 title = "Wikimedia Commonsのカテゴリにある画像を一括ダウンロードする"
 date = 2024-09-09T23:32:34+09:00
 lastmod = 2024-09-09T23:32:34+09:00
-draft = true
+draft = false
 description = ""
 summary = ""
 categories = ["雑記"]
