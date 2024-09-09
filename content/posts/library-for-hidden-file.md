@@ -1,7 +1,7 @@
 +++
 title = "クロスプラットフォームな隠しファイルを操作するコマンドとライブラリを開発したはなし"
 date = 2024-04-02T16:47:16+09:00
-lastmod = 2024-04-02T16:47:16+09:00
+lastmod = 2024-09-09T20:48:54+09:00
 draft = false
 description = ""
 summary = ""
@@ -35,9 +35,9 @@ hfではこの差をできるだけ気にしないで共通のAPIで処理でき
 
 ライブラリのAPIとして主に次の3つの関数を提供しています:
 
-1. [`hf::is_hidden`](https://docs.rs/hf/0.3.2/hf/fn.is_hidden.html)
-2. [`hf::hide`](https://docs.rs/hf/0.3.2/hf/fn.hide.html)
-3. [`hf::show`](https://docs.rs/hf/0.3.2/hf/fn.show.html)
+1.  [`hf::is_hidden`](https://docs.rs/hf/0.3.2/hf/fn.is_hidden.html)
+2.  [`hf::hide`](https://docs.rs/hf/0.3.2/hf/fn.hide.html)
+3.  [`hf::show`](https://docs.rs/hf/0.3.2/hf/fn.show.html)
 
 最初の`hf::is_hidden`はファイルが隠しファイルか否かを判定します。
 Unixではファイル名がドットで始まるかを見て、Windowsでは隠しファイル属性が設定されているかを見ます。

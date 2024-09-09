@@ -1,7 +1,7 @@
 +++
 title = "RustでWindowsのファイル時刻を扱うためのライブラリのnt-timeの紹介"
 date = 2023-08-03T19:53:18+09:00
-lastmod = 2024-06-04T12:48:55+09:00
+lastmod = 2024-09-09T20:48:54+09:00
 draft = false
 description = ""
 summary = ""
@@ -29,10 +29,10 @@ RustでWindowsの[ファイル時刻](https://learn.microsoft.com/ja-jp/windows/
 
 `FileTime`は以下のような機能を実装しています。
 
-1. [`core::time::Duration`](https://doc.rust-lang.org/core/time/struct.Duration.html)などとの加算や減算
-2. [`std`](https://doc.rust-lang.org/std/index.html)や[`time`](https://crates.io/crates/time)クレートや[`chrono`](https://crates.io/crates/chrono)クレートの時間を表す型との相互変換
-3. UNIX時間との相互変換
-4. [Serde](https://serde.rs/)を利用したシリアライズとデシリアライズ
+1.  [`core::time::Duration`](https://doc.rust-lang.org/core/time/struct.Duration.html)などとの加算や減算
+2.  [`std`](https://doc.rust-lang.org/std/index.html)や[`time`](https://crates.io/crates/time)クレートや[`chrono`](https://crates.io/crates/chrono)クレートの時間を表す型との相互変換
+3.  UNIX時間との相互変換
+4.  [Serde](https://serde.rs/)を利用したシリアライズとデシリアライズ
 
 ### コード例
 
