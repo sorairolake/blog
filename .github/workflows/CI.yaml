@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: None
+# SPDX-FileCopyrightText: 2022 Shun Sakai
 #
 # SPDX-License-Identifier: CC0-1.0
 
@@ -27,7 +27,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3.0.0
         with:
-          hugo-version: "0.128.2 "
+          hugo-version: "0.134.1"
           extended: true
       - name: Build a website
         run: hugo
