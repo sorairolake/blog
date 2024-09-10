@@ -14,7 +14,7 @@ emoji = "🐧"
 subtitle = "書きたいと思ったことを適当に書きます"
 
 [sidebar.avatar]
-src = "images/profile.png"
+src = "images/profile.webp"
 
 [footer]
 since = 2021
@@ -48,5 +48,5 @@ card = "summary"
 
 [defaultImage.opengraph]
 enabled = true
-src = "images/profile.png"
+src = "images/profile.webp"
 local = true
