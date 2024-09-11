@@ -2,3 +2,12 @@ SPDX-FileCopyrightText: 2018 Karen Rustad Tölva
 SPDX-FileCopyrightText: 2023 Shun Sakai
 
 SPDX-License-Identifier: CC0-1.0
+
+SPDX-FileAttributionText: <text>
+This work is adapted from [rustacean-flat-noshadow.svg] by
+[Karen Rustad Tölva], used under the [CC0 1.0] license.
+
+[rustacean-flat-noshadow.svg]: https://www.rustacean.net/assets/rustacean-flat-noshadow.svg
+[Karen Rustad Tölva]: https://www.rustacean.net/
+[CC0 1.0]: https://creativecommons.org/publicdomain/zero/1.0/
+</text>
