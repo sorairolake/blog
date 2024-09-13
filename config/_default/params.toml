@@ -14,7 +14,8 @@ emoji = "🐧"
 subtitle = "書きたいと思ったことを適当に書きます"
 
 [sidebar.avatar]
-src = "images/profile.webp"
+src = "https://sorairolake.github.io/images/profile.svg"
+local = false
 
 [footer]
 since = 2021
@@ -48,5 +49,5 @@ card = "summary"
 
 [defaultImage.opengraph]
 enabled = true
-src = "images/profile.webp"
+src = "images/ogp.webp"
 local = true
