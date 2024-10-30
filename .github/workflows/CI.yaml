@@ -27,7 +27,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3.0.0
         with:
-          hugo-version: "0.134.2"
+          hugo-version: "0.136.5"
           extended: true
       - name: Build a website
         run: hugo
@@ -41,7 +41,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: "npm"
       - name: Install dependencies
         run: |
@@ -59,7 +59,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: "npm"
       - name: Install dependencies
         run: |
