@@ -1,4 +1,134 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/</link><description>Recent content on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Fri, 13 Sep 2024 20:19:21 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>個人的にMarkdownよりAsciiDocが好きな理由</title><link>https://sorairolake.github.io/blog/posts/why-i-prefer-asciidoc-over-markdown/</link><pubDate>Fri, 13 Sep 2024 20:12:40 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/why-i-prefer-asciidoc-over-markdown/</guid><description>&lt;p>この記事では私が個人的に&lt;a class="link" href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/</link><description>Recent content on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 24 Dec 2024 18:48:40 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>jqでpretty-printしたJSONの一部をコンパクトに出力する</title><link>https://sorairolake.github.io/blog/posts/partially-compact-json-output/</link><pubDate>Tue, 24 Dec 2024 18:08:10 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/partially-compact-json-output/</guid><description>&lt;p>以下のような長めの配列を含むJSONがほしい場合、&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;odd&amp;#34;&lt;/span>: [&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">7&lt;/span>, &lt;span style="color:#ae81ff">9&lt;/span>, &lt;span style="color:#ae81ff">11&lt;/span>, &lt;span style="color:#ae81ff">13&lt;/span>, &lt;span style="color:#ae81ff">15&lt;/span>, &lt;span style="color:#ae81ff">17&lt;/span>, &lt;span style="color:#ae81ff">19&lt;/span>, &lt;span style="color:#ae81ff">21&lt;/span>, &lt;span style="color:#ae81ff">23&lt;/span>, &lt;span style="color:#ae81ff">25&lt;/span>, &lt;span style="color:#ae81ff">27&lt;/span>, &lt;span style="color:#ae81ff">29&lt;/span>, &lt;span style="color:#ae81ff">31&lt;/span>],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;even&amp;#34;&lt;/span>: [&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">6&lt;/span>, &lt;span style="color:#ae81ff">8&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">12&lt;/span>, &lt;span style="color:#ae81ff">14&lt;/span>, &lt;span style="color:#ae81ff">16&lt;/span>, &lt;span style="color:#ae81ff">18&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>, &lt;span style="color:#ae81ff">22&lt;/span>, &lt;span style="color:#ae81ff">24&lt;/span>, &lt;span style="color:#ae81ff">26&lt;/span>, &lt;span style="color:#ae81ff">28&lt;/span>, &lt;span style="color:#ae81ff">30&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://jqlang.github.io/jq/" target="_blank" rel="noopener"
+>&lt;code>jq&lt;/code>&lt;/a>でpretty-printすると配列が要素ごとに改行されます。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#39;{&amp;#34;odd&amp;#34;:[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31],&amp;#34;even&amp;#34;:[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30]}&amp;#39;&lt;/span> | jq
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;odd&amp;#34;&lt;/span>: &lt;span style="color:#f92672">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 1,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 3,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 5,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 7,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 9,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 11,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 13,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 15,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 17,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 19,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 21,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 23,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 25,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 27,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 29,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">31&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">]&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;even&amp;#34;&lt;/span>: &lt;span style="color:#f92672">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 0,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 2,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 4,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 6,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 8,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 10,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 12,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 14,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 16,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 18,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 20,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 22,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 24,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 26,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 28,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>このような出力だと大きなJSONファイルのときは行数が膨大になって扱いにくいと思います。
+私が最近作った&lt;a class="link" href="https://info.isl.ntt.co.jp/crypt/camellia/" target="_blank" rel="noopener"
+>Camellia&lt;/a>の&lt;a class="link" href="https://ziglang.org/" target="_blank" rel="noopener"
+>Zig&lt;/a>実装の&lt;a class="link" href="https://github.com/sorairolake/camellia-zig" target="_blank" rel="noopener"
+>camellia-zig&lt;/a>ではテストベクターにJSONファイルを使っていますが、配列が要素ごとに改行された結果、5万行近いJSONファイルになって困っていました。
+コンパクト出力を使えば行数は減らせますが、全体がコンパクト出力になるのは望んでいませんでした。
+上記の問題を解決したかったので、最初の例のように配列を要素ごとに改行しないで出力する方法を調べました。&lt;/p>
+&lt;h2 id="方法">方法
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/jqlang/jq/issues/643#issuecomment-392640310" target="_blank" rel="noopener"
+>jqlang/jq#643のコメント&lt;/a>の&lt;a class="link" href="https://github.com/ddopson/underscore-cli" target="_blank" rel="noopener"
+>ddopson/underscore-cli&lt;/a>を使う方法で最初の例のように出力できました。&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#39;{&amp;#34;odd&amp;#34;:[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31],&amp;#34;even&amp;#34;:[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30]}&amp;#39;&lt;/span> | jq | npx underscore pretty --outfmt json
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;odd&amp;#34;&lt;/span>: &lt;span style="color:#f92672">[&lt;/span>1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31&lt;span style="color:#f92672">]&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;even&amp;#34;&lt;/span>: &lt;span style="color:#f92672">[&lt;/span>0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>この方法でテストベクターファイルの行数を5,000行程度まで減らすことができました。&lt;/p>
+&lt;h2 id="終わりに">終わりに
+&lt;/h2>&lt;p>もっと良い方法があったら教えてもらえると嬉しいです。&lt;/p></description></item><item><title>個人的にMarkdownよりAsciiDocが好きな理由</title><link>https://sorairolake.github.io/blog/posts/why-i-prefer-asciidoc-over-markdown/</link><pubDate>Fri, 13 Sep 2024 20:12:40 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/why-i-prefer-asciidoc-over-markdown/</guid><description>&lt;p>この記事では私が個人的に&lt;a class="link" href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener"
 >Markdown&lt;/a>より&lt;a class="link" href="https://asciidoc.org/" target="_blank" rel="noopener"
 >AsciiDoc&lt;/a>が好きな理由を述べたいと思います。&lt;/p>
 &lt;h2 id="定義リストが標準で使える">定義リストが標準で使える
@@ -215,54 +345,54 @@ LZMA2は複数のLZMAで圧縮されたデータと非圧縮データが混在�
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th style="text-align: left">&lt;/th>
-&lt;th style="text-align: left">オフセット&lt;/th>
-&lt;th style="text-align: left">バイト数&lt;/th>
-&lt;th style="text-align: left">説明&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>オフセット&lt;/th>
+&lt;th>バイト数&lt;/th>
+&lt;th>説明&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">マジックナンバー&lt;/td>
-&lt;td style="text-align: left">$0$&lt;/td>
-&lt;td style="text-align: left">$4$&lt;/td>
-&lt;td style="text-align: left">lzip形式を識別するための文字列（&lt;code>LZIP&lt;/code>）。&lt;/td>
+&lt;td>マジックナンバー&lt;/td>
+&lt;td>$0$&lt;/td>
+&lt;td>$4$&lt;/td>
+&lt;td>lzip形式を識別するための文字列（&lt;code>LZIP&lt;/code>）。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">バージョン番号&lt;/td>
-&lt;td style="text-align: left">$4$&lt;/td>
-&lt;td style="text-align: left">$1$&lt;/td>
-&lt;td style="text-align: left">将来フォーマットを変更する場合に備えたバージョン番号。&lt;/td>
+&lt;td>バージョン番号&lt;/td>
+&lt;td>$4$&lt;/td>
+&lt;td>$1$&lt;/td>
+&lt;td>将来フォーマットを変更する場合に備えたバージョン番号。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">辞書サイズ&lt;/td>
-&lt;td style="text-align: left">$5$&lt;/td>
-&lt;td style="text-align: left">$1$&lt;/td>
-&lt;td style="text-align: left">LZMAの辞書の大きさで、符号化されている。&lt;/td>
+&lt;td>辞書サイズ&lt;/td>
+&lt;td>$5$&lt;/td>
+&lt;td>$1$&lt;/td>
+&lt;td>LZMAの辞書の大きさで、符号化されている。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">LZMAストリーム&lt;/td>
-&lt;td style="text-align: left">$6$&lt;/td>
-&lt;td style="text-align: left">$n$&lt;/td>
-&lt;td style="text-align: left">「End Of Stream」マーカーで終わるLZMAストリーム。&lt;/td>
+&lt;td>LZMAストリーム&lt;/td>
+&lt;td>$6$&lt;/td>
+&lt;td>$n$&lt;/td>
+&lt;td>「End Of Stream」マーカーで終わるLZMAストリーム。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">CRC-32&lt;/td>
-&lt;td style="text-align: left">$6+n$&lt;/td>
-&lt;td style="text-align: left">$4$&lt;/td>
-&lt;td style="text-align: left">圧縮前のデータのCRC。&lt;/td>
+&lt;td>CRC-32&lt;/td>
+&lt;td>$6+n$&lt;/td>
+&lt;td>$4$&lt;/td>
+&lt;td>圧縮前のデータのCRC。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">データサイズ&lt;/td>
-&lt;td style="text-align: left">$10+n$&lt;/td>
-&lt;td style="text-align: left">$8$&lt;/td>
-&lt;td style="text-align: left">圧縮前のデータの大きさ。&lt;/td>
+&lt;td>データサイズ&lt;/td>
+&lt;td>$10+n$&lt;/td>
+&lt;td>$8$&lt;/td>
+&lt;td>圧縮前のデータの大きさ。&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align: left">メンバーサイズ&lt;/td>
-&lt;td style="text-align: left">$18+n$&lt;/td>
-&lt;td style="text-align: left">$8$&lt;/td>
-&lt;td style="text-align: left">ヘッダーなども含めたファイルの先頭から終端までの大きさ。&lt;/td>
+&lt;td>メンバーサイズ&lt;/td>
+&lt;td>$18+n$&lt;/td>
+&lt;td>$8$&lt;/td>
+&lt;td>ヘッダーなども含めたファイルの先頭から終端までの大きさ。&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
