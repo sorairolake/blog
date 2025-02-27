@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Compression on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/compression/</link><description>Recent content in Compression on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 24 Dec 2024 18:48:40 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/compression/index.xml" rel="self" type="application/rss+xml"/><item><title>lzipのGo言語実装を開発した</title><link>https://sorairolake.github.io/blog/posts/lzip-for-golang/</link><pubDate>Tue, 09 Apr 2024 06:50:06 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/lzip-for-golang/</guid><description>&lt;p>&lt;a class="link" href="https://www.nongnu.org/lzip/" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Compression on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/compression/</link><description>Recent content in Compression on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Thu, 27 Feb 2025 21:05:36 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/compression/index.xml" rel="self" type="application/rss+xml"/><item><title>lzipのGo言語実装を開発した</title><link>https://sorairolake.github.io/blog/posts/lzip-for-golang/</link><pubDate>Tue, 09 Apr 2024 06:50:06 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/lzip-for-golang/</guid><description>&lt;p>&lt;a class="link" href="https://www.nongnu.org/lzip/" target="_blank" rel="noopener"
 >lzip&lt;/a>の実装を&lt;a class="link" href="https://go.dev/" target="_blank" rel="noopener"
 >Go言語&lt;/a>で開発しました。
 &lt;a class="link" href="https://pkg.go.dev/" target="_blank" rel="noopener"
@@ -205,10 +205,10 @@ alt="Packaging status"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.webp"
 width="2458"
 height="1843"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu817557120458833261.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu2670766026623736214.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu_1d6c6235c4d2dfdc.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu_bc956f9e427433d3.webp 1024w"
 loading="lazy"
 alt="圧縮速度の比較"
 class="gallery-image"
@@ -264,10 +264,10 @@ data-flex-basis="320px"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.webp"
 width="2458"
 height="1843"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu7815111348955497621.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu483845761189552335.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu_fffe95b879a92a12.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu_76b5aff1c11db1b1.webp 1024w"
 loading="lazy"
 alt="展開速度の比較"
 class="gallery-image"
@@ -317,10 +317,10 @@ data-flex-basis="320px"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.webp"
 width="2458"
 height="1843"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu10444043724869238417.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu11769931060244721046.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu_2163857062ac4027.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu_a0c4aadf42782e13.webp 1024w"
 loading="lazy"
 alt="圧縮比の比較"
 class="gallery-image"

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Httpie on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/httpie/</link><description>Recent content in Httpie on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 24 Dec 2024 18:48:40 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/httpie/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust製のHTTPieのxhを使ってみた</title><link>https://sorairolake.github.io/blog/posts/introduction-of-xh/</link><pubDate>Sat, 05 Aug 2023 21:06:00 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-xh/</guid><description>&lt;p>Rust製の&lt;a class="link" href="https://httpie.io/" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Httpie on SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/tags/httpie/</link><description>Recent content in Httpie on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Thu, 27 Feb 2025 21:05:36 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/tags/httpie/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust製のHTTPieのxhを使ってみた</title><link>https://sorairolake.github.io/blog/posts/introduction-of-xh/</link><pubDate>Sat, 05 Aug 2023 21:06:00 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/introduction-of-xh/</guid><description>&lt;p>Rust製の&lt;a class="link" href="https://httpie.io/" target="_blank" rel="noopener"
 >HTTPie&lt;/a>のようなHTTPクライアントのxhを使ってみたので紹介します。&lt;/p>
 &lt;h2 id="xhとは">xhとは
 &lt;/h2>&lt;p>&lt;code>xh&lt;/code>はHTTPリクエストを送信するための高速で使いやすいコマンドラインHTTPクライアントです&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。
@@ -68,10 +68,10 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>結果はHTTPieと同様に色付けされており、JSONがシンタックスハイライトされる点も同様です。&lt;/p>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-xh/get.webp"
 width="590"
 height="704"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu3427906390877340530.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu139935138867295035.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-xh/get_hu_69561d2d8847c4a6.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-xh/get_hu_a43014b1c298af2c.webp 1024w"
 loading="lazy"
 alt="レスポンス"
 class="gallery-image"
@@ -97,10 +97,10 @@ HTTPieはこの記事を書いた時点ではHTTP/2をサポートしていま�
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh -h https://example.com
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2.webp"
+&lt;/div>&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-xh/http2.webp"
 width="440"
 height="330"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_hu17065730593876756384.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_hu16023401892436149625.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-xh/http2_hu_adb7eedcbe0014cb.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-xh/http2_hu_ca67babf4b4dac60.webp 1024w"
 loading="lazy"
 alt="レスポンス"
 class="gallery-image"

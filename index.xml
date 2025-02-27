@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/</link><description>Recent content on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Tue, 24 Dec 2024 18:48:40 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>jqでpretty-printしたJSONの一部をコンパクトに出力する</title><link>https://sorairolake.github.io/blog/posts/partially-compact-json-output/</link><pubDate>Tue, 24 Dec 2024 18:08:10 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/partially-compact-json-output/</guid><description>&lt;p>以下のような長めの配列を含むJSONがほしい場合、&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SorairoLakeのブログ</title><link>https://sorairolake.github.io/blog/</link><description>Recent content on SorairoLakeのブログ</description><generator>Hugo -- gohugo.io</generator><language>ja</language><copyright>Shun Sakai</copyright><lastBuildDate>Thu, 27 Feb 2025 21:05:36 +0900</lastBuildDate><atom:link href="https://sorairolake.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>jqでpretty-printしたJSONの一部をコンパクトに出力する</title><link>https://sorairolake.github.io/blog/posts/partially-compact-json-output/</link><pubDate>Tue, 24 Dec 2024 18:08:10 +0900</pubDate><guid>https://sorairolake.github.io/blog/posts/partially-compact-json-output/</guid><description>&lt;p>以下のような長めの配列を含むJSONがほしい場合、&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -677,10 +677,10 @@ alt="Packaging status"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-speed.webp"
 width="2458"
 height="1843"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu817557120458833261.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu2670766026623736214.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu_1d6c6235c4d2dfdc.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-speed_hu_bc956f9e427433d3.webp 1024w"
 loading="lazy"
 alt="圧縮速度の比較"
 class="gallery-image"
@@ -736,10 +736,10 @@ data-flex-basis="320px"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed.webp"
 width="2458"
 height="1843"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu7815111348955497621.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu483845761189552335.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu_fffe95b879a92a12.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-decompression-speed_hu_76b5aff1c11db1b1.webp 1024w"
 loading="lazy"
 alt="展開速度の比較"
 class="gallery-image"
@@ -789,10 +789,10 @@ data-flex-basis="320px"
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio.webp"
 width="2458"
 height="1843"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu10444043724869238417.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu11769931060244721046.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu_2163857062ac4027.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-bzip3/comparison-of-compression-ratio_hu_a0c4aadf42782e13.webp 1024w"
 loading="lazy"
 alt="圧縮比の比較"
 class="gallery-image"
@@ -1005,10 +1005,10 @@ abcryptの改善のために&lt;a class="link" href="https://github.com/sorairol
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>結果はHTTPieと同様に色付けされており、JSONがシンタックスハイライトされる点も同様です。&lt;/p>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-xh/get.webp"
 width="590"
 height="704"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu3427906390877340530.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/get_hu139935138867295035.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-xh/get_hu_69561d2d8847c4a6.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-xh/get_hu_a43014b1c298af2c.webp 1024w"
 loading="lazy"
 alt="レスポンス"
 class="gallery-image"
@@ -1034,10 +1034,10 @@ HTTPieはこの記事を書いた時点ではHTTP/2をサポートしていま�
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xh -h https://example.com
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2.webp"
+&lt;/div>&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/introduction-of-xh/http2.webp"
 width="440"
 height="330"
-srcset="https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_hu17065730593876756384.webp 480w, https://sorairolake.github.io/blog/blog/posts/introduction-of-xh/http2_hu16023401892436149625.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/introduction-of-xh/http2_hu_adb7eedcbe0014cb.webp 480w, https://sorairolake.github.io/blog/posts/introduction-of-xh/http2_hu_ca67babf4b4dac60.webp 1024w"
 loading="lazy"
 alt="レスポンス"
 class="gallery-image"
@@ -1393,10 +1393,10 @@ SVG画像の入力については&lt;a class="link" href="https://crates.io/crat
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>エンコードした結果は以下のようになります。&lt;/p>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/basic-encode.webp"
 width="232"
 height="232"
-srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu1315351954038190395.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/basic-encode_hu17853851117327245781.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/basic-encode_hu_5b11595dadc14962.webp 480w, https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/basic-encode_hu_c091796e5d1e99e0.webp 1024w"
 loading="lazy"
 alt="エンコード結果"
 class="gallery-image"
@@ -1455,10 +1455,10 @@ data-flex-basis="240px"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>エンコードした結果は以下のようになります。&lt;/p>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/micro.webp"
 width="184"
 height="184"
-srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu9146124905923227060.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/micro_hu4744105701291985986.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/micro_hu_5fd5b33f2118e988.webp 480w, https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/micro_hu_8f412e47595b236d.webp 1024w"
 loading="lazy"
 alt="エンコード結果"
 class="gallery-image"
@@ -1477,10 +1477,10 @@ data-flex-basis="240px"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>エンコードした結果は以下のようになります。&lt;/p>
-&lt;p>&lt;img src="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg.webp"
+&lt;p>&lt;img src="https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/fg.webp"
 width="232"
 height="232"
-srcset="https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hu12061156462587815184.webp 480w, https://sorairolake.github.io/blog/blog/posts/qrtool-0.7.0-released/fg_hu12560396939434057928.webp 1024w"
+srcset="https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/fg_hu_520ffbd506d297fe.webp 480w, https://sorairolake.github.io/blog/posts/qrtool-0.7.0-released/fg_hu_749f708362afe347.webp 1024w"
 loading="lazy"
 alt="エンコード結果"
 class="gallery-image"
@@ -1601,7 +1601,7 @@ Misskeyについては、FediverseとActivityPubに興味があったことが�
 &lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/sorairolake/blog" target="_blank" rel="noopener"
 >リポジトリ&lt;/a>&lt;/p>
 &lt;h2 id="ライセンス">ライセンス
-&lt;/h2>&lt;p>Copyright © 2021–2024 Shun Sakai&lt;/p>
+&lt;/h2>&lt;p>Copyright (C) 2021 Shun Sakai&lt;/p>
 &lt;ol>
 &lt;li>特に断りのない限り、このブログは&lt;a class="link" href="https://creativecommons.org/licenses/by/4.0/legalcode.ja" target="_blank" rel="noopener"
 >&lt;em>クリエイティブ・コモンズ 表示 4.0 国際 パブリック・ライセンス&lt;/em>&lt;/a>の条件の下で配布されています。&lt;/li>
