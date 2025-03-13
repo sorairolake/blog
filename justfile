@@ -2,10 +2,9 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
-alias all := default
-
 # Run default recipe
-default: server
+@_default:
+    just -l
 
 # Start a server
 @server:
