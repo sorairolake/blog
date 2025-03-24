@@ -3,21 +3,21 @@
 # SPDX-License-Identifier: CC0-1.0
 
 # Run default recipe
-@_default:
+_default:
     just -l
 
 # Start a server
-@server:
+server:
     hugo server --bind 0.0.0.0 -D -p 8080
 
 # Run the code formatter
-@fmt:
+fmt:
     npx prettier -w content
 
 # Run the linter
-@lint:
+lint:
     npx markdownlint content
 
 # Run the linter for GitHub Actions workflow files
-@lint-github-actions:
+lint-github-actions:
     actionlint -verbose
