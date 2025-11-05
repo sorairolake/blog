@@ -10,8 +10,6 @@ on:
     branches:
       - "develop"
       - "master"
-  schedule:
-    - cron: "0 0 * * 0"
 
 jobs:
   test:
@@ -21,13 +19,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
       - name: Setup Go environment
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: "stable"
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3.0.0
         with:
-          hugo-version: "0.149.0"
+          hugo-version: "0.152.2"
           extended: true
       - name: Build a website
         run: hugo
@@ -39,7 +37,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
       - name: Setup Node.js environment
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: "npm"
@@ -47,8 +45,8 @@ jobs:
         run: |
           npm ci
           npx prettier -v
-      - name: Check code formatted
-        run: npx prettier -c content
+      - name: Run formatter in check mode
+        run: npx prettier -c "**.{json,md,yaml,yml}"
 
   lint:
     name: Lint
@@ -57,7 +55,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
       - name: Setup Node.js environment
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: "npm"
@@ -65,5 +63,5 @@ jobs:
         run: |
           npm ci
           npx markdownlint -V
-      - name: Check no lint warnings
+      - name: Run linter
         run: npx markdownlint content
