@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Setup Go environment
@@ -35,7 +35,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3.0.0
         with:
-          hugo-version: "0.152.2"
+          hugo-version: "0.154.5"
           extended: true
       - name: Build a website
         run: hugo --minify

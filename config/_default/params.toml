@@ -28,6 +28,25 @@ toc = true
 enabled = true
 default = "この記事は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)の下でライセンスされています"
 
+[comments]
+enabled = true
+provider = "giscus"
+
+[comments.giscus]
+repo = "sorairolake/blog"
+repoID = "R_kgDOGmszOQ"
+category = "Announcements"
+categoryID = "DIC_kwDOGmszOc4C2Lez"
+mapping = "pathname"
+strict = 0
+reactionsEnabled = 1
+emitMetadata = 0
+inputPosition = "top"
+lightTheme = "light"
+darkTheme = "dark_dimmed"
+lang = "ja"
+loading = "lazy"
+
 [[widgets.homepage]]
 type = "search"
 
