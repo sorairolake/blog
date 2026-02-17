@@ -12,11 +12,11 @@ server:
 
 # Run the code formatter
 fmt:
-    npx prettier -w content
+    npx prettier -w "**.{json,md,yaml,yml}"
 
 # Run the linter
 lint:
-    npx markdownlint content
+    uv run rumdl check .
 
 # Run the linter for GitHub Actions workflow files
 lint-github-actions:
