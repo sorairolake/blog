@@ -8,5 +8,5 @@ defaultContentLanguage = "ja"
 enableEmoji = true
 enableGitInfo = true
 hasCJKLanguage = true
-languageCode = "ja"
+locale = "ja"
 title = "SorairoLakeのブログ"
