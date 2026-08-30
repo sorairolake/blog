@@ -64,8 +64,3 @@ type = "toc"
 [opengraph.twitter]
 site = "sorairolake"
 card = "summary"
-
-[defaultImage.opengraph]
-enabled = true
-src = "images/ogp.webp"
-local = true
