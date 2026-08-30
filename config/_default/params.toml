@@ -6,8 +6,8 @@ description = "SorairoLakeの個人ブログ"
 mainSections = ["posts"]
 
 [dateFormat]
-published = "2006年1月2日"
-lastUpdated = "2006年1月2日 15:04 MST"
+published = ":date_full"
+lastUpdated = ":date_full"
 
 [sidebar]
 emoji = "🐧"
@@ -15,7 +15,6 @@ subtitle = "書きたいと思ったことを適当に書きます"
 
 [sidebar.avatar]
 src = "https://sorairolake.github.io/images/profile.svg"
-local = false
 
 [footer]
 since = 2021
