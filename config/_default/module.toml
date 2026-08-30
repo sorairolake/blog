@@ -3,5 +3,5 @@
 # SPDX-License-Identifier: CC0-1.0
 
 [[imports]]
-path = "github.com/CaiJimmy/hugo-theme-stack/v3"
-version = "v3.34.2"
+path = "github.com/CaiJimmy/hugo-theme-stack/v4"
+version = "v4.0.3"
