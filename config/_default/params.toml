@@ -13,9 +13,6 @@ lastUpdated = ":date_full"
 emoji = "🐧"
 subtitle = "書きたいと思ったことを適当に書きます"
 
-[sidebar.avatar]
-src = "https://sorairolake.github.io/images/profile.svg"
-
 [footer]
 since = 2021
 
